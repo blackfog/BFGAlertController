@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target "BFGAlertControllerExample" do
+  pod 'BFGAlertController', :path => '..'
+end
+
+target "BFGAlertControllerExampleTests" do
+  pod 'BFGAlertController', :path => '..'
+end

@@ -1,0 +1,21 @@
+{
+  "name": "BFGAlertController",
+  "version": "0.1.0",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "license": {
+    "type": "MIT"
+  },
+  "homepage": "http://github.com/blackfog/BFGAlertController",
+  "summary": "Foo bar baz",
+  "requires_arc": true,
+  "authors": {
+    "Craig Pearlman": "craig@blackfoginteractive.com"
+  },
+  "source": {
+    "git": "https://github.com/blackfog/BFGAlertController.git",
+    "tag": "0.1.0"
+  },
+  "source_files": "BFGAlertController/*.swift"
+}

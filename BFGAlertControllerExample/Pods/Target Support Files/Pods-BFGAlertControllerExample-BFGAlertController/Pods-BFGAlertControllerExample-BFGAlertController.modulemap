@@ -1,0 +1,6 @@
+framework module BFGAlertController {
+  umbrella header "Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h"
+
+  export *
+  module * { export * }
+}

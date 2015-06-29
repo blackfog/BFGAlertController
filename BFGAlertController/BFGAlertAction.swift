@@ -8,33 +8,33 @@
 
 import UIKit
 
-enum BFGAlertActionStyle: Int {
+public enum BFGAlertActionStyle: Int {
     case Default
     case Cancel
     case Destructive
 }
 
-enum BFGAlertActionState: Int {
+public enum BFGAlertActionState: Int {
     case Normal
     case Highlighted
     case Disabled
 }
 
-class BFGAlertAction: NSObject {
-    var actionTitle: String
-    var actionStyle: BFGAlertActionStyle = .Default
-    var enabled = true
-    var handler: (UIAlertAction) -> Void
+public class BFGAlertAction: NSObject {
+    public var actionTitle: String
+    public var actionStyle: BFGAlertActionStyle = .Default
+    public var enabled = true
+    public var handler: (BFGAlertAction) -> Void
     
-    var title: String {
+    public var title: String {
         return self.actionTitle
     }
     
-    var style: BFGAlertActionStyle {
+    public var style: BFGAlertActionStyle {
         return self.actionStyle
     }
     
-    init(title: String, style: BFGAlertActionStyle, handler: (UIAlertAction!) -> Void) {
+    public init(title: String, style: BFGAlertActionStyle, handler: (BFGAlertAction!) -> Void) {
         self.actionTitle = title
         self.actionStyle = style
         self.handler     = handler

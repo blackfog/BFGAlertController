@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import BFGAlertController
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +20,25 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func showAlert() {
+        let alert = BFGAlertController(title: "Test", message: "Test", preferredStyle: .Alert)
+        
+        alert.addAction(
+            BFGAlertAction(title: "OK", style: .Default, handler: { action in
+                let x = 1
+            })
+        )
+        
+//        alert.modalPresentationStyle = .OverFullScreen
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func showActionSheetModal() {
+        
+    }
+    
+    @IBAction func showActionSheetPopover() {
+        
+    }
 }
 

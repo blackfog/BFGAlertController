@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_BFGAlertControllerExample_BFGAlertController : NSObject
+@end
+@implementation PodsDummy_Pods_BFGAlertControllerExample_BFGAlertController
+@end
