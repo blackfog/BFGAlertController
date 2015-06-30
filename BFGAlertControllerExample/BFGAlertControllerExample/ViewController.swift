@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showAlert() {
-        let alert = BFGAlertController(title: "Test", message: "Test", preferredStyle: .Alert)
+        let alert = BFGAlertController(title: "Title", message: "Message", preferredStyle: .Alert)
         
         alert.addAction(
             BFGAlertAction(title: "OK", style: .Default, handler: { action in
