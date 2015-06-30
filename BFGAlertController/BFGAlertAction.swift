@@ -41,4 +41,17 @@ public class BFGAlertAction: NSObject {
         
         super.init()
     }
+    
+    public func button() -> UIButton {
+        let button = UIButton()
+        
+        button.setTitle(self.actionTitle, forState: .Normal)
+        button.addTarget(self, action: "tapped", forControlEvents: .TouchUpInside)
+        
+        return button
+    }
+    
+    public func tapped() {
+        self.handler(self)
+    }
 }

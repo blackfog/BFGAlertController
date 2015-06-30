@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Black Fog Interactive. All rights reserved.
 //
 
+// TODO: think of ways to break down this (getting) massive class into subclasses
+
 import UIKit
 
 // MARK: - Style Enum
@@ -15,13 +17,19 @@ public enum BFGAlertControllerStyle : Int {
     case Alert
 }
 
+private struct Config<T> {
+    var style: BFGAlertActionStyle
+    var state: BFGAlertActionState
+    var value: T
+}
+
 // MARK: - Main
 public class BFGAlertController: UIViewController {
     // MARK: - Public Declarations
     
     public var alertTitle: String?
     public var alertMessage: String?
-    public var showing = false
+    public var showing = false // FIXME: use this or dump it
     
     // MARK: - Private Declarations
     
@@ -32,7 +40,7 @@ public class BFGAlertController: UIViewController {
     private var alertTitleLabel: UILabel?
     private var alertMessageLabel: UILabel?
     private var alertDivider: UIView?
-    private var alertActionCollectionView: UICollectionView?
+    private var alertActionsContainerView: UIView?
     private var alertActions = [BFGAlertAction]()
     private var alertFields = [UITextField]()
     
@@ -55,21 +63,30 @@ public class BFGAlertController: UIViewController {
     public static var shadeColor      = UIColor.blackColor()
     public static var cornerRadius    = CGFloat(12.0)
     public static var dividerColor    = BFGAlertController.shadeColor.colorWithAlphaComponent(BFGAlertController.shadeOpacity)
-    public static var dividerHeight   = CGFloat(0.5)
+    public static var dividerSize     = CGFloat(0.5)
     
     // MARK: - Private Static Declarations
     
-    typealias ButtonBackgroundColorType = [BFGAlertActionStyle : [BFGAlertActionState : UIColor]]
-    typealias ButtonTextColorType = [BFGAlertActionStyle : [BFGAlertActionState : UIColor]]
-    typealias ButtonFontType = [BFGAlertActionStyle : [BFGAlertActionState : UIFont]]
+    private static var buttonBackgroundColor = [
+        Config<UIColor>(style: .Default, state: .Normal,      value: UIColor.clearColor()),
+        Config<UIColor>(style: .Default, state: .Highlighted, value: UIColor.groupTableViewBackgroundColor()),
+        Config<UIColor>(style: .Cancel,  state: .Normal,      value: UIColor.clearColor()),
+        Config<UIColor>(style: .Cancel,  state: .Highlighted, value: UIColor.groupTableViewBackgroundColor())
+    ]
+
+    private static var buttonTextColor = [
+        Config<UIColor>(style: .Default,     state: .Normal, value: UIColor.blackColor()),
+        Config<UIColor>(style: .Destructive, state: .Normal, value: UIColor.redColor())
+    ]
+
+    private static var buttonFont = [
+        Config<UIFont>(style: .Default, state: .Normal, value: UIFont.systemFontOfSize(14.0)),
+        Config<UIFont>(style: .Cancel,  state: .Normal, value: UIFont.boldSystemFontOfSize(14.0))
+    ]
     
-    private static var buttonBackgroundColor: ButtonBackgroundColorType = [.Default : [.Normal : UIColor.whiteColor()]]
-    private static var buttonTextColor: ButtonTextColorType = [.Default : [.Normal : UIColor.blackColor()]]
-    private static var buttonFont: ButtonFontType = [.Default : [.Normal : UIFont.systemFontOfSize(14.0)]]
-    
-    private static let alertWidth: CGFloat = 300.0
-    private static let alertPadding: CGFloat = 16.0
-    private static let buttonHeight: CGFloat = 40.0
+    private static let alertWidth   = CGFloat(300.0)
+    private static let alertPadding = CGFloat(16.0)
+    private static let buttonHeight = CGFloat(40.0)
     
     // MARK: - Constructors
     
@@ -127,6 +144,39 @@ public class BFGAlertController: UIViewController {
 
 // MARK: - Appearance
 public extension BFGAlertController {
+    // MARK: - Private
+
+    // TODO: should make these Equatable and just use find()
+    private class func findConfig<T>(inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState) -> Config<T>? {
+        for config in array {
+            if config.style == style && config.state == state {
+                return config
+            }
+        }
+        
+        return nil
+    }
+
+    private class func findConfigValue<T>(inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState) -> T? {
+        if let config = BFGAlertController.findConfig(inArray: array, withStyle: style, andState: state) {
+            return config.value
+        }
+        
+        return nil
+    }
+    
+    private class func removeConfig<T>(inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState) {
+        if let config = BFGAlertController.findConfig(inArray: array, withStyle: style, andState: state) {
+            
+        }
+    }
+    
+    private class func updateConfig<T>(inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState, value: T) {
+        // remove + add
+    }
+    
+    // MARK: - Public
+    
     public class func backgroundColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
         if let styleProps = self.buttonBackgroundColor[style], color = styleProps[state] {
             return color
@@ -140,7 +190,7 @@ public extension BFGAlertController {
     }
     
     public class func setBackgroundColor(color: UIColor, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        self.buttonBackgroundColor[style] = [state : color]
+        BFGAlertController.buttonBackgroundColor[style]![state] = color
     }
 
     public class func textColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
@@ -156,14 +206,14 @@ public extension BFGAlertController {
     }
     
     public class func setTextColor(color: UIColor, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        self.buttonTextColor[style] = [state: color]
+        BFGAlertController.buttonTextColor[style]![state] = color
     }
-
+    
     public class func font(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIFont? {
         if let styleProps = self.buttonFont[style], font = styleProps[state] {
             return font
         }
-
+        
         if let styleProps = self.buttonFont[.Default], font = styleProps[.Normal] {
             return font
         }
@@ -172,7 +222,12 @@ public extension BFGAlertController {
     }
     
     public class func setFont(font: UIFont, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        self.buttonFont[style] = [state: font]
+        if let styleProps = self.buttonFont[style] {
+            
+        }
+        else {
+            BFGAlertController.buttonFont[style] = [state : font]
+        }
     }
 }
 
@@ -246,14 +301,15 @@ extension BFGAlertController {
         self.alertContainerView?.transform = CGAffineTransformMakeScale(0, 0)
         self.alertContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.alertContainerView?.layer.cornerRadius = BFGAlertController.cornerRadius
+        self.alertContainerView?.clipsToBounds = true
 
         self.shadeView?.addSubview(self.alertContainerView!)
 
         self.alertContainerViewHeight = NSLayoutConstraint(
             item: self.alertContainerView!, attribute: .Height,
-            relatedBy: .Equal,
+                relatedBy: .Equal,
             toItem: nil, attribute: .NotAnAttribute,
-            multiplier: 1.0, constant: 150.0 // arbitrary
+                multiplier: 1.0, constant: 150.0 // arbitrary
         )
 
         self.shadeView?.addConstraints([
@@ -279,45 +335,13 @@ extension BFGAlertController {
         ])
 
         self.createTitleLabel()
-        var titleHeight: CGFloat = 0.0
-        
         self.createMessageLabel()
-        var messageHeight: CGFloat = 0.0
-        
-        var alignTitleToView: UIView? = self.alertContainerView
-        var alignTitleToAttribute: NSLayoutAttribute = .Top
-        
-        var alignMessageToView: UIView? = self.alertTitleLabel
-        var alignMessageToAttribute: NSLayoutAttribute = .Bottom
-        
-        if self.alertTitle != nil && self.alertMessage == nil {
-            alignMessageToView = nil
-        }
-        else if self.alertTitle == nil && self.alertMessage != nil {
-            alignTitleToView = nil
-            alignMessageToView = self.alertContainerView
-            alignMessageToAttribute = .Top
-        }
-
-        if let alignTo = alignTitleToView {
-            titleHeight = self.layoutLabel(self.alertTitleLabel!, alignToView: alignTo, alignToAttribute: alignTitleToAttribute)
-        }
-        
-        if let alignTo = alignMessageToView {
-            messageHeight = self.layoutLabel(self.alertMessageLabel!, alignToView: alignTo, alignToAttribute: alignMessageToAttribute)
-        }
-
+        self.layoutLabels()
         self.addDivider()
         self.addButtons()
+        self.updateAlertHeight()
+        // TODO: add support for the text fields
 
-        self.alertContainerViewHeight?.constant = self.alertHeight(
-            titleHeight: titleHeight,
-            messageHeight: messageHeight,
-            buttonHeight: BFGAlertController.buttonHeight  // FIXME: buttonHeight is temporary
-        )
-        
-        self.alertContainerView?.setNeedsLayout()
-        
         UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.05,
             options: .CurveLinear, animations: {
                 self.alertContainerView?.transform = CGAffineTransformMakeScale(1, 1)
@@ -359,9 +383,31 @@ extension BFGAlertController {
         return nil
     }
     
-    private func layoutLabel(label: UILabel, alignToView: UIView, alignToAttribute: NSLayoutAttribute) -> CGFloat {
-        let height = NSString(string: label.text!).sizeWithAttributes([ NSFontAttributeName: label.font]).height
-        
+    private func sizeForLabel(label: UILabel?) -> CGRect {
+        if let label = label {
+            let rect = NSString(string: label.text!).boundingRectWithSize(
+                CGSize(width: label.bounds.width, height: CGFloat.max),
+                options: NSStringDrawingOptions.UsesLineFragmentOrigin|NSStringDrawingOptions.UsesFontLeading,
+                attributes: [NSFontAttributeName: label.font],
+                context: nil
+            )
+            
+            return CGRect(x: rect.origin.x, y: rect.origin.y, width: ceil(rect.size.width), height: ceil(rect.size.height))
+        }
+        else {
+            return CGRect()
+        }
+    }
+
+    private func widthForLabel(label: UILabel?) -> CGFloat {
+        return self.sizeForLabel(label).width
+    }
+    
+    private func heightForLabel(label: UILabel?) -> CGFloat {
+        return self.sizeForLabel(label).height
+    }
+    
+    private func layoutLabel(label: UILabel, alignToView: UIView, alignToAttribute: NSLayoutAttribute) {
         self.alertContainerView?.addConstraints([
             NSLayoutConstraint(
                 item: label, attribute: .Top,
@@ -385,15 +431,38 @@ extension BFGAlertController {
                 item: label, attribute: .Height,
                     relatedBy: .Equal,
                 toItem: nil, attribute: .NotAnAttribute,
-                    multiplier: 1.0, constant: height
+                    multiplier: 1.0, constant: self.heightForLabel(label)
             )
         ])
+    }
+    
+    private func layoutLabels() {
+        var alignTitleToView: UIView? = self.alertContainerView
+        var alignTitleToAttribute: NSLayoutAttribute = .Top
         
-        return height
+        var alignMessageToView: UIView? = self.alertTitleLabel
+        var alignMessageToAttribute: NSLayoutAttribute = .Bottom
+        
+        if self.alertTitle != nil && self.alertMessage == nil {
+            alignMessageToView = nil
+        }
+        else if self.alertTitle == nil && self.alertMessage != nil {
+            alignTitleToView = nil
+            alignMessageToView = self.alertContainerView
+            alignMessageToAttribute = .Top
+        }
+        
+        if let alignTo = alignTitleToView {
+            self.layoutLabel(self.alertTitleLabel!, alignToView: alignTo, alignToAttribute: alignTitleToAttribute)
+        }
+        
+        if let alignTo = alignMessageToView {
+            self.layoutLabel(self.alertMessageLabel!, alignToView: alignTo, alignToAttribute: alignMessageToAttribute)
+        }
     }
     
     private func addDivider() {
-        self.alertDivider = UIView(frame: CGRect(x: 0, y: 0, width: BFGAlertController.alertWidth, height: BFGAlertController.dividerHeight))
+        self.alertDivider = UIView(frame: CGRect(x: 0, y: 0, width: BFGAlertController.alertWidth, height: BFGAlertController.dividerSize))
         self.alertDivider?.backgroundColor = BFGAlertController.dividerColor
         self.alertDivider?.setTranslatesAutoresizingMaskIntoConstraints(false)
         
@@ -424,13 +493,72 @@ extension BFGAlertController {
                 item: self.alertDivider!, attribute: .Height,
                     relatedBy: .Equal,
                 toItem: nil, attribute: .NotAnAttribute,
-                    multiplier: 1.0, constant: BFGAlertController.dividerHeight
+                    multiplier: 1.0, constant: BFGAlertController.dividerSize
             )
         ])
     }
-    
+
     private func addButtons() {
+        var buttons = [UIButton]()
         
+        for action in self.alertActions {
+            let button = action.button()
+            BFGAlertController.styleButton(button, style: action.style)
+            buttons.append(button)
+        }
+
+        if buttons.count == 2 {
+            if self.widthForLabel(buttons[0].titleLabel) < BFGAlertController.alertWidth / 2 &&
+                self.widthForLabel(buttons[1].titleLabel) < BFGAlertController.alertWidth / 2
+            {
+                let container = SideBySideView(
+                    left: buttons[0],
+                    right: buttons[1]
+                )
+                
+                self.alertActionsContainerView = container
+                
+                container.dividerColor = BFGAlertController.dividerColor
+                container.dividerWidth = BFGAlertController.dividerSize
+            }
+            else {
+                self.alertActionsContainerView = SimpleStackView(views: buttons)
+            }
+        }
+        else {
+            self.alertActionsContainerView = SimpleStackView(views: buttons)
+        }
+        
+        self.alertActionsContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        self.alertContainerView?.addSubview(self.alertActionsContainerView!)
+        
+        self.alertContainerView?.addConstraints([
+            NSLayoutConstraint(
+                item: self.alertActionsContainerView!, attribute: .Top,
+                    relatedBy: .Equal,
+                toItem: self.alertDivider!, attribute: .Bottom,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
+                item: self.alertActionsContainerView!, attribute: .Leading,
+                    relatedBy: .Equal,
+                toItem: self.alertContainerView!, attribute: .Leading,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
+                item: self.alertActionsContainerView!, attribute: .Trailing,
+                    relatedBy: .Equal,
+                toItem: self.alertContainerView!, attribute: .Trailing,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
+                item: self.alertActionsContainerView!, attribute: .Bottom,
+                    relatedBy: .Equal,
+                toItem: self.alertContainerView!, attribute: .Bottom,
+                    multiplier: 1.0, constant: 0.0
+            )
+        ])
     }
     
     private func alertHeight(#titleHeight: CGFloat, messageHeight: CGFloat, buttonHeight: CGFloat) -> CGFloat {
@@ -440,10 +568,53 @@ extension BFGAlertController {
         if self.alertMessage != nil { alertHeight += messageHeight }
         if self.alertTitle != nil && self.alertMessage != nil { alertHeight += BFGAlertController.alertPadding }
         
-        alertHeight += BFGAlertController.dividerHeight
-        alertHeight += BFGAlertController.buttonHeight // TODO: add buttons to height (for realz)
+        alertHeight += BFGAlertController.dividerSize
+        alertHeight += self.heightForButtons()
         
         return alertHeight
+    }
+    
+    private func heightForButtons() -> CGFloat {
+        if self.alertActionsContainerView! is SimpleStackView {
+            return (CGFloat(self.alertActions.count) * BFGAlertController.buttonHeight) + (CGFloat(self.alertActions.count - 1) * BFGAlertController.dividerSize)
+        }
+        else if self.alertActionsContainerView! is SideBySideView {
+            return BFGAlertController.buttonHeight
+        }
+        else {
+            fatalError("Unknown actions container view class")
+        }
+    }
+    
+    private func updateAlertHeight() {
+        self.alertContainerViewHeight?.constant = self.alertHeight(
+            titleHeight: self.heightForLabel(self.alertTitleLabel),
+            messageHeight: self.heightForLabel(self.alertMessageLabel),
+            buttonHeight: self.heightForButtons()
+        )
+        
+        self.alertContainerView?.setNeedsLayout()
+    }
+    
+    private static func attributedStringForButton(button: UIButton, style: BFGAlertActionStyle, state: BFGAlertActionState, controlState: UIControlState) -> NSAttributedString {
+        return NSAttributedString(
+            string: button.titleForState(controlState)!,
+            attributes: [
+                NSFontAttributeName: BFGAlertController.font(forButtonStyle: style, state: state) as! AnyObject,
+                NSForegroundColorAttributeName: BFGAlertController.textColor(forButtonStyle: style, state: state) as! AnyObject
+            ]
+        )
+        
+    }
+    
+    private static func styleButton(button: UIButton, style: BFGAlertActionStyle) {
+        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Normal, controlState: .Normal), forState: .Normal)
+        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Highlighted, controlState: .Highlighted), forState: .Highlighted)
+        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Disabled, controlState: .Disabled), forState: .Disabled)
+        
+        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Normal)!), forState: .Normal)
+        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Highlighted)!), forState: .Highlighted)
+        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Disabled)!), forState: .Disabled)
     }
 }
 
