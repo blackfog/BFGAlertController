@@ -17,10 +17,34 @@ public enum BFGAlertControllerStyle : Int {
     case Alert
 }
 
+// MARK: - Config Struct
+
 private struct Config<T> {
     var style: BFGAlertActionStyle
     var state: BFGAlertActionState
     var value: T
+}
+
+// MARK: - Config<T>: Equatable (TODO: when converted to Swift 2.0, this shouldn't be necessary)
+
+extension Config: Equatable {}
+
+private func ==<T>(lhs: Config<T>, rhs: Config<T>) -> Bool {
+    if lhs.style == rhs.style && lhs.state == rhs.state {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
+private func ==<T>(lhs: Config<T>, rhs: (style: BFGAlertActionStyle, state: BFGAlertActionState)) -> Bool {
+    if lhs.style == rhs.style && lhs.state == rhs.state {
+        return true
+    }
+    else {
+        return false
+    }
 }
 
 // MARK: - Main
@@ -146,10 +170,9 @@ public class BFGAlertController: UIViewController {
 public extension BFGAlertController {
     // MARK: - Private
 
-    // TODO: should make these Equatable and just use find()
     private class func findConfig<T>(inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState) -> Config<T>? {
         for config in array {
-            if config.style == style && config.state == state {
+            if config == (style, state) {
                 return config
             }
         }
