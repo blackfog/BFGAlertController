@@ -13,7 +13,6 @@
 		4417BDBC1B41C67D0030A354 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4417BDBB1B41C67D0030A354 /* Images.xcassets */; };
 		4417BDBF1B41C67D0030A354 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4417BDBD1B41C67D0030A354 /* LaunchScreen.xib */; };
 		4417BDCB1B41C67D0030A354 /* BFGAlertControllerExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4417BDCA1B41C67D0030A354 /* BFGAlertControllerExampleTests.swift */; };
-		4417BDD51B41C8040030A354 /* BFGAlertController in Resources */ = {isa = PBXBuildFile; fileRef = 4417BDD41B41C8040030A354 /* BFGAlertController */; };
 		582B4C2A1C4193255C442345 /* Pods_BFGAlertControllerExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E92A936EF005CDC9AEBEA4 /* Pods_BFGAlertControllerExample.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BD01F4EEC63F8A08A340F43F /* Pods_BFGAlertControllerExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554CCE09E08983AF2DF08158 /* Pods_BFGAlertControllerExampleTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		4417BDC41B41C67D0030A354 /* BFGAlertControllerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BFGAlertControllerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4417BDC91B41C67D0030A354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4417BDCA1B41C67D0030A354 /* BFGAlertControllerExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFGAlertControllerExampleTests.swift; sourceTree = "<group>"; };
-		4417BDD41B41C8040030A354 /* BFGAlertController */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BFGAlertController; path = ../BFGAlertController; sourceTree = "<group>"; };
 		554CCE09E08983AF2DF08158 /* Pods_BFGAlertControllerExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFGAlertControllerExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D45904958F1AE78350A5778 /* Pods-BFGAlertControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFGAlertControllerExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFGAlertControllerExample/Pods-BFGAlertControllerExample.release.xcconfig"; sourceTree = "<group>"; };
 		827390750AE2179D00344220 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFGAlertControllerExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BFGAlertControllerExampleTests/Pods-BFGAlertControllerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 		4417BDA61B41C67D0030A354 = {
 			isa = PBXGroup;
 			children = (
-				4417BDD41B41C8040030A354 /* BFGAlertController */,
 				4417BDB11B41C67D0030A354 /* BFGAlertControllerExample */,
 				4417BDC71B41C67D0030A354 /* BFGAlertControllerExampleTests */,
 				4417BDB01B41C67D0030A354 /* Products */,
@@ -235,7 +232,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4417BDBA1B41C67D0030A354 /* Main.storyboard in Resources */,
-				4417BDD51B41C8040030A354 /* BFGAlertController in Resources */,
 				4417BDBF1B41C67D0030A354 /* LaunchScreen.xib in Resources */,
 				4417BDBC1B41C67D0030A354 /* Images.xcassets in Resources */,
 			);

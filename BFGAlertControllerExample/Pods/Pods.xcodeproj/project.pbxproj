@@ -7,269 +7,281 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01254418EEAFB08DA34F46A8 /* SideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F5BD6C66AD875EFDCB52 /* SideBySideView.swift */; };
-		042C9CC765BC3863B2894296 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7321E4745A20AEA67FFCD37E /* Foundation.framework */; };
-		0AA4876ACBE758ECF2041C88 /* SimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478076F2E328CB62BA5FB46C /* SimpleStackView.swift */; };
-		0EBDDBC32290BACAC13391BF /* Pods-BFGAlertControllerExampleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4144CAD5258210B674910FD7 /* Pods-BFGAlertControllerExampleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		12426855031B31BC9BA2B516 /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F368C44F70EB88379583F /* BFGAlertController.swift */; };
-		12B9EBE73AA4AE1F97AF0A4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7321E4745A20AEA67FFCD37E /* Foundation.framework */; };
-		2174CFAC90765D5478CACB07 /* SimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478076F2E328CB62BA5FB46C /* SimpleStackView.swift */; };
-		2584A3937769CDC96B62BFD7 /* Pods-BFGAlertControllerExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC93EFB858260599DF4A64F /* Pods-BFGAlertControllerExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		459FEB03A19E2AC2F3A71BB4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7321E4745A20AEA67FFCD37E /* Foundation.framework */; };
-		47B374F7FA95E0BFFA688EE1 /* SideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C7F5BD6C66AD875EFDCB52 /* SideBySideView.swift */; };
-		6686C0A1D9CCE357E47F245A /* BFGAlertField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FEC57DAA4DBE36A1FDE8B /* BFGAlertField.swift */; };
-		9EA6DB1ABA345B153790334A /* Pods-BFGAlertControllerExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D69EDE19D366A3DFCD54FF /* Pods-BFGAlertControllerExample-dummy.m */; };
-		9FEC872179BC92A17CDAD437 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A85808FFE73B53B42EA67B2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m */; };
-		B21820DAA35F69D760C46217 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A11D530F5FFA7CAF1593972 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2A047C3225E5576BAC21306 /* UIImage+Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C42D547FF016492E88378 /* UIImage+Pixel.swift */; };
-		B309A737E82E82C32D65CE2C /* Pods-BFGAlertControllerExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 466EBDF33615A2A5DF36C102 /* Pods-BFGAlertControllerExampleTests-dummy.m */; };
-		B3D4076CFE6C5174D544953C /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B733340DE92A69F5B0792FB /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */; };
-		C53F2C25E90FF263CBEA588C /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38802D98347ECE01067C8D01 /* BFGAlertAction.swift */; };
-		CC0EEB33997E5E97BACE0F76 /* BFGAlertField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7FEC57DAA4DBE36A1FDE8B /* BFGAlertField.swift */; };
-		D76FD099DBA8971660B6199B /* UIImage+Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C42D547FF016492E88378 /* UIImage+Pixel.swift */; };
-		E044F4615ACFC39A7BE664F2 /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F368C44F70EB88379583F /* BFGAlertController.swift */; };
-		E1FC217B5D88EC5CE7C58030 /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38802D98347ECE01067C8D01 /* BFGAlertAction.swift */; };
-		F7E42209E8CC4DD34211A4B8 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F370274C2A924A3B57FD9A3F /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FF8A246E36ABD0F6963C65FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7321E4745A20AEA67FFCD37E /* Foundation.framework */; };
+		070CCBE291EECFF0F40FC8D2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C855FAD21B56C32A35737C82 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23714BE6142EFA24E83AB04C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD85733BD22EBB646355B2A /* Foundation.framework */; };
+		38F566B5ED3B5A87A714E5F1 /* BFGAlertField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AE2741AFF2801524EA760 /* BFGAlertField.swift */; };
+		399A9A62E76879923EA2F8F3 /* BFGAlertController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BE53C9FDC7D2A1A560C17 /* BFGAlertController+Alert.swift */; };
+		3C02968ACB098D884DB7DA8B /* SimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC4D6B63F1BB1366DE6E79 /* SimpleStackView.swift */; };
+		3C3951EB42814125F83AB907 /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555D3FCAB86CB4578531017 /* BFGAlertAction.swift */; };
+		43F0D486A4983E9B1D5BBF39 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D32EDE08CE393D68A2450053 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m */; };
+		44B8B44DB6A8A407DE60E893 /* BFGAlertField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AE2741AFF2801524EA760 /* BFGAlertField.swift */; };
+		45C6309CFBDACD6CD288C7C0 /* BFGAlertController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03129F08EF4D5E567EC21CCA /* BFGAlertController+ActionSheet.swift */; };
+		49A49C6DCD7FF8BFCC109127 /* Pods-BFGAlertControllerExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D6632F3E3104E32CAD7A6C /* Pods-BFGAlertControllerExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CA9E9B688F4B3A9EC350A56 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B303A298DD423D88152A3CE /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CEF8412C351C1BFBFAE7B25 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD85733BD22EBB646355B2A /* Foundation.framework */; };
+		61392A5F31F06809189606E1 /* BFGAlertController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03129F08EF4D5E567EC21CCA /* BFGAlertController+ActionSheet.swift */; };
+		74593D02ABE95F1D9AF651EA /* Pods-BFGAlertControllerExampleTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A6E29637C8A8A12887E54D /* Pods-BFGAlertControllerExampleTests-dummy.m */; };
+		834852809DA9FA2D4C2182CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD85733BD22EBB646355B2A /* Foundation.framework */; };
+		837E87EC61B3FC98FB9EC4F4 /* BFGAlertController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6BE53C9FDC7D2A1A560C17 /* BFGAlertController+Alert.swift */; };
+		8C797A6850C6D098931AEA5F /* UIImage+Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BC0FBB23E3F93EBF307 /* UIImage+Pixel.swift */; };
+		9BBC50FE65CDFAC54B205122 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429CAFB82AB11DC719647BE /* Config.swift */; };
+		9EDEE568263E20A09B0E3F04 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD85733BD22EBB646355B2A /* Foundation.framework */; };
+		9EE7FCAA4AA9643346C0CFE2 /* SideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE2511881E488D02575884 /* SideBySideView.swift */; };
+		AA52FF40594A65C2E944BE92 /* UIImage+Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE20BC0FBB23E3F93EBF307 /* UIImage+Pixel.swift */; };
+		B537CDB4787B9CC3366E3720 /* Pods-BFGAlertControllerExampleTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 418C5C8EF89A34D0410B4F22 /* Pods-BFGAlertControllerExampleTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2CE0EE21E6CEB2498C020D1 /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1555D3FCAB86CB4578531017 /* BFGAlertAction.swift */; };
+		C304DB09AC3600F8067DEA6B /* SimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CCC4D6B63F1BB1366DE6E79 /* SimpleStackView.swift */; };
+		D573300E2E13EB6765088827 /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466FB718A761228EDE9F5078 /* BFGAlertController.swift */; };
+		DA0BE563E63819FBDCC73749 /* SideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE2511881E488D02575884 /* SideBySideView.swift */; };
+		E251B8F8F6511F4515F5B5BA /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B87ABC72F34BC3926AEAE675 /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */; };
+		F6CB181BBBE98959FFA4DB79 /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466FB718A761228EDE9F5078 /* BFGAlertController.swift */; };
+		FC4B09284FD87303ED1D7CB5 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7429CAFB82AB11DC719647BE /* Config.swift */; };
+		FD1F1267D9747FA7F3259D38 /* Pods-BFGAlertControllerExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE9468AEC98462BF0FC6B5F5 /* Pods-BFGAlertControllerExample-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F4064B7807D35F11D7B5CF67 /* PBXContainerItemProxy */ = {
+		76045F0204EED0199F705833 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = EAA9F7C5C846120D85F30EE4 /* Project object */;
+			containerPortal = 2D95F419EA44E5B1AD2E053A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DAC94DB28F685CF05509994C;
-			remoteInfo = "Pods-BFGAlertControllerExample-BFGAlertController";
-		};
-		F77194EA446041CFF49ADEC9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EAA9F7C5C846120D85F30EE4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9517A1F085606505705C5783;
+			remoteGlobalIDString = 24F78698D1AC8885D94D3C00;
 			remoteInfo = "Pods-BFGAlertControllerExampleTests-BFGAlertController";
+		};
+		C2DF5EB70D768E0569E8FE89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D95F419EA44E5B1AD2E053A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A94404F24638185F017D15E;
+			remoteInfo = "Pods-BFGAlertControllerExample-BFGAlertController";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		029555BAE2C53120B6C1E062 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		03E2B1BC6C88F51BAB65FAB5 /* Pods-BFGAlertControllerExample-BFGAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BFGAlertControllerExample-BFGAlertController.modulemap"; sourceTree = "<group>"; };
-		065984D15A1CF648238D215C /* BFGAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EE0CFD6FC3EA3428A056C50 /* BFGAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A85808FFE73B53B42EA67B2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m"; sourceTree = "<group>"; };
-		1C7FEC57DAA4DBE36A1FDE8B /* BFGAlertField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertField.swift; sourceTree = "<group>"; };
-		1CD91DE93331629DE275C9DB /* Pods-BFGAlertControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
-		214926F9BD88DC7CBD35341C /* Pods-BFGAlertControllerExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExample-frameworks.sh"; sourceTree = "<group>"; };
-		2FFBB4B4FD76272E2EC40503 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Info.plist"; sourceTree = "<group>"; };
-		384F368C44F70EB88379583F /* BFGAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertController.swift; sourceTree = "<group>"; };
-		38802D98347ECE01067C8D01 /* BFGAlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertAction.swift; sourceTree = "<group>"; };
-		4144CAD5258210B674910FD7 /* Pods-BFGAlertControllerExampleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExampleTests-umbrella.h"; sourceTree = "<group>"; };
-		43765F4CDCDD5466F0A4EE1D /* Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch"; sourceTree = "<group>"; };
-		44D69EDE19D366A3DFCD54FF /* Pods-BFGAlertControllerExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BFGAlertControllerExample-dummy.m"; sourceTree = "<group>"; };
-		466EBDF33615A2A5DF36C102 /* Pods-BFGAlertControllerExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BFGAlertControllerExampleTests-dummy.m"; sourceTree = "<group>"; };
-		478076F2E328CB62BA5FB46C /* SimpleStackView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleStackView.swift; sourceTree = "<group>"; };
-		4B8325013535C2730FF72ADD /* Pods-BFGAlertControllerExampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BFGAlertControllerExampleTests.modulemap"; sourceTree = "<group>"; };
-		4BDA9919E4CBD1F790895F9C /* Pods-BFGAlertControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample.release.xcconfig"; sourceTree = "<group>"; };
-		52C7F5BD6C66AD875EFDCB52 /* SideBySideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SideBySideView.swift; sourceTree = "<group>"; };
-		55E2A60210C5D6456DFAE9A9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		58DDE79510624C1DC822175F /* Pods-BFGAlertControllerExampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExampleTests-frameworks.sh"; sourceTree = "<group>"; };
-		66C884514D0DB03D8C450415 /* Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch"; sourceTree = "<group>"; };
-		71A3BAC298F207E941866228 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7321E4745A20AEA67FFCD37E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		78EC43D17456F30A882EDFCB /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig"; sourceTree = "<group>"; };
-		7B733340DE92A69F5B0792FB /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BFGAlertControllerExample-BFGAlertController-dummy.m"; sourceTree = "<group>"; };
-		855ED1EF575457EF4B4FB6A1 /* Pods_BFGAlertControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFGAlertControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F9CD3D854AED2C29D3A1EBC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		971DD3CFC65324E0836BE889 /* Pods-BFGAlertControllerExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		996B0EC4AD21FC6D5E1F5787 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig"; sourceTree = "<group>"; };
-		9A11D530F5FFA7CAF1593972 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h"; sourceTree = "<group>"; };
-		9A774A2F1B4D57952E605796 /* Pods-BFGAlertControllerExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BFGAlertControllerExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9EC039AFEE822BE76E6DF2B0 /* Pods-BFGAlertControllerExampleTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExampleTests-environment.h"; sourceTree = "<group>"; };
-		A43C42D547FF016492E88378 /* UIImage+Pixel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Pixel.swift"; sourceTree = "<group>"; };
-		AAC93EFB858260599DF4A64F /* Pods-BFGAlertControllerExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-umbrella.h"; sourceTree = "<group>"; };
-		AB607950514B7A054BF9AB34 /* Pods_BFGAlertControllerExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFGAlertControllerExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B95BE9B9A53E4BD3401129D4 /* Pods-BFGAlertControllerExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExample-resources.sh"; sourceTree = "<group>"; };
-		BAF292D15213FE819FF4D29A /* Pods-BFGAlertControllerExampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExampleTests-resources.sh"; sourceTree = "<group>"; };
-		C529BABEE3332A641FFC6170 /* Pods-BFGAlertControllerExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BFGAlertControllerExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C8A76B2437A262F2D1A77A23 /* Pods-BFGAlertControllerExample-BFGAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample-BFGAlertController.xcconfig"; sourceTree = "<group>"; };
-		C995D0C04232678D77991898 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		CA3CF95623172EAABAE47B3E /* Pods-BFGAlertControllerExample-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-environment.h"; sourceTree = "<group>"; };
-		DD504423CF2D69688FDA797E /* Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig"; sourceTree = "<group>"; };
-		DEDE04F06DDB9227BFEF7F56 /* Pods-BFGAlertControllerExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BFGAlertControllerExample-acknowledgements.plist"; sourceTree = "<group>"; };
-		F370274C2A924A3B57FD9A3F /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h"; sourceTree = "<group>"; };
-		F55577CC7AA3B2CD634F36F7 /* Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap"; sourceTree = "<group>"; };
-		F635DFE5D0968B7A102E27DF /* Pods-BFGAlertControllerExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BFGAlertControllerExample.modulemap"; sourceTree = "<group>"; };
-		F94B4CAD771C6D52107B6688 /* Pods-BFGAlertControllerExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BFGAlertControllerExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		03129F08EF4D5E567EC21CCA /* BFGAlertController+ActionSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "BFGAlertController+ActionSheet.swift"; sourceTree = "<group>"; };
+		0319D0CEE29E92B53355B015 /* Pods-BFGAlertControllerExampleTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BFGAlertControllerExampleTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		1555D3FCAB86CB4578531017 /* BFGAlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertAction.swift; sourceTree = "<group>"; };
+		34E563603CBB192819EACE3E /* Pods-BFGAlertControllerExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample.debug.xcconfig"; sourceTree = "<group>"; };
+		351AC2729AD16199E083DE1A /* Pods-BFGAlertControllerExampleTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExampleTests-frameworks.sh"; sourceTree = "<group>"; };
+		3A7AB633CE536D91D7A71435 /* Pods_BFGAlertControllerExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFGAlertControllerExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B7579D64760D7FFADEE5CE6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		418C5C8EF89A34D0410B4F22 /* Pods-BFGAlertControllerExampleTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExampleTests-umbrella.h"; sourceTree = "<group>"; };
+		42FDEEF054850B0A00B5A6D9 /* Pods-BFGAlertControllerExample-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-environment.h"; sourceTree = "<group>"; };
+		448F3FB47EE99ABF4A56DFC8 /* Pods-BFGAlertControllerExampleTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExampleTests-environment.h"; sourceTree = "<group>"; };
+		466FB718A761228EDE9F5078 /* BFGAlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertController.swift; sourceTree = "<group>"; };
+		49325615C98EE6D4197A39A2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch"; sourceTree = "<group>"; };
+		4F6BE53C9FDC7D2A1A560C17 /* BFGAlertController+Alert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "BFGAlertController+Alert.swift"; sourceTree = "<group>"; };
+		518945C9D5E09A026A2977BB /* Pods-BFGAlertControllerExampleTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExampleTests-resources.sh"; sourceTree = "<group>"; };
+		535B9BBE99114A98AAC3E840 /* BFGAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		537B1E72893EC6355AC71ED5 /* Pods-BFGAlertControllerExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BFGAlertControllerExample.modulemap"; sourceTree = "<group>"; };
+		5CCC4D6B63F1BB1366DE6E79 /* SimpleStackView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SimpleStackView.swift; sourceTree = "<group>"; };
+		5DBE2511881E488D02575884 /* SideBySideView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SideBySideView.swift; sourceTree = "<group>"; };
+		71D60A02F7608963C2179DF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7429CAFB82AB11DC719647BE /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		75D6632F3E3104E32CAD7A6C /* Pods-BFGAlertControllerExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-umbrella.h"; sourceTree = "<group>"; };
+		8469ED3D46931314973FE0EA /* Pods-BFGAlertControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample.release.xcconfig"; sourceTree = "<group>"; };
+		85E2F98265E71137F1813AE8 /* Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap"; sourceTree = "<group>"; };
+		8B303A298DD423D88152A3CE /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h"; sourceTree = "<group>"; };
+		90B8768D46D048169FCA8643 /* Pods-BFGAlertControllerExampleTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BFGAlertControllerExampleTests.modulemap"; sourceTree = "<group>"; };
+		9E8E75C439925117CFA0D782 /* Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig"; sourceTree = "<group>"; };
+		A2F8D0CF7D97A568847B6350 /* Pods-BFGAlertControllerExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BFGAlertControllerExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AEB1688859298604E3D9567B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Info.plist"; sourceTree = "<group>"; };
+		AFD85733BD22EBB646355B2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B4E297F45D7EBD542C28150F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B736E4234F8182642EE558B1 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig"; sourceTree = "<group>"; };
+		B87ABC72F34BC3926AEAE675 /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BFGAlertControllerExample-BFGAlertController-dummy.m"; sourceTree = "<group>"; };
+		B91193AFECE504A8AE144D8C /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig"; sourceTree = "<group>"; };
+		BE9468AEC98462BF0FC6B5F5 /* Pods-BFGAlertControllerExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BFGAlertControllerExample-dummy.m"; sourceTree = "<group>"; };
+		C6662894E3614EC6CD86A28A /* Pods-BFGAlertControllerExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExample-frameworks.sh"; sourceTree = "<group>"; };
+		C757EE567796A1D8BF81FCF9 /* Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch"; sourceTree = "<group>"; };
+		C855FAD21B56C32A35737C82 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h"; sourceTree = "<group>"; };
+		C986A20855CDC74041C97E17 /* BFGAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBE20BC0FBB23E3F93EBF307 /* UIImage+Pixel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Pixel.swift"; sourceTree = "<group>"; };
+		D32EDE08CE393D68A2450053 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m"; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m"; sourceTree = "<group>"; };
+		D5A6E29637C8A8A12887E54D /* Pods-BFGAlertControllerExampleTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BFGAlertControllerExampleTests-dummy.m"; sourceTree = "<group>"; };
+		D5E2DCAA1D75BC28F5DBBBEB /* Pods-BFGAlertControllerExample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BFGAlertControllerExample-resources.sh"; sourceTree = "<group>"; };
+		D60EC95999228957321BB3BA /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D67CE548C8899D4F93F82AD5 /* Pods_BFGAlertControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFGAlertControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA7889327B2A30329C3CC1B0 /* Pods-BFGAlertControllerExampleTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BFGAlertControllerExampleTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DCD67F032002F6A41A8CD19B /* Pods-BFGAlertControllerExample-BFGAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample-BFGAlertController.xcconfig"; sourceTree = "<group>"; };
+		DFD0EBF90B7536E617646AC0 /* Pods-BFGAlertControllerExample-BFGAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BFGAlertControllerExample-BFGAlertController.modulemap"; sourceTree = "<group>"; };
+		E4599C44E1E444F9D5F585D2 /* Pods-BFGAlertControllerExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F02AE2741AFF2801524EA760 /* BFGAlertField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertField.swift; sourceTree = "<group>"; };
+		F44BECC2A1BEEC6FF414BB2E /* Pods-BFGAlertControllerExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BFGAlertControllerExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		FE3209CF14E664AB89535989 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1AFB855DAF61DE9FAD434D94 /* Frameworks */ = {
+		066F90313FDFF6DCF46E56FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				042C9CC765BC3863B2894296 /* Foundation.framework in Frameworks */,
+				834852809DA9FA2D4C2182CB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		33202276C71C8F212C639619 /* Frameworks */ = {
+		A9E1777BD8C2AB11757D942A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12B9EBE73AA4AE1F97AF0A4E /* Foundation.framework in Frameworks */,
+				23714BE6142EFA24E83AB04C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		768B399AB797F5E9047B0AB7 /* Frameworks */ = {
+		EBC75F40170E09EB071A6A50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				459FEB03A19E2AC2F3A71BB4 /* Foundation.framework in Frameworks */,
+				9EDEE568263E20A09B0E3F04 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CB67453F0C9624EC48141DD9 /* Frameworks */ = {
+		ECA4C81E4EB36D4FB89698AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF8A246E36ABD0F6963C65FF /* Foundation.framework in Frameworks */,
+				4CEF8412C351C1BFBFAE7B25 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		56DA160D808450BCC13E5556 /* Pods-BFGAlertControllerExampleTests */ = {
+		07CEB72690B8E3C4708E4F5E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F9CD3D854AED2C29D3A1EBC /* Info.plist */,
-				4B8325013535C2730FF72ADD /* Pods-BFGAlertControllerExampleTests.modulemap */,
-				9A774A2F1B4D57952E605796 /* Pods-BFGAlertControllerExampleTests-acknowledgements.markdown */,
-				C529BABEE3332A641FFC6170 /* Pods-BFGAlertControllerExampleTests-acknowledgements.plist */,
-				466EBDF33615A2A5DF36C102 /* Pods-BFGAlertControllerExampleTests-dummy.m */,
-				9EC039AFEE822BE76E6DF2B0 /* Pods-BFGAlertControllerExampleTests-environment.h */,
-				58DDE79510624C1DC822175F /* Pods-BFGAlertControllerExampleTests-frameworks.sh */,
-				BAF292D15213FE819FF4D29A /* Pods-BFGAlertControllerExampleTests-resources.sh */,
-				4144CAD5258210B674910FD7 /* Pods-BFGAlertControllerExampleTests-umbrella.h */,
-				971DD3CFC65324E0836BE889 /* Pods-BFGAlertControllerExampleTests.debug.xcconfig */,
-				C995D0C04232678D77991898 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */,
+				535B9BBE99114A98AAC3E840 /* BFGAlertController.framework */,
+				C986A20855CDC74041C97E17 /* BFGAlertController.framework */,
+				D67CE548C8899D4F93F82AD5 /* Pods_BFGAlertControllerExample.framework */,
+				3A7AB633CE536D91D7A71435 /* Pods_BFGAlertControllerExampleTests.framework */,
 			);
-			name = "Pods-BFGAlertControllerExampleTests";
-			path = "Target Support Files/Pods-BFGAlertControllerExampleTests";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		5FCC8746D2B3AA7CD2118D58 = {
+		07F474D6963B7B9963CB1FF9 = {
 			isa = PBXGroup;
 			children = (
-				029555BAE2C53120B6C1E062 /* Podfile */,
-				C82542251C0E1B48ACFA6BA6 /* Development Pods */,
-				7AFB9A370F78EF96B802D1C0 /* Frameworks */,
-				EB81DEF3F68B388BA233B6AB /* Products */,
-				8C9B8CBB11B2AF2F70AAA570 /* Targets Support Files */,
+				D60EC95999228957321BB3BA /* Podfile */,
+				85604FF0AD262E5AF32D4F3A /* Development Pods */,
+				DA3A8B6B7D6E5BD05790DF3C /* Frameworks */,
+				07CEB72690B8E3C4708E4F5E /* Products */,
+				99D2263790E1F22655623E85 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		681B8FCEA2C7C3CABE13B5D8 /* BFGAlertController */ = {
+		285AE6510438B98AE3B94355 /* BFGAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				38802D98347ECE01067C8D01 /* BFGAlertAction.swift */,
-				384F368C44F70EB88379583F /* BFGAlertController.swift */,
-				1C7FEC57DAA4DBE36A1FDE8B /* BFGAlertField.swift */,
-				52C7F5BD6C66AD875EFDCB52 /* SideBySideView.swift */,
-				478076F2E328CB62BA5FB46C /* SimpleStackView.swift */,
-				A43C42D547FF016492E88378 /* UIImage+Pixel.swift */,
+				1555D3FCAB86CB4578531017 /* BFGAlertAction.swift */,
+				466FB718A761228EDE9F5078 /* BFGAlertController.swift */,
+				03129F08EF4D5E567EC21CCA /* BFGAlertController+ActionSheet.swift */,
+				4F6BE53C9FDC7D2A1A560C17 /* BFGAlertController+Alert.swift */,
+				F02AE2741AFF2801524EA760 /* BFGAlertField.swift */,
+				7429CAFB82AB11DC719647BE /* Config.swift */,
+				5DBE2511881E488D02575884 /* SideBySideView.swift */,
+				5CCC4D6B63F1BB1366DE6E79 /* SimpleStackView.swift */,
+				CBE20BC0FBB23E3F93EBF307 /* UIImage+Pixel.swift */,
 			);
 			path = BFGAlertController;
 			sourceTree = "<group>";
 		};
-		68A89406B88ABF197ED294C0 /* Support Files */ = {
+		53B29109E9582117A8AEB2F1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				71A3BAC298F207E941866228 /* Info.plist */,
-				2FFBB4B4FD76272E2EC40503 /* Info.plist */,
-				03E2B1BC6C88F51BAB65FAB5 /* Pods-BFGAlertControllerExample-BFGAlertController.modulemap */,
-				C8A76B2437A262F2D1A77A23 /* Pods-BFGAlertControllerExample-BFGAlertController.xcconfig */,
-				78EC43D17456F30A882EDFCB /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */,
-				7B733340DE92A69F5B0792FB /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */,
-				66C884514D0DB03D8C450415 /* Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch */,
-				9A11D530F5FFA7CAF1593972 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */,
-				F55577CC7AA3B2CD634F36F7 /* Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap */,
-				DD504423CF2D69688FDA797E /* Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig */,
-				996B0EC4AD21FC6D5E1F5787 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */,
-				1A85808FFE73B53B42EA67B2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m */,
-				43765F4CDCDD5466F0A4EE1D /* Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch */,
-				F370274C2A924A3B57FD9A3F /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */,
+				AFD85733BD22EBB646355B2A /* Foundation.framework */,
 			);
-			name = "Support Files";
-			path = "BFGAlertControllerExample/Pods/Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		7AFB9A370F78EF96B802D1C0 /* Frameworks */ = {
+		765BB53EC7A93AF04DB50C26 /* BFGAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				DC15697D31A4529BC1799420 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7F607697AF7C1B272FDFC243 /* BFGAlertController */ = {
-			isa = PBXGroup;
-			children = (
-				681B8FCEA2C7C3CABE13B5D8 /* BFGAlertController */,
-				68A89406B88ABF197ED294C0 /* Support Files */,
+				285AE6510438B98AE3B94355 /* BFGAlertController */,
+				A4AE1A075DAF437471315FD1 /* Support Files */,
 			);
 			name = BFGAlertController;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		8C9B8CBB11B2AF2F70AAA570 /* Targets Support Files */ = {
+		85604FF0AD262E5AF32D4F3A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EEAD99E7FFAA3D8B69649545 /* Pods-BFGAlertControllerExample */,
-				56DA160D808450BCC13E5556 /* Pods-BFGAlertControllerExampleTests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		C82542251C0E1B48ACFA6BA6 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7F607697AF7C1B272FDFC243 /* BFGAlertController */,
+				765BB53EC7A93AF04DB50C26 /* BFGAlertController */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		DC15697D31A4529BC1799420 /* iOS */ = {
+		99D2263790E1F22655623E85 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7321E4745A20AEA67FFCD37E /* Foundation.framework */,
+				DA7DD3898B0E5B4472DF128E /* Pods-BFGAlertControllerExample */,
+				BF5521AF75D7416F217AEA29 /* Pods-BFGAlertControllerExampleTests */,
 			);
-			name = iOS;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		EB81DEF3F68B388BA233B6AB /* Products */ = {
+		A4AE1A075DAF437471315FD1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0EE0CFD6FC3EA3428A056C50 /* BFGAlertController.framework */,
-				065984D15A1CF648238D215C /* BFGAlertController.framework */,
-				855ED1EF575457EF4B4FB6A1 /* Pods_BFGAlertControllerExample.framework */,
-				AB607950514B7A054BF9AB34 /* Pods_BFGAlertControllerExampleTests.framework */,
+				71D60A02F7608963C2179DF9 /* Info.plist */,
+				AEB1688859298604E3D9567B /* Info.plist */,
+				DFD0EBF90B7536E617646AC0 /* Pods-BFGAlertControllerExample-BFGAlertController.modulemap */,
+				DCD67F032002F6A41A8CD19B /* Pods-BFGAlertControllerExample-BFGAlertController.xcconfig */,
+				B91193AFECE504A8AE144D8C /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */,
+				B87ABC72F34BC3926AEAE675 /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */,
+				C757EE567796A1D8BF81FCF9 /* Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch */,
+				8B303A298DD423D88152A3CE /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */,
+				85E2F98265E71137F1813AE8 /* Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap */,
+				9E8E75C439925117CFA0D782 /* Pods-BFGAlertControllerExampleTests-BFGAlertController.xcconfig */,
+				B736E4234F8182642EE558B1 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */,
+				D32EDE08CE393D68A2450053 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m */,
+				49325615C98EE6D4197A39A2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch */,
+				C855FAD21B56C32A35737C82 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "BFGAlertControllerExample/Pods/Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController";
 			sourceTree = "<group>";
 		};
-		EEAD99E7FFAA3D8B69649545 /* Pods-BFGAlertControllerExample */ = {
+		BF5521AF75D7416F217AEA29 /* Pods-BFGAlertControllerExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				55E2A60210C5D6456DFAE9A9 /* Info.plist */,
-				F635DFE5D0968B7A102E27DF /* Pods-BFGAlertControllerExample.modulemap */,
-				F94B4CAD771C6D52107B6688 /* Pods-BFGAlertControllerExample-acknowledgements.markdown */,
-				DEDE04F06DDB9227BFEF7F56 /* Pods-BFGAlertControllerExample-acknowledgements.plist */,
-				44D69EDE19D366A3DFCD54FF /* Pods-BFGAlertControllerExample-dummy.m */,
-				CA3CF95623172EAABAE47B3E /* Pods-BFGAlertControllerExample-environment.h */,
-				214926F9BD88DC7CBD35341C /* Pods-BFGAlertControllerExample-frameworks.sh */,
-				B95BE9B9A53E4BD3401129D4 /* Pods-BFGAlertControllerExample-resources.sh */,
-				AAC93EFB858260599DF4A64F /* Pods-BFGAlertControllerExample-umbrella.h */,
-				1CD91DE93331629DE275C9DB /* Pods-BFGAlertControllerExample.debug.xcconfig */,
-				4BDA9919E4CBD1F790895F9C /* Pods-BFGAlertControllerExample.release.xcconfig */,
+				3B7579D64760D7FFADEE5CE6 /* Info.plist */,
+				90B8768D46D048169FCA8643 /* Pods-BFGAlertControllerExampleTests.modulemap */,
+				DA7889327B2A30329C3CC1B0 /* Pods-BFGAlertControllerExampleTests-acknowledgements.markdown */,
+				0319D0CEE29E92B53355B015 /* Pods-BFGAlertControllerExampleTests-acknowledgements.plist */,
+				D5A6E29637C8A8A12887E54D /* Pods-BFGAlertControllerExampleTests-dummy.m */,
+				448F3FB47EE99ABF4A56DFC8 /* Pods-BFGAlertControllerExampleTests-environment.h */,
+				351AC2729AD16199E083DE1A /* Pods-BFGAlertControllerExampleTests-frameworks.sh */,
+				518945C9D5E09A026A2977BB /* Pods-BFGAlertControllerExampleTests-resources.sh */,
+				418C5C8EF89A34D0410B4F22 /* Pods-BFGAlertControllerExampleTests-umbrella.h */,
+				E4599C44E1E444F9D5F585D2 /* Pods-BFGAlertControllerExampleTests.debug.xcconfig */,
+				FE3209CF14E664AB89535989 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */,
+			);
+			name = "Pods-BFGAlertControllerExampleTests";
+			path = "Target Support Files/Pods-BFGAlertControllerExampleTests";
+			sourceTree = "<group>";
+		};
+		DA3A8B6B7D6E5BD05790DF3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				53B29109E9582117A8AEB2F1 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA7DD3898B0E5B4472DF128E /* Pods-BFGAlertControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				B4E297F45D7EBD542C28150F /* Info.plist */,
+				537B1E72893EC6355AC71ED5 /* Pods-BFGAlertControllerExample.modulemap */,
+				A2F8D0CF7D97A568847B6350 /* Pods-BFGAlertControllerExample-acknowledgements.markdown */,
+				F44BECC2A1BEEC6FF414BB2E /* Pods-BFGAlertControllerExample-acknowledgements.plist */,
+				BE9468AEC98462BF0FC6B5F5 /* Pods-BFGAlertControllerExample-dummy.m */,
+				42FDEEF054850B0A00B5A6D9 /* Pods-BFGAlertControllerExample-environment.h */,
+				C6662894E3614EC6CD86A28A /* Pods-BFGAlertControllerExample-frameworks.sh */,
+				D5E2DCAA1D75BC28F5DBBBEB /* Pods-BFGAlertControllerExample-resources.sh */,
+				75D6632F3E3104E32CAD7A6C /* Pods-BFGAlertControllerExample-umbrella.h */,
+				34E563603CBB192819EACE3E /* Pods-BFGAlertControllerExample.debug.xcconfig */,
+				8469ED3D46931314973FE0EA /* Pods-BFGAlertControllerExample.release.xcconfig */,
 			);
 			name = "Pods-BFGAlertControllerExample";
 			path = "Target Support Files/Pods-BFGAlertControllerExample";
@@ -278,66 +290,66 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5F8C0F1262C7FF2C93EFFFEB /* Headers */ = {
+		0EBC9CA6F36F166F0C636B2A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7E42209E8CC4DD34211A4B8 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h in Headers */,
+				49A49C6DCD7FF8BFCC109127 /* Pods-BFGAlertControllerExample-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B542C9F5260DF7796220A39 /* Headers */ = {
+		2914638510E1F30BE75C3650 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EBDDBC32290BACAC13391BF /* Pods-BFGAlertControllerExampleTests-umbrella.h in Headers */,
+				4CA9E9B688F4B3A9EC350A56 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CD0513D7A08475087E430810 /* Headers */ = {
+		34EBE8318840886BF50C2098 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B21820DAA35F69D760C46217 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h in Headers */,
+				B537CDB4787B9CC3366E3720 /* Pods-BFGAlertControllerExampleTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD4B44A3D26F3C50E6CA01A7 /* Headers */ = {
+		EC49EE8FAFA32CB01CEDB0C9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2584A3937769CDC96B62BFD7 /* Pods-BFGAlertControllerExample-umbrella.h in Headers */,
+				070CCBE291EECFF0F40FC8D2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		57CFB83A473BCD3099A88888 /* Pods-BFGAlertControllerExampleTests */ = {
+		17F151D900F259C94EF6A6B8 /* Pods-BFGAlertControllerExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92681066C69BA94BB787A975 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests" */;
+			buildConfigurationList = 4178D828919625B725D69A59 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests" */;
 			buildPhases = (
-				F194ABEA6774929D694C1FEE /* Sources */,
-				768B399AB797F5E9047B0AB7 /* Frameworks */,
-				8B542C9F5260DF7796220A39 /* Headers */,
+				9ADFDC26DBF4A160E339CCA0 /* Sources */,
+				ECA4C81E4EB36D4FB89698AA /* Frameworks */,
+				34EBE8318840886BF50C2098 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C1F20FFB45AD29C8E8C66CBD /* PBXTargetDependency */,
+				F9DFE00181813E3B1C4587B5 /* PBXTargetDependency */,
 			);
 			name = "Pods-BFGAlertControllerExampleTests";
 			productName = "Pods-BFGAlertControllerExampleTests";
-			productReference = AB607950514B7A054BF9AB34 /* Pods_BFGAlertControllerExampleTests.framework */;
+			productReference = 3A7AB633CE536D91D7A71435 /* Pods_BFGAlertControllerExampleTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9517A1F085606505705C5783 /* Pods-BFGAlertControllerExampleTests-BFGAlertController */ = {
+		24F78698D1AC8885D94D3C00 /* Pods-BFGAlertControllerExampleTests-BFGAlertController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B408F60780AAB5933CE3994 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests-BFGAlertController" */;
+			buildConfigurationList = BC854362B16BD5F929D75E00 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests-BFGAlertController" */;
 			buildPhases = (
-				0E9A3A9D74F9C494E6F5196A /* Sources */,
-				33202276C71C8F212C639619 /* Frameworks */,
-				5F8C0F1262C7FF2C93EFFFEB /* Headers */,
+				AECA826B5F2630A6C0D9A2DE /* Sources */,
+				A9E1777BD8C2AB11757D942A /* Frameworks */,
+				EC49EE8FAFA32CB01CEDB0C9 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -345,34 +357,34 @@
 			);
 			name = "Pods-BFGAlertControllerExampleTests-BFGAlertController";
 			productName = "Pods-BFGAlertControllerExampleTests-BFGAlertController";
-			productReference = 065984D15A1CF648238D215C /* BFGAlertController.framework */;
+			productReference = C986A20855CDC74041C97E17 /* BFGAlertController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B8989BEDCBF693F61B1A3BD1 /* Pods-BFGAlertControllerExample */ = {
+		6E7D48F6F729874DD9FA94FD /* Pods-BFGAlertControllerExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F7708A1424183EC66C16634 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample" */;
+			buildConfigurationList = 67CAF9814ECA9FEC157894D6 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample" */;
 			buildPhases = (
-				9049D3E6AA6730C24450F32E /* Sources */,
-				CB67453F0C9624EC48141DD9 /* Frameworks */,
-				FD4B44A3D26F3C50E6CA01A7 /* Headers */,
+				C7F8DC0736DFE5E9C64ED91B /* Sources */,
+				EBC75F40170E09EB071A6A50 /* Frameworks */,
+				0EBC9CA6F36F166F0C636B2A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				061EFAC0C1BE0F9FBC888CB8 /* PBXTargetDependency */,
+				9A2151614F6D164193DCC92F /* PBXTargetDependency */,
 			);
 			name = "Pods-BFGAlertControllerExample";
 			productName = "Pods-BFGAlertControllerExample";
-			productReference = 855ED1EF575457EF4B4FB6A1 /* Pods_BFGAlertControllerExample.framework */;
+			productReference = D67CE548C8899D4F93F82AD5 /* Pods_BFGAlertControllerExample.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DAC94DB28F685CF05509994C /* Pods-BFGAlertControllerExample-BFGAlertController */ = {
+		7A94404F24638185F017D15E /* Pods-BFGAlertControllerExample-BFGAlertController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44BD21A2C05CF4A95B9ED38D /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample-BFGAlertController" */;
+			buildConfigurationList = 3784BFDE49F2B248A7B73241 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample-BFGAlertController" */;
 			buildPhases = (
-				9D3C90AA624FC6329EFFFFCE /* Sources */,
-				1AFB855DAF61DE9FAD434D94 /* Frameworks */,
-				CD0513D7A08475087E430810 /* Headers */,
+				5BE3E5A40CDFADFBEC4E023A /* Sources */,
+				066F90313FDFF6DCF46E56FD /* Frameworks */,
+				2914638510E1F30BE75C3650 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -380,157 +392,107 @@
 			);
 			name = "Pods-BFGAlertControllerExample-BFGAlertController";
 			productName = "Pods-BFGAlertControllerExample-BFGAlertController";
-			productReference = 0EE0CFD6FC3EA3428A056C50 /* BFGAlertController.framework */;
+			productReference = 535B9BBE99114A98AAC3E840 /* BFGAlertController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EAA9F7C5C846120D85F30EE4 /* Project object */ = {
+		2D95F419EA44E5B1AD2E053A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = B639FDD9537D139EE4BEF058 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4C27E1612009083213B0F8B3 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 5FCC8746D2B3AA7CD2118D58;
-			productRefGroup = EB81DEF3F68B388BA233B6AB /* Products */;
+			mainGroup = 07F474D6963B7B9963CB1FF9;
+			productRefGroup = 07CEB72690B8E3C4708E4F5E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8989BEDCBF693F61B1A3BD1 /* Pods-BFGAlertControllerExample */,
-				DAC94DB28F685CF05509994C /* Pods-BFGAlertControllerExample-BFGAlertController */,
-				57CFB83A473BCD3099A88888 /* Pods-BFGAlertControllerExampleTests */,
-				9517A1F085606505705C5783 /* Pods-BFGAlertControllerExampleTests-BFGAlertController */,
+				6E7D48F6F729874DD9FA94FD /* Pods-BFGAlertControllerExample */,
+				7A94404F24638185F017D15E /* Pods-BFGAlertControllerExample-BFGAlertController */,
+				17F151D900F259C94EF6A6B8 /* Pods-BFGAlertControllerExampleTests */,
+				24F78698D1AC8885D94D3C00 /* Pods-BFGAlertControllerExampleTests-BFGAlertController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0E9A3A9D74F9C494E6F5196A /* Sources */ = {
+		5BE3E5A40CDFADFBEC4E023A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1FC217B5D88EC5CE7C58030 /* BFGAlertAction.swift in Sources */,
-				12426855031B31BC9BA2B516 /* BFGAlertController.swift in Sources */,
-				6686C0A1D9CCE357E47F245A /* BFGAlertField.swift in Sources */,
-				9FEC872179BC92A17CDAD437 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m in Sources */,
-				01254418EEAFB08DA34F46A8 /* SideBySideView.swift in Sources */,
-				2174CFAC90765D5478CACB07 /* SimpleStackView.swift in Sources */,
-				B2A047C3225E5576BAC21306 /* UIImage+Pixel.swift in Sources */,
+				C2CE0EE21E6CEB2498C020D1 /* BFGAlertAction.swift in Sources */,
+				45C6309CFBDACD6CD288C7C0 /* BFGAlertController+ActionSheet.swift in Sources */,
+				399A9A62E76879923EA2F8F3 /* BFGAlertController+Alert.swift in Sources */,
+				D573300E2E13EB6765088827 /* BFGAlertController.swift in Sources */,
+				44B8B44DB6A8A407DE60E893 /* BFGAlertField.swift in Sources */,
+				9BBC50FE65CDFAC54B205122 /* Config.swift in Sources */,
+				E251B8F8F6511F4515F5B5BA /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m in Sources */,
+				9EE7FCAA4AA9643346C0CFE2 /* SideBySideView.swift in Sources */,
+				C304DB09AC3600F8067DEA6B /* SimpleStackView.swift in Sources */,
+				AA52FF40594A65C2E944BE92 /* UIImage+Pixel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9049D3E6AA6730C24450F32E /* Sources */ = {
+		9ADFDC26DBF4A160E339CCA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EA6DB1ABA345B153790334A /* Pods-BFGAlertControllerExample-dummy.m in Sources */,
+				74593D02ABE95F1D9AF651EA /* Pods-BFGAlertControllerExampleTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9D3C90AA624FC6329EFFFFCE /* Sources */ = {
+		AECA826B5F2630A6C0D9A2DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C53F2C25E90FF263CBEA588C /* BFGAlertAction.swift in Sources */,
-				E044F4615ACFC39A7BE664F2 /* BFGAlertController.swift in Sources */,
-				CC0EEB33997E5E97BACE0F76 /* BFGAlertField.swift in Sources */,
-				B3D4076CFE6C5174D544953C /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m in Sources */,
-				47B374F7FA95E0BFFA688EE1 /* SideBySideView.swift in Sources */,
-				0AA4876ACBE758ECF2041C88 /* SimpleStackView.swift in Sources */,
-				D76FD099DBA8971660B6199B /* UIImage+Pixel.swift in Sources */,
+				3C3951EB42814125F83AB907 /* BFGAlertAction.swift in Sources */,
+				61392A5F31F06809189606E1 /* BFGAlertController+ActionSheet.swift in Sources */,
+				837E87EC61B3FC98FB9EC4F4 /* BFGAlertController+Alert.swift in Sources */,
+				F6CB181BBBE98959FFA4DB79 /* BFGAlertController.swift in Sources */,
+				38F566B5ED3B5A87A714E5F1 /* BFGAlertField.swift in Sources */,
+				FC4B09284FD87303ED1D7CB5 /* Config.swift in Sources */,
+				43F0D486A4983E9B1D5BBF39 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-dummy.m in Sources */,
+				DA0BE563E63819FBDCC73749 /* SideBySideView.swift in Sources */,
+				3C02968ACB098D884DB7DA8B /* SimpleStackView.swift in Sources */,
+				8C797A6850C6D098931AEA5F /* UIImage+Pixel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F194ABEA6774929D694C1FEE /* Sources */ = {
+		C7F8DC0736DFE5E9C64ED91B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B309A737E82E82C32D65CE2C /* Pods-BFGAlertControllerExampleTests-dummy.m in Sources */,
+				FD1F1267D9747FA7F3259D38 /* Pods-BFGAlertControllerExample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		061EFAC0C1BE0F9FBC888CB8 /* PBXTargetDependency */ = {
+		9A2151614F6D164193DCC92F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-BFGAlertControllerExample-BFGAlertController";
-			target = DAC94DB28F685CF05509994C /* Pods-BFGAlertControllerExample-BFGAlertController */;
-			targetProxy = F4064B7807D35F11D7B5CF67 /* PBXContainerItemProxy */;
+			target = 7A94404F24638185F017D15E /* Pods-BFGAlertControllerExample-BFGAlertController */;
+			targetProxy = C2DF5EB70D768E0569E8FE89 /* PBXContainerItemProxy */;
 		};
-		C1F20FFB45AD29C8E8C66CBD /* PBXTargetDependency */ = {
+		F9DFE00181813E3B1C4587B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-BFGAlertControllerExampleTests-BFGAlertController";
-			target = 9517A1F085606505705C5783 /* Pods-BFGAlertControllerExampleTests-BFGAlertController */;
-			targetProxy = F77194EA446041CFF49ADEC9 /* PBXContainerItemProxy */;
+			target = 24F78698D1AC8885D94D3C00 /* Pods-BFGAlertControllerExampleTests-BFGAlertController */;
+			targetProxy = 76045F0204EED0199F705833 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0B35CB5E3B8D8C791F114A1D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BDA9919E4CBD1F790895F9C /* Pods-BFGAlertControllerExample.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExample/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExample/Pods-BFGAlertControllerExample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_BFGAlertControllerExample;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		221BCF46D914F626DD7C4FD9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 996B0EC4AD21FC6D5E1F5787 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = BFGAlertController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		315A3F983AB05ACB1CBA7874 /* Debug */ = {
+		17248D17E3D50B3521F7299F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -569,9 +531,9 @@
 			};
 			name = Debug;
 		};
-		4E1919CFAABD6C6B159DDF87 /* Release */ = {
+		2CD4628771D9791E007C20FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78EC43D17456F30A882EDFCB /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */;
+			baseConfigurationReference = B736E4234F8182642EE558B1 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -580,23 +542,24 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController/Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController/Pods-BFGAlertControllerExample-BFGAlertController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = BFGAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		509C985172CFBC48F1DA05D0 /* Release */ = {
+		39D68F79AE70BEDFD5E1D40A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -630,9 +593,9 @@
 			};
 			name = Release;
 		};
-		63DDF2649CD6C145B476E2B7 /* Debug */ = {
+		65D6F81264B19FFD5FFC1167 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 971DD3CFC65324E0836BE889 /* Pods-BFGAlertControllerExampleTests.debug.xcconfig */;
+			baseConfigurationReference = B91193AFECE504A8AE144D8C /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -641,28 +604,25 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController/Pods-BFGAlertControllerExample-BFGAlertController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Pods-BFGAlertControllerExampleTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_BFGAlertControllerExampleTests;
+				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExample-BFGAlertController/Pods-BFGAlertControllerExample-BFGAlertController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BFGAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		89B85E75AFB6E97A52C82213 /* Debug */ = {
+		82ABFEDA7A40FA158BDD8A1C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78EC43D17456F30A882EDFCB /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */;
+			baseConfigurationReference = B91193AFECE504A8AE144D8C /* Pods-BFGAlertControllerExample-BFGAlertController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -688,38 +648,9 @@
 			};
 			name = Debug;
 		};
-		9F813C86A738DFF1B70BFFDE /* Release */ = {
+		84AD557FAD129DB2F4B5451A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C995D0C04232678D77991898 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Pods-BFGAlertControllerExampleTests.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_BFGAlertControllerExampleTests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		A35BE60588AD5EE80BD4375B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 996B0EC4AD21FC6D5E1F5787 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */;
+			baseConfigurationReference = B736E4234F8182642EE558B1 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -734,20 +665,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests-BFGAlertController/Pods-BFGAlertControllerExampleTests-BFGAlertController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = BFGAlertController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
-		CB95B4DCFA33F2B5978B2AC2 /* Debug */ = {
+		91D7F8BEBC69271623E77767 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CD91DE93331629DE275C9DB /* Pods-BFGAlertControllerExample.debug.xcconfig */;
+			baseConfigurationReference = 34E563603CBB192819EACE3E /* Pods-BFGAlertControllerExample.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -775,55 +705,143 @@
 			};
 			name = Debug;
 		};
+		A239EB4B24886BB9D4033E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE3209CF14E664AB89535989 /* Pods-BFGAlertControllerExampleTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Pods-BFGAlertControllerExampleTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_BFGAlertControllerExampleTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B94108DFB74F4039EDEC49CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8469ED3D46931314973FE0EA /* Pods-BFGAlertControllerExample.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExample/Pods-BFGAlertControllerExample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_BFGAlertControllerExample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E9B295C5818841919AF392CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4599C44E1E444F9D5F585D2 /* Pods-BFGAlertControllerExampleTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-BFGAlertControllerExampleTests/Pods-BFGAlertControllerExampleTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_BFGAlertControllerExampleTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F7708A1424183EC66C16634 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample" */ = {
+		3784BFDE49F2B248A7B73241 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample-BFGAlertController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CB95B4DCFA33F2B5978B2AC2 /* Debug */,
-				0B35CB5E3B8D8C791F114A1D /* Release */,
+				82ABFEDA7A40FA158BDD8A1C /* Debug */,
+				65D6F81264B19FFD5FFC1167 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44BD21A2C05CF4A95B9ED38D /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample-BFGAlertController" */ = {
+		4178D828919625B725D69A59 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				89B85E75AFB6E97A52C82213 /* Debug */,
-				4E1919CFAABD6C6B159DDF87 /* Release */,
+				E9B295C5818841919AF392CF /* Debug */,
+				A239EB4B24886BB9D4033E58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B408F60780AAB5933CE3994 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests-BFGAlertController" */ = {
+		4C27E1612009083213B0F8B3 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A35BE60588AD5EE80BD4375B /* Debug */,
-				221BCF46D914F626DD7C4FD9 /* Release */,
+				17248D17E3D50B3521F7299F /* Debug */,
+				39D68F79AE70BEDFD5E1D40A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92681066C69BA94BB787A975 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests" */ = {
+		67CAF9814ECA9FEC157894D6 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				63DDF2649CD6C145B476E2B7 /* Debug */,
-				9F813C86A738DFF1B70BFFDE /* Release */,
+				91D7F8BEBC69271623E77767 /* Debug */,
+				B94108DFB74F4039EDEC49CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B639FDD9537D139EE4BEF058 /* Build configuration list for PBXProject "Pods" */ = {
+		BC854362B16BD5F929D75E00 /* Build configuration list for PBXNativeTarget "Pods-BFGAlertControllerExampleTests-BFGAlertController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				315A3F983AB05ACB1CBA7874 /* Debug */,
-				509C985172CFBC48F1DA05D0 /* Release */,
+				2CD4628771D9791E007C20FA /* Debug */,
+				84AD557FAD129DB2F4B5451A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EAA9F7C5C846120D85F30EE4 /* Project object */;
+	rootObject = 2D95F419EA44E5B1AD2E053A /* Project object */;
 }

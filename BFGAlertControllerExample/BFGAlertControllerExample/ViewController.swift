@@ -17,11 +17,11 @@ class ViewController: UIViewController {
         BFGAlertController.backgroundColor = UIColor.blackColor()
         BFGAlertController.shadeOpacity = 0.25
         BFGAlertController.dividerColor = UIColor.grayColor()
-        BFGAlertController.setTextColor(UIColor.lightTextColor(), forButtonStyle: .Default, state: .Normal)
+        BFGAlertController.setTextColor(UIColor.whiteColor(), forButtonStyle: .Default, state: .Normal)
         BFGAlertController.setBackgroundColor(UIColor.blackColor(), forButtonStyle: .Default, state: .Normal)
         BFGAlertController.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Default, state: .Highlighted)
         BFGAlertController.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Cancel, state: .Highlighted)
-        BFGAlertController.titleColor = UIColor.lightTextColor()
+        BFGAlertController.titleColor = UIColor.whiteColor()
         BFGAlertController.messageColor = UIColor.lightTextColor()
         BFGAlertController.setFont(UIFont.boldSystemFontOfSize(14.0), forButtonStyle: .Cancel, state: .Normal)
     }

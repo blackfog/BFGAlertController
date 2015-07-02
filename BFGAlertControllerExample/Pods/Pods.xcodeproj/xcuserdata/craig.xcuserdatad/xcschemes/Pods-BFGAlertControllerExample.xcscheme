@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B8989BEDCBF693F61B1A3BD1"
+               BlueprintIdentifier = "6E7D48F6F729874DD9FA94FD"
                BuildableName = "Pods_BFGAlertControllerExample.framework"
                BlueprintName = "Pods-BFGAlertControllerExample"
                ReferencedContainer = "container:Pods.xcodeproj">
