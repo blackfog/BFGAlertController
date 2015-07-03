@@ -31,6 +31,7 @@ public class BFGAlertController: UIViewController {
     var shadeView: UIView?
     var alertContainerView: UIView?
     var alertContainerViewHeight: NSLayoutConstraint?
+    var alertContainerViewBottom: NSLayoutConstraint?
     var alertTitleLabel: UILabel?
     var alertMessageLabel: UILabel?
     var alertDivider: UIView?
@@ -116,6 +117,11 @@ public class BFGAlertController: UIViewController {
         self.show()
     }
     
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.hide()
+    }
+    
     // MARK: - Public
     
     public func actionAtIndex(index: Int) -> BFGAlertAction {
@@ -133,6 +139,8 @@ public class BFGAlertController: UIViewController {
     }
 }
 
+// TODO: Add the ability to set these PER-INSTANCE, too (or make it all per-instance)
+// FIXME: Some of the config fallbacks don't work right; but, setting explicitly works fine
 // MARK: - Appearance
 public extension BFGAlertController {
     public class func backgroundColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
@@ -157,6 +165,30 @@ public extension BFGAlertController {
     
     public class func setFont(font: UIFont, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
         ConfigHelper.setConfigValue(font, inArray: &self.buttonFont, forButtonStyle: style, state: state)
+    }
+}
+
+// MARK: - Button Appearance
+extension BFGAlertController {
+    class func attributedStringForButton(button: UIButton, style: BFGAlertActionStyle, state: BFGAlertActionState, controlState: UIControlState) -> NSAttributedString {
+        return NSAttributedString(
+            string: button.titleForState(controlState)!,
+            attributes: [
+                NSFontAttributeName: BFGAlertController.font(forButtonStyle: style, state: state) as! AnyObject,
+                NSForegroundColorAttributeName: BFGAlertController.textColor(forButtonStyle: style, state: state) as! AnyObject
+            ]
+        )
+        
+    }
+    
+    class func styleButton(button: UIButton, style: BFGAlertActionStyle) {
+        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Normal, controlState: .Normal), forState: .Normal)
+        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Highlighted, controlState: .Highlighted), forState: .Highlighted)
+        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Disabled, controlState: .Disabled), forState: .Disabled)
+        
+        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Normal)!), forState: .Normal)
+        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Highlighted)!), forState: .Highlighted)
+        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Disabled)!), forState: .Disabled)
     }
 }
 
@@ -206,6 +238,17 @@ extension BFGAlertController {
                 self.showAlert()
             case .ActionSheet:
                 self.showActionSheet()
+        }
+    }
+    
+    private func hide() {
+        if (self.showing) {
+            switch (self.style) {
+                case .Alert:
+                    break
+                case .ActionSheet:
+                    self.hideActionSheet()
+            }
         }
     }
 }

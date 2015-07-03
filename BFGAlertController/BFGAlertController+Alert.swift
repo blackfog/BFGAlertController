@@ -314,25 +314,4 @@ extension BFGAlertController {
         
         self.alertContainerView?.setNeedsLayout()
     }
-    
-    static func attributedStringForButton(button: UIButton, style: BFGAlertActionStyle, state: BFGAlertActionState, controlState: UIControlState) -> NSAttributedString {
-        return NSAttributedString(
-            string: button.titleForState(controlState)!,
-            attributes: [
-                NSFontAttributeName: BFGAlertController.font(forButtonStyle: style, state: state) as! AnyObject,
-                NSForegroundColorAttributeName: BFGAlertController.textColor(forButtonStyle: style, state: state) as! AnyObject
-            ]
-        )
-        
-    }
-    
-    static func styleButton(button: UIButton, style: BFGAlertActionStyle) {
-        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Normal, controlState: .Normal), forState: .Normal)
-        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Highlighted, controlState: .Highlighted), forState: .Highlighted)
-        button.setAttributedTitle(BFGAlertController.attributedStringForButton(button, style: style, state: .Disabled, controlState: .Disabled), forState: .Disabled)
-        
-        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Normal)!), forState: .Normal)
-        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Highlighted)!), forState: .Highlighted)
-        button.setBackgroundImage(UIImage.pixelOfColor(BFGAlertController.backgroundColor(forButtonStyle: style, state: .Disabled)!), forState: .Disabled)
-    }
 }

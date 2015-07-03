@@ -14,6 +14,7 @@ class SimpleStackView: UIView {
     
     var stackViews    = [UIView]()
     var viewHeight    = CGFloat(40.0)
+    var viewHeights   = [CGFloat]()
     var dividerColor  = UIColor.grayColor()
     var dividerHeight = CGFloat(0.5)
     
@@ -40,9 +41,14 @@ class SimpleStackView: UIView {
         var alignToView: UIView = self
         var alignToAttribute: NSLayoutAttribute = .Top
         
-        for view in self.stackViews {
+        for i in 0..<self.stackViews.count {
+            let view = self.stackViews[i]
+            
             view.setTranslatesAutoresizingMaskIntoConstraints(false)
             self.addSubview(view)
+            
+            let viewHeight = self.viewHeights.count > 0 && i <= self.viewHeights.endIndex ?
+                self.viewHeights[i] : self.viewHeight
             
             self.addConstraints([
                 NSLayoutConstraint(
@@ -67,7 +73,7 @@ class SimpleStackView: UIView {
                     item: view, attribute: .Height,
                         relatedBy: .Equal,
                     toItem: nil, attribute: .NotAnAttribute,
-                        multiplier: 1.0, constant: self.viewHeight
+                        multiplier: 1.0, constant: viewHeight
                 )
             ])
             
@@ -107,12 +113,7 @@ class SimpleStackView: UIView {
             alignToView = divider
             alignToAttribute = .Bottom
         }
-        
+
         self.setNeedsLayout()
     }
-}
-
-// MARK: - Private
-extension SimpleStackView {
-
 }
