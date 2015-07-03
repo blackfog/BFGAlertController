@@ -16,10 +16,10 @@ extension BFGAlertController {
         
         self.alertContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 150)) // arbitrary
         
-        self.alertContainerView?.backgroundColor = BFGAlertController.backgroundColor
+        self.alertContainerView?.backgroundColor = self.backgroundColor
         self.alertContainerView?.transform = CGAffineTransformMakeScale(0, 0)
         self.alertContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.alertContainerView?.layer.cornerRadius = BFGAlertController.cornerRadius
+        self.alertContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertContainerView?.clipsToBounds = true
 
         self.shadeView?.addSubview(self.alertContainerView!)
@@ -49,7 +49,7 @@ extension BFGAlertController {
                 item: self.alertContainerView!, attribute: .Width,
                     relatedBy: .Equal,
                 toItem: nil, attribute: .NotAnAttribute,
-                    multiplier: 1.0, constant: BFGAlertController.alertWidth
+                    multiplier: 1.0, constant: self.alertWidth
             )
         ])
 
@@ -69,16 +69,16 @@ extension BFGAlertController {
     
     func createTitleLabel() {
         self.alertTitleLabel = self.createLabel(
-            textColor: BFGAlertController.titleColor,
-            font: BFGAlertController.titleFont,
+            textColor: self.titleColor,
+            font: self.titleFont,
             text: self.alertTitle
         )
     }
     
     func createMessageLabel() {
         self.alertMessageLabel = self.createLabel(
-            textColor: BFGAlertController.messageColor,
-            font: BFGAlertController.messageFont,
+            textColor: self.messageColor,
+            font: self.messageFont,
             text: self.alertMessage
         )
     }
@@ -132,19 +132,19 @@ extension BFGAlertController {
                 item: label, attribute: .Top,
                     relatedBy: .Equal,
                 toItem: alignToView, attribute: alignToAttribute,
-                    multiplier: 1.0, constant: BFGAlertController.alertPadding
+                    multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
                 item: label, attribute: .Leading,
                     relatedBy: .Equal,
                 toItem: self.alertContainerView!, attribute: .Leading,
-                    multiplier: 1.0, constant: BFGAlertController.alertPadding
+                    multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
                 item: label, attribute: .Trailing,
                     relatedBy: .Equal,
                 toItem: self.alertContainerView!, attribute: .Trailing,
-                    multiplier: 1.0, constant: -BFGAlertController.alertPadding
+                    multiplier: 1.0, constant: -self.alertPadding
             ),
             NSLayoutConstraint(
                 item: label, attribute: .Height,
@@ -181,8 +181,8 @@ extension BFGAlertController {
     }
     
     func addDivider() {
-        self.alertDivider = UIView(frame: CGRect(x: 0, y: 0, width: BFGAlertController.alertWidth, height: BFGAlertController.dividerSize))
-        self.alertDivider?.backgroundColor = BFGAlertController.dividerColor
+        self.alertDivider = UIView(frame: CGRect(x: 0, y: 0, width: self.alertWidth, height: self.dividerSize))
+        self.alertDivider?.backgroundColor = self.dividerColor
         self.alertDivider?.setTranslatesAutoresizingMaskIntoConstraints(false)
         
         self.alertContainerView?.addSubview(self.alertDivider!)
@@ -194,7 +194,7 @@ extension BFGAlertController {
                 item: self.alertDivider!, attribute: .Top,
                     relatedBy: .Equal,
                 toItem: alignTo, attribute: .Bottom,
-                    multiplier: 1.0, constant: BFGAlertController.alertPadding
+                    multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
                 item: self.alertDivider!, attribute: .Leading,
@@ -212,7 +212,7 @@ extension BFGAlertController {
                 item: self.alertDivider!, attribute: .Height,
                     relatedBy: .Equal,
                 toItem: nil, attribute: .NotAnAttribute,
-                    multiplier: 1.0, constant: BFGAlertController.dividerSize
+                    multiplier: 1.0, constant: self.dividerSize
             )
         ])
     }
@@ -222,13 +222,13 @@ extension BFGAlertController {
         
         for action in self.alertActions {
             let button = action.button()
-            BFGAlertController.styleButton(button, style: action.style)
+            self.styleButton(button, style: action.style)
             buttons.append(button)
         }
 
         if buttons.count == 2 {
-            if self.widthForLabel(buttons[0].titleLabel) < BFGAlertController.alertWidth / 2 &&
-                self.widthForLabel(buttons[1].titleLabel) < BFGAlertController.alertWidth / 2
+            if self.widthForLabel(buttons[0].titleLabel) < self.alertWidth / 2 &&
+                self.widthForLabel(buttons[1].titleLabel) < self.alertWidth / 2
             {
                 let container = SideBySideView(
                     left: buttons[0],
@@ -237,8 +237,8 @@ extension BFGAlertController {
                 
                 self.alertActionsContainerView = container
                 
-                container.dividerColor = BFGAlertController.dividerColor
-                container.dividerWidth = BFGAlertController.dividerSize
+                container.dividerColor = self.dividerColor
+                container.dividerWidth = self.dividerSize
             }
             else {
                 self.alertActionsContainerView = SimpleStackView(views: buttons)
@@ -281,13 +281,13 @@ extension BFGAlertController {
     }
     
     func alertHeight(#titleHeight: CGFloat, messageHeight: CGFloat, buttonHeight: CGFloat) -> CGFloat {
-        var alertHeight = BFGAlertController.alertPadding * 2
+        var alertHeight = self.alertPadding * 2
 
         if self.alertTitle != nil { alertHeight += titleHeight }
         if self.alertMessage != nil { alertHeight += messageHeight }
-        if self.alertTitle != nil && self.alertMessage != nil { alertHeight += BFGAlertController.alertPadding }
+        if self.alertTitle != nil && self.alertMessage != nil { alertHeight += self.alertPadding }
         
-        alertHeight += BFGAlertController.dividerSize
+        alertHeight += self.dividerSize
         alertHeight += self.heightForButtons()
         
         return alertHeight
@@ -295,10 +295,10 @@ extension BFGAlertController {
     
     func heightForButtons() -> CGFloat {
         if self.alertActionsContainerView! is SimpleStackView {
-            return (CGFloat(self.alertActions.count) * BFGAlertController.buttonHeight) + (CGFloat(self.alertActions.count - 1) * BFGAlertController.dividerSize)
+            return (CGFloat(self.alertActions.count) * self.buttonHeight) + (CGFloat(self.alertActions.count - 1) * self.dividerSize)
         }
         else if self.alertActionsContainerView! is SideBySideView {
-            return BFGAlertController.buttonHeight
+            return self.buttonHeight
         }
         else {
             fatalError("Unknown actions container view class")

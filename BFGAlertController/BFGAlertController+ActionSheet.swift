@@ -1,4 +1,4 @@
-//
+    //
 //  BFGAlertController+ActionSheet.swift
 //  Pods
 //
@@ -11,10 +11,10 @@ import UIKit
 extension BFGAlertController {
     func showActionSheet() {
         if let popover = self.popoverPresentationController {
-            self.showActionSheetInPopover()
+            self.showActionSheetInternal(modal: false)
         }
         else {
-            self.showActionSheetModally()
+            self.showActionSheetInternal(modal: true)
         }
     }
     
@@ -34,25 +34,29 @@ extension BFGAlertController {
         return smallest
     }
     
-    func showActionSheetModally() {
-        self.addShade()
+    func showActionSheetInternal(#modal: Bool) {
+        if (modal) { self.addShade() }
         self.createActionSheet()
         
+        let targetView = modal ? self.shadeView! : self.popoverPresentationController?.containerView
+        
         self.shadeView?.addSubview(self.alertContainerView!)
-        let height = self.calculateHeight()
+
+        let height      = self.calculateHeight()
+        let finalBottom = -(self.alertPadding / 2)
         
         self.alertContainerViewHeight = NSLayoutConstraint(
             item: self.alertContainerView!, attribute: .Height,
                 relatedBy: .Equal,
             toItem: nil, attribute: .NotAnAttribute,
-                multiplier: 1.0, constant: height
+                multiplier: 1.0, constant: modal ? height : finalBottom
         )
 
         self.alertContainerViewBottom = NSLayoutConstraint(
             item: self.alertContainerView!, attribute: .Bottom,
-            relatedBy: .Equal,
-            toItem: self.shadeView!, attribute: .Bottom,
-            multiplier: 1.0, constant: height
+                relatedBy: .Equal,
+            toItem: targetView, attribute: .Bottom,
+                multiplier: 1.0, constant: height
         )
 
         self.shadeView?.addConstraints([
@@ -60,25 +64,29 @@ extension BFGAlertController {
             NSLayoutConstraint(
                 item: self.alertContainerView!, attribute: .CenterX,
                     relatedBy: .Equal,
-                toItem: self.shadeView!, attribute: .CenterX,
+                toItem: targetView, attribute: .CenterX,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
                 item: self.alertContainerView!, attribute: .Width,
                     relatedBy: .Equal,
                 toItem: nil, attribute: .NotAnAttribute,
-                    multiplier: 1.0, constant: self.smallestDimension() - BFGAlertController.alertPadding
+                    multiplier: 1.0, constant: self.smallestDimension() - self.alertPadding
             ),
             self.alertContainerViewHeight!
         ])
-        
-        dispatch_async(dispatch_get_main_queue()) {
-            self.alertContainerViewBottom!.constant = -(BFGAlertController.alertPadding / 2)
-            
-            UIView.animateWithDuration(0.2) {
-                self.alertContainerView?.layoutIfNeeded()
+
+        if modal {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.alertContainerViewBottom!.constant = finalBottom
+                
+                UIView.animateWithDuration(0.2) {
+                    self.alertContainerView?.layoutIfNeeded()
+                }
             }
         }
+        
+        // TODO: whatever is necessary to finish popover presentation (the rest should be in place)
     }
     
     func hideModalActionSheet() {
@@ -89,11 +97,6 @@ extension BFGAlertController {
         }
     }
     
-    func showActionSheetInPopover() {
-        // set up the popover and display the action sheet within
-        self.createActionSheet()
-    }
-    
     // TODO: add support for title/message
     func createActionSheet() {
         self.addMainButtons()
@@ -101,7 +104,7 @@ extension BFGAlertController {
         
         self.alertContainerView = SimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
         (self.alertContainerView as! SimpleStackView).dividerColor = UIColor.clearColor()
-        (self.alertContainerView as! SimpleStackView).dividerHeight = BFGAlertController.alertPadding / 2
+        (self.alertContainerView as! SimpleStackView).dividerHeight = self.alertPadding / 2
         (self.alertContainerView as! SimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
         
         self.alertContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -113,14 +116,14 @@ extension BFGAlertController {
         for action in self.alertActions {
             if (action.style == .Default) {
                 let button = action.button()
-                BFGAlertController.styleButton(button, style: action.style)
+                self.styleButton(button, style: action.style)
                 buttons.append(button)
             }
         }
         
         self.alertActionsContainerView = SimpleStackView(views: buttons)
         self.alertActionsContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.alertActionsContainerView?.layer.cornerRadius = BFGAlertController.cornerRadius / 2
+        self.alertActionsContainerView?.layer.cornerRadius = self.cornerRadius / 2
         self.alertActionsContainerView?.layer.masksToBounds = true
     }
     
@@ -130,14 +133,14 @@ extension BFGAlertController {
         for action in self.alertActions {
             if (action.style != .Default) {
                 let button = action.button()
-                BFGAlertController.styleButton(button, style: action.style)
+                self.styleButton(button, style: action.style)
                 buttons.append(button)
             }
         }
         
         self.alertActionsAltContainerView = SimpleStackView(views: buttons)
         self.alertActionsAltContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.alertActionsAltContainerView?.layer.cornerRadius = BFGAlertController.cornerRadius / 2
+        self.alertActionsAltContainerView?.layer.cornerRadius = self.cornerRadius / 2
         self.alertActionsAltContainerView?.layer.masksToBounds = true
     }
     
@@ -150,7 +153,7 @@ extension BFGAlertController {
             }
         }
         
-        return (CGFloat(count) * BFGAlertController.buttonHeight) + (CGFloat(count - 1) * BFGAlertController.dividerSize)
+        return (CGFloat(count) * self.buttonHeight) + (CGFloat(count - 1) * self.dividerSize)
     }
     
     func nonDefaultsHeight() -> CGFloat {
@@ -162,11 +165,11 @@ extension BFGAlertController {
             }
         }
         
-        return (CGFloat(count) * BFGAlertController.buttonHeight) + (CGFloat(count - 1) * BFGAlertController.dividerSize)
+        return (CGFloat(count) * self.buttonHeight) + (CGFloat(count - 1) * self.dividerSize)
     }
     
     func calculateHeight() -> CGFloat {
         // TODO: add in the heights for title and message
-        return self.defaultsHeight() + BFGAlertController.alertPadding + self.nonDefaultsHeight()
+        return self.defaultsHeight() + self.alertPadding + self.nonDefaultsHeight()
     }
 }

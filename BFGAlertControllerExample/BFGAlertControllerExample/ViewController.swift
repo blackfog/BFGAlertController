@@ -13,18 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // also great when used in the AppDelegate
-        BFGAlertController.backgroundColor = UIColor.blackColor()
-        BFGAlertController.shadeOpacity = 0.25
-        BFGAlertController.dividerColor = UIColor.grayColor()
-        BFGAlertController.setTextColor(UIColor.whiteColor(), forButtonStyle: .Default, state: .Normal)
-        BFGAlertController.setBackgroundColor(UIColor.blackColor(), forButtonStyle: .Default, state: .Normal)
-        BFGAlertController.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Default, state: .Highlighted)
-        BFGAlertController.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Cancel, state: .Highlighted)
-        BFGAlertController.setBackgroundColor(UIColor.redColor(), forButtonStyle: .Cancel, state: .Normal)
-        BFGAlertController.titleColor = UIColor.whiteColor()
-        BFGAlertController.messageColor = UIColor.lightTextColor()
-        BFGAlertController.setFont(UIFont.boldSystemFontOfSize(14.0), forButtonStyle: .Cancel, state: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +37,17 @@ class ViewController: UIViewController {
             }
         )
 
+        alert.backgroundColor = UIColor.blackColor()
+        alert.shadeOpacity = 0.25
+        alert.dividerColor = UIColor.grayColor()
+        alert.setTextColor(UIColor.whiteColor(), forButtonStyle: .Default, state: .Normal)
+        alert.setBackgroundColor(UIColor.blackColor(), forButtonStyle: .Default, state: .Normal)
+        alert.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Default, state: .Highlighted)
+        alert.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Cancel, state: .Highlighted)
+        alert.titleColor = UIColor.whiteColor()
+        alert.messageColor = UIColor.lightTextColor()
+        alert.setFont(UIFont.boldSystemFontOfSize(14.0), forButtonStyle: .Cancel, state: .Normal)
+        
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -75,7 +74,19 @@ class ViewController: UIViewController {
                 alert.dismissViewControllerAnimated(true, completion: nil)
             }
         )
-        
+
+        alert.backgroundColor = UIColor.blackColor()
+        alert.shadeOpacity = 0.25
+        alert.dividerColor = UIColor.grayColor()
+        alert.setTextColor(UIColor.whiteColor(), forButtonStyle: .Default, state: .Normal)
+        alert.setBackgroundColor(UIColor.blackColor(), forButtonStyle: .Default, state: .Normal)
+        alert.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Default, state: .Highlighted)
+        alert.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Cancel, state: .Highlighted)
+        alert.setBackgroundColor(UIColor.redColor(), forButtonStyle: .Cancel, state: .Normal)
+        alert.titleColor = UIColor.whiteColor()
+        alert.messageColor = UIColor.lightTextColor()
+        alert.setFont(UIFont.boldSystemFontOfSize(14.0), forButtonStyle: .Cancel, state: .Normal)
+
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
