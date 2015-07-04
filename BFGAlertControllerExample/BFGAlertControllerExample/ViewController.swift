@@ -52,7 +52,54 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAlertWithFields() {
-        // TODO
+        let alert = BFGAlertController(title: "Log In", message: "Enter your login credentials", preferredStyle: .Alert)
+        
+        alert.addAction(
+            BFGAlertAction(title: "OK", style: .Default) { action in
+                NSLog("Log In")
+                alert.dismissViewControllerAnimated(true, completion: nil)
+            }
+        )
+        
+        alert.addAction(
+            BFGAlertAction(title: "Cancel", style: .Cancel) { action in
+                NSLog("Cancel")
+                alert.dismissViewControllerAnimated(true, completion: nil)
+            }
+        )
+        
+        alert.addTextFieldWithConfigurationHandler { field in
+            field.placeholder = "username"
+            field.borderStyle = .Line
+            field.backgroundColor = UIColor.darkGrayColor()
+            field.textColor = UIColor.lightTextColor()
+            field.tintColor = UIColor.grayColor()
+            field.returnKeyType = .Next
+        }
+
+        alert.addTextFieldWithConfigurationHandler { field in
+            field.placeholder = "password"
+            field.borderStyle = .Line
+            field.secureTextEntry = true
+            field.backgroundColor = UIColor.darkGrayColor()
+            field.textColor = UIColor.lightTextColor()
+            field.tintColor = UIColor.grayColor()
+            field.tag = 2
+            field.returnKeyType = .Send
+        }
+
+        alert.backgroundColor = UIColor.blackColor()
+        alert.shadeOpacity = 0.25
+        alert.dividerColor = UIColor.grayColor()
+        alert.setTextColor(UIColor.whiteColor(), forButtonStyle: .Default, state: .Normal)
+        alert.setBackgroundColor(UIColor.blackColor(), forButtonStyle: .Default, state: .Normal)
+        alert.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Default, state: .Highlighted)
+        alert.setBackgroundColor(UIColor.darkGrayColor(), forButtonStyle: .Cancel, state: .Highlighted)
+        alert.titleColor = UIColor.whiteColor()
+        alert.messageColor = UIColor.lightTextColor()
+        alert.setFont(UIFont.boldSystemFontOfSize(14.0), forButtonStyle: .Cancel, state: .Normal)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func showActionSheetModal() {

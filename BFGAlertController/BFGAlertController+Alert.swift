@@ -6,6 +6,8 @@
 //
 //
 
+// TODO: for alerts with text fields, if a keyboard is showing, need to move the entire thing up, centered in the remaining space, etc.
+
 import UIKit
 
 extension BFGAlertController {
@@ -56,10 +58,10 @@ extension BFGAlertController {
         self.createTitleLabel()
         self.createMessageLabel()
         self.layoutLabels()
+        self.addTextFields()
         self.addDivider()
         self.addButtons()
         self.updateAlertHeight()
-        // TODO: add support for the text fields
 
         UIView.animateWithDuration(0.33, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.05,
             options: .CurveLinear, animations: {
@@ -180,6 +182,54 @@ extension BFGAlertController {
         }
     }
     
+    func addTextFields() {
+        if self.alertFields.count > 0 {
+            self.alertFieldView = SimpleStackView(views: self.alertFields)
+            self.alertFieldView?.dividerHeight = 0
+            self.alertFieldView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+            
+            self.alertContainerView?.addSubview(self.alertFieldView!)
+            
+            let attachToView = self.alertMessage == nil ? self.alertTitleLabel! : self.alertMessageLabel!
+            
+            self.alertContainerView?.addConstraints([
+                NSLayoutConstraint(
+                    item: self.alertFieldView!, attribute: .Top,
+                        relatedBy: .Equal,
+                    toItem: attachToView, attribute: .Bottom,
+                        multiplier: 1.0, constant: self.alertPadding
+                ),
+                NSLayoutConstraint(
+                    item: self.alertFieldView!, attribute: .Leading,
+                        relatedBy: .Equal,
+                    toItem: self.alertContainerView!, attribute: .Leading,
+                        multiplier: 1.0, constant: self.alertPadding
+                ),
+                NSLayoutConstraint(
+                    item: self.alertFieldView!, attribute: .Trailing,
+                        relatedBy: .Equal,
+                    toItem: self.alertContainerView!, attribute: .Trailing,
+                        multiplier: 1.0, constant: -self.alertPadding
+                ),
+                NSLayoutConstraint(
+                    item: self.alertFieldView!, attribute: .Height,
+                        relatedBy: .Equal,
+                    toItem: nil, attribute: .NotAnAttribute,
+                        multiplier: 1.0, constant: self.alertFieldViewHeight()
+                )
+            ])
+        }
+    }
+    
+    func alertFieldViewHeight() -> CGFloat {
+        if self.alertFields.count > 0 {
+            return self.alertFieldView!.viewHeight * CGFloat(self.alertFields.count)
+        }
+        else {
+            return 0.0
+        }
+    }
+    
     func addDivider() {
         self.alertDivider = UIView(frame: CGRect(x: 0, y: 0, width: self.alertWidth, height: self.dividerSize))
         self.alertDivider?.backgroundColor = self.dividerColor
@@ -187,7 +237,8 @@ extension BFGAlertController {
         
         self.alertContainerView?.addSubview(self.alertDivider!)
         
-        var alignTo = self.alertMessageLabel != nil ? self.alertMessageLabel : self.alertTitleLabel
+        var alignTo: UIView? = self.alertMessageLabel != nil ? self.alertMessageLabel : self.alertTitleLabel
+        if self.alertFieldView != nil { alignTo = self.alertFieldView }
         
         self.alertContainerView?.addConstraints([
             NSLayoutConstraint(
@@ -242,10 +293,12 @@ extension BFGAlertController {
             }
             else {
                 self.alertActionsContainerView = SimpleStackView(views: buttons)
+                (self.alertActionsContainerView as! SimpleStackView).viewHeight = self.buttonHeight
             }
         }
         else {
             self.alertActionsContainerView = SimpleStackView(views: buttons)
+            (self.alertActionsContainerView as! SimpleStackView).viewHeight = self.buttonHeight
         }
         
         self.alertActionsContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -272,23 +325,28 @@ extension BFGAlertController {
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertActionsContainerView!, attribute: .Bottom,
+                item: self.alertActionsContainerView!, attribute: .Height,
                     relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Bottom,
-                    multiplier: 1.0, constant: 0.0
+                toItem: nil, attribute: .NotAnAttribute,
+                    multiplier: 1.0, constant: self.heightForButtons()
             )
         ])
     }
     
-    func alertHeight(#titleHeight: CGFloat, messageHeight: CGFloat, buttonHeight: CGFloat) -> CGFloat {
+    func alertHeight() -> CGFloat {
         var alertHeight = self.alertPadding * 2
 
-        if self.alertTitle != nil { alertHeight += titleHeight }
-        if self.alertMessage != nil { alertHeight += messageHeight }
+        if self.alertTitle != nil { alertHeight += self.heightForLabel(self.alertTitleLabel) }
+        if self.alertMessage != nil { alertHeight += self.heightForLabel(self.alertMessageLabel) }
         if self.alertTitle != nil && self.alertMessage != nil { alertHeight += self.alertPadding }
         
         alertHeight += self.dividerSize
         alertHeight += self.heightForButtons()
+        
+        var fieldHeight = self.alertFieldViewHeight()
+        if fieldHeight > 0 { fieldHeight += 16.0 }
+        
+        alertHeight += fieldHeight
         
         return alertHeight
     }
@@ -306,12 +364,7 @@ extension BFGAlertController {
     }
     
     func updateAlertHeight() {
-        self.alertContainerViewHeight?.constant = self.alertHeight(
-            titleHeight: self.heightForLabel(self.alertTitleLabel),
-            messageHeight: self.heightForLabel(self.alertMessageLabel),
-            buttonHeight: self.heightForButtons()
-        )
-        
+        self.alertContainerViewHeight?.constant = self.alertHeight()
         self.alertContainerView?.setNeedsLayout()
     }
 }

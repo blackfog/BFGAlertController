@@ -77,41 +77,47 @@ class SimpleStackView: UIView {
                 )
             ])
             
-            // TODO: suppress the final divider
-            let divider = UIView()
-            divider.backgroundColor = self.dividerColor
-            divider.setTranslatesAutoresizingMaskIntoConstraints(false)
-            self.addSubview(divider)
-            
-            self.addConstraints([
-                NSLayoutConstraint(
-                    item: divider, attribute: .Top,
-                        relatedBy: .Equal,
-                    toItem: view, attribute: .Bottom,
-                        multiplier: 1.0, constant: 0.0
-                ),
-                NSLayoutConstraint(
-                    item: divider, attribute: .Leading,
-                        relatedBy: .Equal,
-                    toItem: self, attribute: .Leading,
-                        multiplier: 1.0, constant: 0.0
-                ),
-                NSLayoutConstraint(
-                    item: divider, attribute: .Trailing,
-                        relatedBy: .Equal,
-                    toItem: self, attribute: .Trailing,
-                        multiplier: 1.0, constant: 0.0
-                ),
-                NSLayoutConstraint(
-                    item: divider, attribute: .Height,
-                        relatedBy: .Equal,
-                    toItem: nil, attribute: .NotAnAttribute,
-                        multiplier: 1.0, constant: self.dividerHeight
-                )
-            ])
-            
-            alignToView = divider
-            alignToAttribute = .Bottom
+            if self.dividerHeight > 0 {
+                // TODO: suppress the final divider
+                let divider = UIView()
+                divider.backgroundColor = self.dividerColor
+                divider.setTranslatesAutoresizingMaskIntoConstraints(false)
+                self.addSubview(divider)
+                
+                self.addConstraints([
+                    NSLayoutConstraint(
+                        item: divider, attribute: .Top,
+                            relatedBy: .Equal,
+                        toItem: view, attribute: .Bottom,
+                            multiplier: 1.0, constant: 0.0
+                    ),
+                    NSLayoutConstraint(
+                        item: divider, attribute: .Leading,
+                            relatedBy: .Equal,
+                        toItem: self, attribute: .Leading,
+                            multiplier: 1.0, constant: 0.0
+                    ),
+                    NSLayoutConstraint(
+                        item: divider, attribute: .Trailing,
+                            relatedBy: .Equal,
+                        toItem: self, attribute: .Trailing,
+                            multiplier: 1.0, constant: 0.0
+                    ),
+                    NSLayoutConstraint(
+                        item: divider, attribute: .Height,
+                            relatedBy: .Equal,
+                        toItem: nil, attribute: .NotAnAttribute,
+                            multiplier: 1.0, constant: self.dividerHeight
+                    )
+                ])
+                
+                alignToView = divider
+                alignToAttribute = .Bottom
+            }
+            else {
+                alignToView = view
+                alignToAttribute = .Bottom
+            }
         }
 
         self.setNeedsLayout()
