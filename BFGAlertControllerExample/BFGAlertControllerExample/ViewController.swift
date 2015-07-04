@@ -51,8 +51,12 @@ class ViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    @IBAction func showAlertWithFields() {
+        // TODO
+    }
+    
     @IBAction func showActionSheetModal() {
-        let alert = BFGAlertController(title: "Options", message: "Choose one of the following options", preferredStyle: .ActionSheet)
+        let alert = BFGAlertController(title: nil, message: "Choose one of the following options", preferredStyle: .ActionSheet)
         
         alert.addAction(
             BFGAlertAction(title: "Option A", style: .Default) { action in

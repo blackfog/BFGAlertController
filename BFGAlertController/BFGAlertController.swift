@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Black Fog Interactive. All rights reserved.
 //
 
-// TODO: think of ways to break down this (getting) massive class into subclasses
+// TODO: for next major release, refactor how this object is put together
 
 import UIKit
 
@@ -18,12 +18,13 @@ public enum BFGAlertControllerStyle : Int {
 }
 
 // MARK: - Main
-public class BFGAlertController: UIViewController {
+@objc public class BFGAlertController: UIViewController {
     // MARK: - Public Declarations
     
     public var alertTitle: String?
     public var alertMessage: String?
     public var showing = false
+    public var containerView: UIView?
     
     public var actions: [BFGAlertAction] {
         return self.alertActions
@@ -130,6 +131,8 @@ public class BFGAlertController: UIViewController {
     }
     
     public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField!) -> Void)!) {
+        assert(self.style != .ActionSheet, "Text fields may only be added to alerts")
+        
         let field = UITextField()
         configurationHandler(field)
         self.alertFields.append(field)

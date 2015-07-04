@@ -10,7 +10,7 @@ import UIKit
 
 extension BFGAlertController {
     func showActionSheet() {
-        if let popover = self.popoverPresentationController {
+        if self.containerView != nil {
             self.showActionSheetInternal(modal: false)
         }
         else {
@@ -19,10 +19,7 @@ extension BFGAlertController {
     }
     
     func hideActionSheet() {
-        if let popover = self.popoverPresentationController {
-            // nop
-        }
-        else {
+        if self.containerView == nil {
             self.hideModalActionSheet()
         }
     }
@@ -59,7 +56,7 @@ extension BFGAlertController {
                 multiplier: 1.0, constant: height
         )
 
-        self.shadeView?.addConstraints([
+        targetView!.addConstraints([
             self.alertContainerViewBottom!,
             NSLayoutConstraint(
                 item: self.alertContainerView!, attribute: .CenterX,
@@ -80,13 +77,11 @@ extension BFGAlertController {
             dispatch_async(dispatch_get_main_queue()) {
                 self.alertContainerViewBottom!.constant = finalBottom
                 
-                UIView.animateWithDuration(0.2) {
+                UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseIn, animations: {
                     self.alertContainerView?.layoutIfNeeded()
-                }
+                }, completion: nil)
             }
         }
-        
-        // TODO: whatever is necessary to finish popover presentation (the rest should be in place)
     }
     
     func hideModalActionSheet() {
@@ -97,7 +92,6 @@ extension BFGAlertController {
         }
     }
     
-    // TODO: add support for title/message
     func createActionSheet() {
         self.addMainButtons()
         self.addAltButtons()
@@ -111,7 +105,18 @@ extension BFGAlertController {
     }
     
     func addMainButtons() {
-        var buttons = [UIButton]()
+        var buttons = [UIView]()
+
+        let messageView = self.createMessageView()
+        buttons.append(messageView)
+        
+        let titleHeight = self.alertTitleLabel != nil ? self.heightForLabel(self.alertTitleLabel!) : 0
+        let messageHeight = self.alertMessageLabel != nil ? self.heightForLabel(self.alertMessageLabel!) : 0
+        var messageViewHeight = self.alertPadding * 2
+        
+        if self.alertTitle != nil { messageViewHeight += titleHeight }
+        if self.alertMessage != nil { messageViewHeight += messageHeight }
+        if self.alertTitle != nil && self.alertMessage != nil { messageViewHeight += self.alertPadding }
         
         for action in self.alertActions {
             if (action.style == .Default) {
@@ -125,6 +130,37 @@ extension BFGAlertController {
         self.alertActionsContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
         self.alertActionsContainerView?.layer.cornerRadius = self.cornerRadius / 2
         self.alertActionsContainerView?.layer.masksToBounds = true
+        // set the stack view heights for each since the title view will not match the default heights for buttons
+        
+        var viewHeights = [CGFloat]()
+
+        for button in buttons {
+            if button is UIButton {
+                viewHeights.append(self.buttonHeight)
+            }
+            else {
+                viewHeights.append(messageViewHeight)
+            }
+        }
+        
+        (self.alertActionsContainerView as! SimpleStackView).viewHeights = viewHeights
+    }
+    
+    func createMessageView() -> UIView {
+        let messageView = UIView()
+
+        messageView.backgroundColor = self.backgroundColor
+        messageView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        self.createTitleLabel()
+        self.createMessageLabel()
+        
+        if self.alertTitleLabel != nil { messageView.addSubview(self.alertTitleLabel!) }
+        if self.alertMessageLabel != nil { messageView.addSubview(self.alertMessageLabel!) }
+        
+        self.layoutLabelsInView(messageView)
+        
+        return messageView
     }
     
     func addAltButtons() {
@@ -144,23 +180,48 @@ extension BFGAlertController {
         self.alertActionsAltContainerView?.layer.masksToBounds = true
     }
     
+    func layoutLabelsInView(targetView: UIView) {
+        var alignTitleToView: UIView? = targetView
+        var alignTitleToAttribute: NSLayoutAttribute = .Top
+        
+        var alignMessageToView: UIView? = self.alertTitleLabel
+        var alignMessageToAttribute: NSLayoutAttribute = .Bottom
+        
+        if self.alertTitle != nil && self.alertMessage == nil {
+            alignMessageToView = nil
+        }
+        else if self.alertTitle == nil && self.alertMessage != nil {
+            alignTitleToView = nil
+            alignMessageToView = targetView
+            alignMessageToAttribute = .Top
+        }
+        
+        if let alignTo = alignTitleToView {
+            self.layoutLabelInView(targetView, label: self.alertTitleLabel!, alignToView: alignTo, alignToAttribute: alignTitleToAttribute)
+        }
+        
+        if let alignTo = alignMessageToView {
+            self.layoutLabelInView(targetView, label: self.alertMessageLabel!, alignToView: alignTo, alignToAttribute: alignMessageToAttribute)
+        }
+    }
+
     func defaultsHeight() -> CGFloat {
         var count = 0
         
         for action in self.alertActions {
-            if (action.style == .Default) {
+            if action.style == .Default {
                 count++
             }
         }
         
-        return (CGFloat(count) * self.buttonHeight) + (CGFloat(count - 1) * self.dividerSize)
+        return (CGFloat(count) * self.buttonHeight) + (CGFloat(count - 1) * self.dividerSize) + self.messageViewHeight()
     }
     
     func nonDefaultsHeight() -> CGFloat {
         var count = 0
         
         for action in self.alertActions {
-            if (action.style != .Default) {
+            if action.style != .Default {
                 count++
             }
         }
@@ -168,8 +229,14 @@ extension BFGAlertController {
         return (CGFloat(count) * self.buttonHeight) + (CGFloat(count - 1) * self.dividerSize)
     }
     
+    func messageViewHeight() -> CGFloat {
+        let container  = self.alertContainerView as! SimpleStackView
+        let topSection = container.stackViews.first as! SimpleStackView
+        
+        return topSection.viewHeights.first!
+    }
+    
     func calculateHeight() -> CGFloat {
-        // TODO: add in the heights for title and message
         return self.defaultsHeight() + self.alertPadding + self.nonDefaultsHeight()
     }
 }

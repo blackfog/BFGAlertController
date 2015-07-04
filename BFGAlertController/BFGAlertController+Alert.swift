@@ -126,8 +126,8 @@ extension BFGAlertController {
         return self.sizeForLabel(label).height
     }
     
-    func layoutLabel(label: UILabel, alignToView: UIView, alignToAttribute: NSLayoutAttribute) {
-        self.alertContainerView?.addConstraints([
+    func layoutLabelInView(targetView: UIView, label: UILabel, alignToView: UIView, alignToAttribute: NSLayoutAttribute) {
+        targetView.addConstraints([
             NSLayoutConstraint(
                 item: label, attribute: .Top,
                     relatedBy: .Equal,
@@ -137,13 +137,13 @@ extension BFGAlertController {
             NSLayoutConstraint(
                 item: label, attribute: .Leading,
                     relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Leading,
+                toItem: targetView, attribute: .Leading,
                     multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
                 item: label, attribute: .Trailing,
                     relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Trailing,
+                toItem: targetView, attribute: .Trailing,
                     multiplier: 1.0, constant: -self.alertPadding
             ),
             NSLayoutConstraint(
@@ -172,11 +172,11 @@ extension BFGAlertController {
         }
         
         if let alignTo = alignTitleToView {
-            self.layoutLabel(self.alertTitleLabel!, alignToView: alignTo, alignToAttribute: alignTitleToAttribute)
+            self.layoutLabelInView(self.alertContainerView!, label: self.alertTitleLabel!, alignToView: alignTo, alignToAttribute: alignTitleToAttribute)
         }
         
         if let alignTo = alignMessageToView {
-            self.layoutLabel(self.alertMessageLabel!, alignToView: alignTo, alignToAttribute: alignMessageToAttribute)
+            self.layoutLabelInView(self.alertContainerView!, label: self.alertMessageLabel!, alignToView: alignTo, alignToAttribute: alignMessageToAttribute)
         }
     }
     
