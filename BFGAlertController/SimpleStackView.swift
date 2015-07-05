@@ -13,7 +13,7 @@ class SimpleStackView: UIView {
     // MARK: - Definitions
     
     var stackViews    = [UIView]()
-    var viewHeight    = CGFloat(40.0)
+    var viewHeight    = CGFloat(44.0)
     var viewHeights   = [CGFloat]()
     var dividerColor  = UIColor.grayColor()
     var dividerHeight = CGFloat(0.5)

@@ -137,6 +137,9 @@ class ViewController: UIViewController {
         alert.titleColor = UIColor.whiteColor()
         alert.messageColor = UIColor.lightTextColor()
         alert.setFont(UIFont.boldSystemFontOfSize(14.0), forButtonStyle: .Cancel, state: .Normal)
+        alert.alertPadding = 6.0
+        alert.cornerRadius = 4.0
+        alert.buttonHeight = 40.0
 
         self.presentViewController(alert, animated: true, completion: nil)
     }

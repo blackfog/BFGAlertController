@@ -35,12 +35,12 @@ extension BFGAlertController {
         if (modal) { self.addShade() }
         self.createActionSheet()
         
-        let targetView = modal ? self.shadeView! : self.popoverPresentationController?.containerView
+        let targetView = modal ? self.shadeView! : self.containerView!
         
         self.shadeView?.addSubview(self.alertContainerView!)
 
         let height      = self.calculateHeight()
-        let finalBottom = -(self.alertPadding / 2)
+        let finalBottom = -self.alertPadding
         
         self.alertContainerViewHeight = NSLayoutConstraint(
             item: self.alertContainerView!, attribute: .Height,
@@ -56,7 +56,7 @@ extension BFGAlertController {
                 multiplier: 1.0, constant: height
         )
 
-        targetView!.addConstraints([
+        targetView.addConstraints([
             self.alertContainerViewBottom!,
             NSLayoutConstraint(
                 item: self.alertContainerView!, attribute: .CenterX,
@@ -68,7 +68,7 @@ extension BFGAlertController {
                 item: self.alertContainerView!, attribute: .Width,
                     relatedBy: .Equal,
                 toItem: nil, attribute: .NotAnAttribute,
-                    multiplier: 1.0, constant: self.smallestDimension() - self.alertPadding
+                    multiplier: 1.0, constant: self.smallestDimension() - self.alertPadding * 2
             ),
             self.alertContainerViewHeight!
         ])
@@ -98,7 +98,7 @@ extension BFGAlertController {
         
         self.alertContainerView = SimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
         (self.alertContainerView as! SimpleStackView).dividerColor = UIColor.clearColor()
-        (self.alertContainerView as! SimpleStackView).dividerHeight = self.alertPadding / 2
+        (self.alertContainerView as! SimpleStackView).dividerHeight = self.alertPadding
         (self.alertContainerView as! SimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
         
         self.alertContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -108,7 +108,6 @@ extension BFGAlertController {
         var buttons = [UIView]()
 
         let messageView = self.createMessageView()
-        buttons.append(messageView)
         
         let titleHeight = self.alertTitleLabel != nil ? self.heightForLabel(self.alertTitleLabel!) : 0
         let messageHeight = self.alertMessageLabel != nil ? self.heightForLabel(self.alertMessageLabel!) : 0
@@ -117,6 +116,42 @@ extension BFGAlertController {
         if self.alertTitle != nil { messageViewHeight += titleHeight }
         if self.alertMessage != nil { messageViewHeight += messageHeight }
         if self.alertTitle != nil && self.alertMessage != nil { messageViewHeight += self.alertPadding }
+
+        let wrapperView = UIView()
+        
+        wrapperView.backgroundColor = self.backgroundColor
+        wrapperView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        
+        wrapperView.addSubview(messageView)
+        
+        wrapperView.addConstraints([
+            NSLayoutConstraint(
+                item: messageView, attribute: .Leading,
+                    relatedBy: .Equal,
+                toItem: wrapperView, attribute: .Leading,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
+                item: messageView, attribute: .Trailing,
+                    relatedBy: .Equal,
+                toItem: wrapperView, attribute: .Trailing,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
+                item: messageView, attribute: .CenterY,
+                    relatedBy: .Equal,
+                toItem: wrapperView, attribute: .CenterY,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
+                item: messageView, attribute: .Height,
+                    relatedBy: .Equal,
+                toItem: nil, attribute: .NotAnAttribute,
+                    multiplier: 1.0, constant: messageViewHeight
+            )
+        ])
+        
+        buttons.append(wrapperView)
         
         for action in self.alertActions {
             if (action.style == .Default) {
@@ -128,9 +163,8 @@ extension BFGAlertController {
         
         self.alertActionsContainerView = SimpleStackView(views: buttons)
         self.alertActionsContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.alertActionsContainerView?.layer.cornerRadius = self.cornerRadius / 2
+        self.alertActionsContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertActionsContainerView?.layer.masksToBounds = true
-        // set the stack view heights for each since the title view will not match the default heights for buttons
         
         var viewHeights = [CGFloat]()
 
@@ -139,7 +173,7 @@ extension BFGAlertController {
                 viewHeights.append(self.buttonHeight)
             }
             else {
-                viewHeights.append(messageViewHeight)
+                viewHeights.append(messageViewHeight >= self.buttonHeight ? messageViewHeight : self.buttonHeight)
             }
         }
         
@@ -176,8 +210,9 @@ extension BFGAlertController {
         
         self.alertActionsAltContainerView = SimpleStackView(views: buttons)
         self.alertActionsAltContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
-        self.alertActionsAltContainerView?.layer.cornerRadius = self.cornerRadius / 2
+        self.alertActionsAltContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertActionsAltContainerView?.layer.masksToBounds = true
+        (self.alertActionsContainerView as! SimpleStackView).viewHeight = self.buttonHeight
     }
     
     func layoutLabelsInView(targetView: UIView) {
