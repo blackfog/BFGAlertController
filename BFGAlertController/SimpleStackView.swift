@@ -77,8 +77,7 @@ class SimpleStackView: UIView {
                 )
             ])
             
-            if self.dividerHeight > 0 {
-                // TODO: suppress the final divider
+            if self.dividerHeight > 0 && i != self.stackViews.endIndex - 1 {
                 let divider = UIView()
                 divider.backgroundColor = self.dividerColor
                 divider.setTranslatesAutoresizingMaskIntoConstraints(false)

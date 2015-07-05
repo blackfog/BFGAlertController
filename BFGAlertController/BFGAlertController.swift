@@ -53,11 +53,11 @@ public enum BFGAlertControllerStyle : Int {
     
     var style: BFGAlertControllerStyle = .Alert
     var shadeView: UIView?
-    var shadeViewBottom: NSLayoutConstraint?
-    var keyboardNotifications = [NSObjectProtocol]()
     var alertContainerView: UIView?
     var alertContainerViewHeight: NSLayoutConstraint?
     var alertContainerViewBottom: NSLayoutConstraint?
+    var alertContainerViewCenterY: NSLayoutConstraint?
+    var keyboardNotifications = [NSObjectProtocol]()
     var alertTitleLabel: UILabel?
     var alertMessageLabel: UILabel?
     var alertDivider: UIView?
@@ -203,13 +203,6 @@ extension BFGAlertController {
 
         self.view?.addSubview(self.shadeView!)
 
-        self.shadeViewBottom = NSLayoutConstraint(
-            item: self.shadeView!, attribute: .Bottom,
-                relatedBy: .Equal,
-            toItem: self.view!, attribute: .Bottom,
-                multiplier: 1.0, constant: 0.0
-        )
-
         self.view?.addConstraints([
             NSLayoutConstraint(
                 item: self.shadeView!, attribute: .Top,
@@ -218,12 +211,17 @@ extension BFGAlertController {
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
+                item: self.shadeView!, attribute: .Bottom,
+                    relatedBy: .Equal,
+                toItem: self.view!, attribute: .Bottom,
+                    multiplier: 1.0, constant: 0.0
+            ),
+            NSLayoutConstraint(
                 item: self.shadeView!, attribute: .Leading,
                     relatedBy: .Equal,
                 toItem: self.view!, attribute: .Leading,
                     multiplier: 1.0, constant: 0.0
             ),
-            self.shadeViewBottom!,
             NSLayoutConstraint(
                 item: self.shadeView!, attribute: .Trailing,
                     relatedBy: .Equal,
@@ -238,20 +236,23 @@ extension BFGAlertController {
         
         self.showing = true
         
-        self.keyboardNotifications.append(NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
-            if let notification = notification, beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.shadeViewBottom?.constant = -(beginFrame.CGRectValue().size.height * 0.75)
+        if self.style == .Alert {
+            self.keyboardNotifications.append(
+                NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
+                    if let notification = notification, beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.alertContainerViewCenterY?.constant = -(beginFrame.CGRectValue().size.height / 2)
+                        }
+                    }
                 }
-            }
-        })
+            )
 
-        // FIXME: on rotation, this "hops" because they keyboard event fires (one hide, one show) and resizes things
-        // FIXME: if a field doesn't have the quick completion bar thing, this doesn't work right (shows through) -- fixed that, but now if the bar shows or not changes the position of the view as you flip between fields (grr)
-        // FIXME: consider bringing back BFGAlertField as a wrapper around UITextField so I can have control over the field using blocks rather than configuring with delegates
-        self.keyboardNotifications.append(NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidHideNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
-            self.shadeViewBottom?.constant = 0
-        })
+            self.keyboardNotifications.append(
+                NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidHideNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
+                    self.alertContainerViewCenterY?.constant = 0
+                }
+            )
+        }
 
         switch (self.style) {
             case .Alert:
@@ -263,8 +264,10 @@ extension BFGAlertController {
     
     private func hide() {
         if (self.showing) {
-            for id in self.keyboardNotifications {
-                NSNotificationCenter.defaultCenter().removeObserver(id)
+            if self.style == .Alert {
+                for id in self.keyboardNotifications {
+                    NSNotificationCenter.defaultCenter().removeObserver(id)
+                }
             }
             
             switch (self.style) {

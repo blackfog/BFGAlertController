@@ -6,8 +6,6 @@
 //
 //
 
-// TODO: for alerts with text fields, if a keyboard is showing, need to move the entire thing up, centered in the remaining space, etc.
-
 import UIKit
 
 extension BFGAlertController {
@@ -33,6 +31,13 @@ extension BFGAlertController {
                 multiplier: 1.0, constant: 150.0 // arbitrary
         )
 
+        self.alertContainerViewCenterY = NSLayoutConstraint(
+            item: self.alertContainerView!, attribute: .CenterY,
+                relatedBy: .Equal,
+            toItem: self.shadeView!, attribute: .CenterY,
+                multiplier: 1.0, constant: 1.0
+        )
+
         self.shadeView?.addConstraints([
             NSLayoutConstraint(
                 item: self.alertContainerView!, attribute: .CenterX,
@@ -40,12 +45,7 @@ extension BFGAlertController {
                 toItem: self.shadeView!, attribute: .CenterX,
                     multiplier: 1.0, constant: 1.0
             ),
-            NSLayoutConstraint(
-                item: self.alertContainerView!, attribute: .CenterY,
-                    relatedBy: .Equal,
-                toItem: self.shadeView!, attribute: .CenterY,
-                    multiplier: 1.0, constant: 1.0
-            ),
+            self.alertContainerViewCenterY!,
             self.alertContainerViewHeight!,
             NSLayoutConstraint(
                 item: self.alertContainerView!, attribute: .Width,
@@ -63,6 +63,10 @@ extension BFGAlertController {
         self.addButtons()
         self.updateAlertHeight()
 
+        if self.alertFields.count > 0 {
+            self.alertFields.first?.becomeFirstResponder()
+        }
+        
         UIView.animateWithDuration(0.33, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.05,
             options: .CurveLinear, animations: {
                 self.alertContainerView?.transform = CGAffineTransformMakeScale(1, 1)
