@@ -28,6 +28,10 @@ extension BFGAlertController {
         let rect     = UIScreen.mainScreen().bounds
         let smallest = min(rect.height, rect.width)
         
+        if (smallest > 600.0) {
+            return 600.0
+        }
+        
         return smallest
     }
     

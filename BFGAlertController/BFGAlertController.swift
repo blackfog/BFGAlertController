@@ -143,7 +143,6 @@ public enum BFGAlertControllerStyle : Int {
     }
 }
 
-// FIXME: Some of the config fallbacks don't work right; but, setting explicitly works fine
 // MARK: - Appearance
 public extension BFGAlertController {
     public func backgroundColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
