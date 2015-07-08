@@ -8,13 +8,13 @@
 
 import UIKit
 
-public enum BFGAlertActionStyle: Int {
+@objc public enum BFGAlertActionStyle: Int {
     case Default
     case Cancel
     case Destructive
 }
 
-public enum BFGAlertActionState: Int {
+@objc public enum BFGAlertActionState: Int {
     case Normal
     case Highlighted
     case Disabled

@@ -73,6 +73,12 @@ extension BFGAlertController {
             }, completion: nil)
     }
     
+    func hideAlert() {
+        UIView.animateWithDuration(0.2) {
+            self.alertContainerView?.transform = CGAffineTransformMakeScale(0.0, 0.0)
+        }
+    }
+    
     func createTitleLabel() {
         self.alertTitleLabel = self.createLabel(
             textColor: self.titleColor,

@@ -13,13 +13,13 @@ import UIKit
 
 // MARK: - Style Enum
 
-public enum BFGAlertControllerStyle : Int {
+@objc public enum BFGAlertControllerStyle : Int {
     case ActionSheet
     case Alert
 }
 
 // MARK: - Main
-@objc public class BFGAlertController: UIViewController {
+public class BFGAlertController: UIViewController {
     // MARK: - Public Declarations
     
     public var alertTitle: String?
@@ -95,7 +95,7 @@ public enum BFGAlertControllerStyle : Int {
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    
+
     public convenience init(title: String?, message: String?, preferredStyle: BFGAlertControllerStyle) {
         self.init(nibName: nil, bundle: nil)
 
@@ -271,7 +271,7 @@ extension BFGAlertController {
             
             switch (self.style) {
                 case .Alert:
-                    break
+                    self.hideAlert()
                 case .ActionSheet:
                     self.hideActionSheet()
             }
