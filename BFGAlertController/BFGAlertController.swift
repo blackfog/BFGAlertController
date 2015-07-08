@@ -25,7 +25,6 @@ public class BFGAlertController: UIViewController {
     public var alertTitle: String?
     public var alertMessage: String?
     public var showing = false
-    public var containerView: UIView?
     
     public var actions: [BFGAlertAction] {
         return self.alertActions
@@ -34,7 +33,8 @@ public class BFGAlertController: UIViewController {
     public var textFields: [UITextField] {
         return self.alertFields
     }
-    
+
+    public var style           = BFGAlertControllerStyle.Alert
     public var backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.925)
     public var titleColor      = UIColor.blackColor()
     public var titleFont       = UIFont.boldSystemFontOfSize(16.0)
@@ -51,7 +51,6 @@ public class BFGAlertController: UIViewController {
 
     // MARK: - Internal Declarations
     
-    var style: BFGAlertControllerStyle = .Alert
     var shadeView: UIView?
     var alertContainerView: UIView?
     var alertContainerViewHeight: NSLayoutConstraint?
