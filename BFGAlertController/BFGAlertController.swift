@@ -262,6 +262,8 @@ extension BFGAlertController {
     
     private func hide() {
         if (self.showing) {
+            self.showing = false
+            
             if self.style == .Alert {
                 for id in self.keyboardNotifications {
                     NSNotificationCenter.defaultCenter().removeObserver(id)

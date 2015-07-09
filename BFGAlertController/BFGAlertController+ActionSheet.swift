@@ -45,11 +45,11 @@ extension BFGAlertController {
         targetView.addSubview(self.alertContainerView!)
 
         let height      = self.calculateHeight()
-        let width       = modal ? self.smallestDimension() - self.alertPadding * 2 : targetView.bounds.size.width - self.alertPadding * 2
+        let width       = modal ? self.smallestDimension() - self.alertPadding * 2 : targetView.bounds.size.width
         let finalBottom = -self.alertPadding
         
         if !modal {
-            self.preferredContentSize = CGSize(width: width, height: height)
+            self.preferredContentSize = CGSize(width: width + self.alertPadding * 2, height: height + self.alertPadding * 2)
         }
         
         self.alertContainerViewHeight = NSLayoutConstraint(
@@ -63,7 +63,7 @@ extension BFGAlertController {
             item: self.alertContainerView!, attribute: .Bottom,
                 relatedBy: .Equal,
             toItem: targetView, attribute: .Bottom,
-                multiplier: 1.0, constant: modal ? height : 0
+                multiplier: 1.0, constant: modal ? height : -self.alertPadding
         )
 
         targetView.addConstraints([
@@ -87,7 +87,7 @@ extension BFGAlertController {
             dispatch_async(dispatch_get_main_queue()) {
                 self.alertContainerViewBottom!.constant = finalBottom
                 
-                UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseIn, animations: {
+                UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseIn, animations: {
                     self.alertContainerView?.layoutIfNeeded()
                 }, completion: nil)
             }
