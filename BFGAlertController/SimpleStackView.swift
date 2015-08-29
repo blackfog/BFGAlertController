@@ -20,7 +20,7 @@ class SimpleStackView: UIView {
     
     // MARK: - Constructors
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -44,7 +44,7 @@ class SimpleStackView: UIView {
         for i in 0..<self.stackViews.count {
             let view = self.stackViews[i]
             
-            view.setTranslatesAutoresizingMaskIntoConstraints(false)
+            view.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(view)
             
             let viewHeight = self.viewHeights.count > 0 && i <= self.viewHeights.endIndex ?
@@ -80,7 +80,7 @@ class SimpleStackView: UIView {
             if self.dividerHeight > 0 && i != self.stackViews.endIndex - 1 {
                 let divider = UIView()
                 divider.backgroundColor = self.dividerColor
-                divider.setTranslatesAutoresizingMaskIntoConstraints(false)
+                divider.translatesAutoresizingMaskIntoConstraints = false
                 self.addSubview(divider)
                 
                 self.addConstraints([

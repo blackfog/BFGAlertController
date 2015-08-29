@@ -18,7 +18,7 @@ extension BFGAlertController {
         
         self.alertContainerView?.backgroundColor = self.backgroundColor
         self.alertContainerView?.transform = CGAffineTransformMakeScale(0, 0)
-        self.alertContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.alertContainerView?.translatesAutoresizingMaskIntoConstraints = false
         self.alertContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertContainerView?.clipsToBounds = true
 
@@ -102,7 +102,7 @@ extension BFGAlertController {
             label.numberOfLines = 0
             label.lineBreakMode = .ByWordWrapping
             label.text = text
-            label.setTranslatesAutoresizingMaskIntoConstraints(false)
+            label.translatesAutoresizingMaskIntoConstraints = false
             
             self.alertContainerView?.addSubview(label)
             
@@ -116,7 +116,7 @@ extension BFGAlertController {
         if let label = label {
             let rect = NSString(string: label.text!).boundingRectWithSize(
                 CGSize(width: label.bounds.width, height: CGFloat.max),
-                options: NSStringDrawingOptions.UsesLineFragmentOrigin|NSStringDrawingOptions.UsesFontLeading,
+                options: [NSStringDrawingOptions.UsesLineFragmentOrigin, NSStringDrawingOptions.UsesFontLeading],
                 attributes: [NSFontAttributeName: label.font],
                 context: nil
             )
@@ -167,7 +167,7 @@ extension BFGAlertController {
     
     func layoutLabels() {
         var alignTitleToView: UIView? = self.alertContainerView
-        var alignTitleToAttribute: NSLayoutAttribute = .Top
+        let alignTitleToAttribute: NSLayoutAttribute = .Top
         
         var alignMessageToView: UIView? = self.alertTitleLabel
         var alignMessageToAttribute: NSLayoutAttribute = .Bottom
@@ -194,7 +194,7 @@ extension BFGAlertController {
         if self.alertFields.count > 0 {
             self.alertFieldView = SimpleStackView(views: self.alertFields)
             self.alertFieldView?.dividerHeight = 0
-            self.alertFieldView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+            self.alertFieldView?.translatesAutoresizingMaskIntoConstraints = false
             
             self.alertContainerView?.addSubview(self.alertFieldView!)
             
@@ -241,7 +241,7 @@ extension BFGAlertController {
     func addDivider() {
         self.alertDivider = UIView(frame: CGRect(x: 0, y: 0, width: self.alertWidth, height: self.dividerSize))
         self.alertDivider?.backgroundColor = self.dividerColor
-        self.alertDivider?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.alertDivider?.translatesAutoresizingMaskIntoConstraints = false
         
         self.alertContainerView?.addSubview(self.alertDivider!)
         
@@ -309,7 +309,7 @@ extension BFGAlertController {
             (self.alertActionsContainerView as! SimpleStackView).viewHeight = self.buttonHeight
         }
         
-        self.alertActionsContainerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.alertActionsContainerView?.translatesAutoresizingMaskIntoConstraints = false
         
         self.alertContainerView?.addSubview(self.alertActionsContainerView!)
         

@@ -87,7 +87,7 @@ public class BFGAlertController: UIViewController {
     
     // MARK: - Constructors
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -197,7 +197,7 @@ extension BFGAlertController {
     func addShade() {
         self.shadeView = UIView(frame: UIScreen.mainScreen().bounds)
         self.shadeView?.backgroundColor = self.shadeColor.colorWithAlphaComponent(self.shadeOpacity)
-        self.shadeView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.shadeView?.translatesAutoresizingMaskIntoConstraints = false
 
         self.view?.addSubview(self.shadeView!)
 

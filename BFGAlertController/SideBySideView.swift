@@ -23,7 +23,7 @@ class SideBySideView: UIView {
     
     // MARK: - Constructors
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -51,7 +51,7 @@ class SideBySideView: UIView {
 // MARK: - Private
 extension SideBySideView {
     private func insertLeftView() {
-        self.leftView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.leftView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(self.leftView)
         
@@ -84,7 +84,7 @@ extension SideBySideView {
     }
     
     private func insertRightView() {
-        self.rightView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.rightView.translatesAutoresizingMaskIntoConstraints = false
 
         self.addSubview(self.rightView)
         
@@ -118,7 +118,7 @@ extension SideBySideView {
     
     private func insertDivider() {
         self.dividerView = UIView()
-        self.dividerView?.setTranslatesAutoresizingMaskIntoConstraints(false)
+        self.dividerView?.translatesAutoresizingMaskIntoConstraints = false
         self.dividerView?.backgroundColor = self.dividerColor
 
         self.addSubview(self.dividerView!)
