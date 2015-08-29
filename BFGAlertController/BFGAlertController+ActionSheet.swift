@@ -35,7 +35,7 @@ extension BFGAlertController {
         return smallest
     }
     
-    func showActionSheetInternal(#modal: Bool) {
+    func showActionSheetInternal(modal modal: Bool) {
         if (modal) { self.addShade() }
         self.createActionSheet()
         

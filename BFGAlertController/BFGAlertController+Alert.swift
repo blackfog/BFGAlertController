@@ -93,7 +93,7 @@ extension BFGAlertController {
         )
     }
     
-    func createLabel(#textColor: UIColor, font: UIFont, text: String?) -> UILabel? {
+    func createLabel(textColor textColor: UIColor, font: UIFont, text: String?) -> UILabel? {
         if let text = text  {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 30)) // arbitrary
             label.textColor = textColor
