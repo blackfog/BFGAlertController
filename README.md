@@ -4,7 +4,11 @@ An appearance-customizable version of `UIAlertController` (Alert and Action Shee
 
 ## Installation
 
-Will eventually be available through CocoaPods, but for now, you can import it as a development pod (there is a `BFGAlertController.podspec`). Just download and add it locally. `BFGAlertController` is written in Swift (1.2) so you will likely need to add framework support. The class should also be available to Objective-C code.
+Will eventually be available through CocoaPods, but for now, you can import it as a development pod (there is a `BFGAlertController.podspec`). Just download and add it locally. `BFGAlertController` is written in Swift (2.0) so you will likely need to add framework support. The class should also be available to Objective-C code.
+
+### Swift 1.2
+
+If you need Swift 1.2, you should be safe checking out the revision before the Swift 2.0 conversion (e28c826).
 
 ## Known Issues
 
