@@ -51,7 +51,7 @@ class ConfigHelper {
     }
     
     class func findConfigValue<T>(inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState) -> T? {
-        if let (config, index) = ConfigHelper.findConfig(inArray: array, withStyle: style, andState: state) {
+        if let (config, _) = ConfigHelper.findConfig(inArray: array, withStyle: style, andState: state) {
             return config.value
         }
         
@@ -59,7 +59,7 @@ class ConfigHelper {
     }
     
     class func removeConfig<T>(inout inArray array: [Config<T>], withStyle style: BFGAlertActionStyle, andState state: BFGAlertActionState) {
-        if let (config, index) = ConfigHelper.findConfig(inArray: array, withStyle: style, andState: state) {
+        if let (_, index) = ConfigHelper.findConfig(inArray: array, withStyle: style, andState: state) {
             array.removeAtIndex(index)
         }
     }

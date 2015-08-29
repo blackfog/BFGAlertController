@@ -237,7 +237,7 @@ extension BFGAlertController {
         if self.style == .Alert {
             self.keyboardNotifications.append(
                 NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
-                    if let notification = notification, beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
+                    if let beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
                         dispatch_async(dispatch_get_main_queue()) {
                             self.alertContainerViewCenterY?.constant = -(beginFrame.CGRectValue().size.height / 2)
                         }
