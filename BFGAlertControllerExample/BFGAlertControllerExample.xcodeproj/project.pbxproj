@@ -27,6 +27,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4428C5331BDC32EA00532A74 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4417BDAF1B41C67D0030A354 /* BFGAlertControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFGAlertControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4417BDB31B41C67D0030A354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,6 +170,7 @@
 				4417BDAD1B41C67D0030A354 /* Resources */,
 				B4DD1518A812230A1466D1B5 /* Embed Pods Frameworks */,
 				CD536E4C0780DBAAFED34369 /* Copy Pods Resources */,
+				4428C5331BDC32EA00532A74 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

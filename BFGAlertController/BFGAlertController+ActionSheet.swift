@@ -106,10 +106,10 @@ extension BFGAlertController {
         self.addMainButtons()
         self.addAltButtons()
         
-        self.alertContainerView = SimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
-        (self.alertContainerView as! SimpleStackView).dividerColor = UIColor.clearColor()
-        (self.alertContainerView as! SimpleStackView).dividerHeight = self.alertPadding
-        (self.alertContainerView as! SimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
+        self.alertContainerView = BFGAlertSimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
+        (self.alertContainerView as! BFGAlertSimpleStackView).dividerColor = UIColor.clearColor()
+        (self.alertContainerView as! BFGAlertSimpleStackView).dividerHeight = self.alertPadding
+        (self.alertContainerView as! BFGAlertSimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
         
         self.alertContainerView?.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -171,7 +171,7 @@ extension BFGAlertController {
             }
         }
         
-        self.alertActionsContainerView = SimpleStackView(views: buttons)
+        self.alertActionsContainerView = BFGAlertSimpleStackView(views: buttons)
         self.alertActionsContainerView?.translatesAutoresizingMaskIntoConstraints = false
         self.alertActionsContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertActionsContainerView?.layer.masksToBounds = true
@@ -187,9 +187,9 @@ extension BFGAlertController {
             }
         }
         
-        (self.alertActionsContainerView as! SimpleStackView).viewHeights = viewHeights
-        (self.alertActionsContainerView as! SimpleStackView).dividerColor = self.dividerColor
-        (self.alertActionsContainerView as! SimpleStackView).dividerHeight = self.dividerSize
+        (self.alertActionsContainerView as! BFGAlertSimpleStackView).viewHeights = viewHeights
+        (self.alertActionsContainerView as! BFGAlertSimpleStackView).dividerColor = self.dividerColor
+        (self.alertActionsContainerView as! BFGAlertSimpleStackView).dividerHeight = self.dividerSize
     }
     
     func createMessageView() -> UIView {
@@ -220,13 +220,13 @@ extension BFGAlertController {
             }
         }
         
-        self.alertActionsAltContainerView = SimpleStackView(views: buttons)
+        self.alertActionsAltContainerView = BFGAlertSimpleStackView(views: buttons)
         self.alertActionsAltContainerView?.translatesAutoresizingMaskIntoConstraints = false
         self.alertActionsAltContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertActionsAltContainerView?.layer.masksToBounds = true
-        (self.alertActionsAltContainerView as! SimpleStackView).viewHeight = self.buttonHeight
-        (self.alertActionsAltContainerView as! SimpleStackView).dividerColor = self.dividerColor
-        (self.alertActionsAltContainerView as! SimpleStackView).dividerHeight = self.dividerSize
+        (self.alertActionsAltContainerView as! BFGAlertSimpleStackView).viewHeight = self.buttonHeight
+        (self.alertActionsAltContainerView as! BFGAlertSimpleStackView).dividerColor = self.dividerColor
+        (self.alertActionsAltContainerView as! BFGAlertSimpleStackView).dividerHeight = self.dividerSize
     }
     
     func layoutLabelsInView(targetView: UIView) {
@@ -279,8 +279,8 @@ extension BFGAlertController {
     }
     
     func messageViewHeight() -> CGFloat {
-        let container  = self.alertContainerView as! SimpleStackView
-        let topSection = container.stackViews.first as! SimpleStackView
+        let container  = self.alertContainerView as! BFGAlertSimpleStackView
+        let topSection = container.stackViews.first as! BFGAlertSimpleStackView
         
         return topSection.viewHeights.first!
     }

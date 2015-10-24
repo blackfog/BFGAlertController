@@ -192,7 +192,7 @@ extension BFGAlertController {
     
     func addTextFields() {
         if self.alertFields.count > 0 {
-            self.alertFieldView = SimpleStackView(views: self.alertFields)
+            self.alertFieldView = BFGAlertSimpleStackView(views: self.alertFields)
             self.alertFieldView?.dividerHeight = 0
             self.alertFieldView?.translatesAutoresizingMaskIntoConstraints = false
             
@@ -289,7 +289,7 @@ extension BFGAlertController {
             if self.widthForLabel(buttons[0].titleLabel) < self.alertWidth / 2 &&
                 self.widthForLabel(buttons[1].titleLabel) < self.alertWidth / 2
             {
-                let container = SideBySideView(
+                let container = BFGAlertSideBySideView(
                     left: buttons[0],
                     right: buttons[1]
                 )
@@ -300,13 +300,13 @@ extension BFGAlertController {
                 container.dividerWidth = self.dividerSize
             }
             else {
-                self.alertActionsContainerView = SimpleStackView(views: buttons)
-                (self.alertActionsContainerView as! SimpleStackView).viewHeight = self.buttonHeight
+                self.alertActionsContainerView = BFGAlertSimpleStackView(views: buttons)
+                (self.alertActionsContainerView as! BFGAlertSimpleStackView).viewHeight = self.buttonHeight
             }
         }
         else {
-            self.alertActionsContainerView = SimpleStackView(views: buttons)
-            (self.alertActionsContainerView as! SimpleStackView).viewHeight = self.buttonHeight
+            self.alertActionsContainerView = BFGAlertSimpleStackView(views: buttons)
+            (self.alertActionsContainerView as! BFGAlertSimpleStackView).viewHeight = self.buttonHeight
         }
         
         self.alertActionsContainerView?.translatesAutoresizingMaskIntoConstraints = false
@@ -360,10 +360,10 @@ extension BFGAlertController {
     }
     
     func heightForButtons() -> CGFloat {
-        if self.alertActionsContainerView! is SimpleStackView {
+        if self.alertActionsContainerView! is BFGAlertSimpleStackView {
             return (CGFloat(self.alertActions.count) * self.buttonHeight) + (CGFloat(self.alertActions.count - 1) * self.dividerSize)
         }
-        else if self.alertActionsContainerView! is SideBySideView {
+        else if self.alertActionsContainerView! is BFGAlertSideBySideView {
             return self.buttonHeight
         }
         else {

@@ -64,25 +64,25 @@ public class BFGAlertController: UIViewController {
     var alertActionsAltContainerView: UIView?
     var alertActions = [BFGAlertAction]()
     var alertFields = [UITextField]()
-    var alertFieldView: SimpleStackView?
+    var alertFieldView: BFGAlertSimpleStackView?
 
     // MARK: - Private Declarations
     
     private var buttonBackgroundColor = [
-        Config<UIColor>(style: .Default, state: .Normal,      value: UIColor.clearColor()),
-        Config<UIColor>(style: .Default, state: .Highlighted, value: UIColor.groupTableViewBackgroundColor()),
-        Config<UIColor>(style: .Cancel,  state: .Normal,      value: UIColor.clearColor()),
-        Config<UIColor>(style: .Cancel,  state: .Highlighted, value: UIColor.groupTableViewBackgroundColor())
+        BFGAlertConfig<UIColor>(style: .Default, state: .Normal,      value: UIColor.clearColor()),
+        BFGAlertConfig<UIColor>(style: .Default, state: .Highlighted, value: UIColor.groupTableViewBackgroundColor()),
+        BFGAlertConfig<UIColor>(style: .Cancel,  state: .Normal,      value: UIColor.clearColor()),
+        BFGAlertConfig<UIColor>(style: .Cancel,  state: .Highlighted, value: UIColor.groupTableViewBackgroundColor())
     ]
 
     private var buttonTextColor = [
-        Config<UIColor>(style: .Default,     state: .Normal, value: UIColor.blackColor()),
-        Config<UIColor>(style: .Destructive, state: .Normal, value: UIColor.redColor())
+        BFGAlertConfig<UIColor>(style: .Default,     state: .Normal, value: UIColor.blackColor()),
+        BFGAlertConfig<UIColor>(style: .Destructive, state: .Normal, value: UIColor.redColor())
     ]
 
     private var buttonFont = [
-        Config<UIFont>(style: .Default, state: .Normal, value: UIFont.systemFontOfSize(14.0)),
-        Config<UIFont>(style: .Cancel,  state: .Normal, value: UIFont.boldSystemFontOfSize(14.0))
+        BFGAlertConfig<UIFont>(style: .Default, state: .Normal, value: UIFont.systemFontOfSize(14.0)),
+        BFGAlertConfig<UIFont>(style: .Cancel,  state: .Normal, value: UIFont.boldSystemFontOfSize(14.0))
     ]
     
     // MARK: - Constructors
@@ -145,27 +145,27 @@ public class BFGAlertController: UIViewController {
 // MARK: - Appearance
 public extension BFGAlertController {
     public func backgroundColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
-        return ConfigHelper.configValue(from: self.buttonBackgroundColor, forButtonStyle: style, state: state)
+        return BFGAlertConfigHelper.configValue(from: self.buttonBackgroundColor, forButtonStyle: style, state: state)
     }
     
     public func setBackgroundColor(color: UIColor, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        ConfigHelper.setConfigValue(color, inArray: &self.buttonBackgroundColor, forButtonStyle: style, state: state)
+        BFGAlertConfigHelper.setConfigValue(color, inArray: &self.buttonBackgroundColor, forButtonStyle: style, state: state)
     }
 
     public func textColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
-        return ConfigHelper.configValue(from: self.buttonTextColor, forButtonStyle: style, state: state)
+        return BFGAlertConfigHelper.configValue(from: self.buttonTextColor, forButtonStyle: style, state: state)
     }
     
     public func setTextColor(color: UIColor, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        ConfigHelper.setConfigValue(color, inArray: &self.buttonTextColor, forButtonStyle: style, state: state)
+        BFGAlertConfigHelper.setConfigValue(color, inArray: &self.buttonTextColor, forButtonStyle: style, state: state)
     }
     
     public func font(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIFont? {
-        return ConfigHelper.configValue(from: self.buttonFont, forButtonStyle: style, state: state)
+        return BFGAlertConfigHelper.configValue(from: self.buttonFont, forButtonStyle: style, state: state)
     }
     
     public func setFont(font: UIFont, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        ConfigHelper.setConfigValue(font, inArray: &self.buttonFont, forButtonStyle: style, state: state)
+        BFGAlertConfigHelper.setConfigValue(font, inArray: &self.buttonFont, forButtonStyle: style, state: state)
     }
 }
 
