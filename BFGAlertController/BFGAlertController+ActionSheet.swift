@@ -259,7 +259,7 @@ extension BFGAlertController {
         
         for action in self.alertActions {
             if action.style == .Default {
-                count++
+                count += 1
             }
         }
         
@@ -271,7 +271,7 @@ extension BFGAlertController {
         
         for action in self.alertActions {
             if action.style != .Default {
-                count++
+                count += 1
             }
         }
         
