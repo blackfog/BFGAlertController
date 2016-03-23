@@ -13,6 +13,8 @@
 		2A5E134769F29321304EB9E2 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EEF51B6A073C9CFC31A82486 /* Pods-BFGAlertControllerExampleTests-BFGAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3440CDD01CDC720E8607E554 /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5F925781B6013D2E325029 /* BFGAlertAction.swift */; };
 		353713D31B6FED1A484C02B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047D23A650E8C4E0A8DE8562 /* Foundation.framework */; };
+		44D3C4151CA2F56F0087F3DB /* BFGAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3C4141CA2F56F0087F3DB /* BFGAlertViewController.swift */; };
+		44D3C4181CA2F95E0087F3DB /* BFGAlertAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3C4171CA2F95E0087F3DB /* BFGAlertAppearance.swift */; };
 		4CCA99CEF82D4BC267380DE0 /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB2D600D0BD7E73BC9D96FDE /* Pods-BFGAlertControllerExample-BFGAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E583E0E4082DBBE6AC7EA57 /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5156594EF59A1D5D92355D61 /* BFGAlertController.swift */; };
 		60444D83A877D4161B9B331D /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D7FA71C3E7D1F58965711F3 /* Pods-BFGAlertControllerExample-BFGAlertController-dummy.m */; };
@@ -62,6 +64,9 @@
 		31C03E4EC5CF8150FA40B0B4 /* BFGAlertConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BFGAlertConfig.swift; sourceTree = "<group>"; };
 		3A3B9356810029587918F29D /* Pods-BFGAlertControllerExampleTests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BFGAlertControllerExampleTests-environment.h"; sourceTree = "<group>"; };
 		42ABB78958F592D667D07508 /* Pods_BFGAlertControllerExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BFGAlertControllerExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44D3C4131CA2F0940087F3DB /* BFGAlertController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BFGAlertController.storyboard; sourceTree = "<group>"; };
+		44D3C4141CA2F56F0087F3DB /* BFGAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFGAlertViewController.swift; sourceTree = "<group>"; };
+		44D3C4171CA2F95E0087F3DB /* BFGAlertAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BFGAlertAppearance.swift; sourceTree = "<group>"; };
 		475714BBB375E08204364BCE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../Pods-BFGAlertControllerExampleTests-BFGAlertController/Info.plist"; sourceTree = "<group>"; };
 		476C9A5251CD54BF97ED46D4 /* Pods-BFGAlertControllerExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BFGAlertControllerExample.release.xcconfig"; sourceTree = "<group>"; };
 		47C01DE2B4E75A289E9DB9F5 /* UIImage+Pixel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Pixel.swift"; sourceTree = "<group>"; };
@@ -173,6 +178,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		44D3C4161CA2F6520087F3DB /* New Version */ = {
+			isa = PBXGroup;
+			children = (
+				AB5F925781B6013D2E325029 /* BFGAlertAction.swift */,
+				44D3C4131CA2F0940087F3DB /* BFGAlertController.storyboard */,
+				44D3C4141CA2F56F0087F3DB /* BFGAlertViewController.swift */,
+				44D3C4171CA2F95E0087F3DB /* BFGAlertAppearance.swift */,
+			);
+			name = "New Version";
+			sourceTree = "<group>";
+		};
 		4DD920FA84FB01CD9519662D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +224,6 @@
 		58DF48E74D002C60D89A42D9 /* BFGAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				AB5F925781B6013D2E325029 /* BFGAlertAction.swift */,
 				5156594EF59A1D5D92355D61 /* BFGAlertController.swift */,
 				47EFD3DCF45DE07E280D15D1 /* BFGAlertController+ActionSheet.swift */,
 				C91B802BD7534F60187853C0 /* BFGAlertController+Alert.swift */,
@@ -216,6 +231,7 @@
 				C0595CB2D92986CE9F5A0F88 /* BFGAlertSideBySideView.swift */,
 				98377EB4DCAB0F35C2416520 /* BFGAlertSimpleStackView.swift */,
 				47C01DE2B4E75A289E9DB9F5 /* UIImage+Pixel.swift */,
+				44D3C4161CA2F6520087F3DB /* New Version */,
 			);
 			path = BFGAlertController;
 			sourceTree = "<group>";
@@ -397,7 +413,7 @@
 		F0D64BFB7CD830BA4BD436F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 			};
 			buildConfigurationList = FF337EC4759BEAFBA24FC4C3 /* Build configuration list for PBXProject "Pods" */;
@@ -425,7 +441,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D3C4181CA2F95E0087F3DB /* BFGAlertAppearance.swift in Sources */,
 				BF89AD3918AAA1468F1D51E5 /* Pods-BFGAlertControllerExample-dummy.m in Sources */,
+				44D3C4151CA2F56F0087F3DB /* BFGAlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +509,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 476C9A5251CD54BF97ED46D4 /* Pods-BFGAlertControllerExample.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -666,6 +685,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EA379C40A62AC05ABD97059 /* Pods-BFGAlertControllerExample.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

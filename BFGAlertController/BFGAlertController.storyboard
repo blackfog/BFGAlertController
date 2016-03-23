@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Alert-->
+        <scene sceneID="z12-ka-JFj">
+            <objects>
+                <viewController id="sRI-a6-l04" userLabel="Alert" customClass="BFGAlertViewController" customModule="Pods_BFGAlertControllerExample" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UhS-z8-eeK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ram-nq-7rD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rxg-me-Xov">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NEh-xM-6qK" userLabel="Stack View - Main">
+                                <rect key="frame" x="150" y="200" width="300" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewl-oq-SRX">
+                                        <rect key="frame" x="16" y="0.0" width="268" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="190-7x-rIE">
+                                        <rect key="frame" x="16" y="44" width="268" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q0Z-Lp-fmN" userLabel="Stack View - Fields">
+                                        <rect key="frame" x="16" y="89" width="268" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="DAj-dT-6HV"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="kbd-i4-61F" userLabel="Stack View - Buttons">
+                                        <rect key="frame" x="0.0" y="156" width="300" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="G2q-ej-DW5"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="kbd-i4-61F" firstAttribute="leading" secondItem="NEh-xM-6qK" secondAttribute="leading" id="28q-Dx-gwH"/>
+                                    <constraint firstItem="190-7x-rIE" firstAttribute="leading" secondItem="NEh-xM-6qK" secondAttribute="leading" constant="16" id="2ym-b5-Ab4"/>
+                                    <constraint firstAttribute="trailing" secondItem="ewl-oq-SRX" secondAttribute="trailing" constant="16" id="Jl2-zJ-Xah"/>
+                                    <constraint firstItem="ewl-oq-SRX" firstAttribute="leading" secondItem="NEh-xM-6qK" secondAttribute="leading" constant="16" id="KHM-uL-7X4"/>
+                                    <constraint firstAttribute="trailing" secondItem="190-7x-rIE" secondAttribute="trailing" constant="16" id="KpA-0h-bBK"/>
+                                    <constraint firstAttribute="trailing" secondItem="q0Z-Lp-fmN" secondAttribute="trailing" constant="16" id="NbL-QN-iD0"/>
+                                    <constraint firstItem="q0Z-Lp-fmN" firstAttribute="leading" secondItem="NEh-xM-6qK" secondAttribute="leading" constant="16" id="Sze-Qo-rtL"/>
+                                    <constraint firstAttribute="height" constant="200" id="fgT-M2-gLK"/>
+                                    <constraint firstAttribute="trailing" secondItem="kbd-i4-61F" secondAttribute="trailing" id="vpR-ic-z3e"/>
+                                    <constraint firstAttribute="width" constant="300" id="wab-pd-dNv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NEh-xM-6qK" firstAttribute="centerX" secondItem="Rxg-me-Xov" secondAttribute="centerX" id="JrJ-PR-9t9"/>
+                            <constraint firstItem="NEh-xM-6qK" firstAttribute="centerY" secondItem="Rxg-me-Xov" secondAttribute="centerY" id="OVm-Sh-U5J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertButtonsView" destination="kbd-i4-61F" id="NBU-KF-mKi"/>
+                        <outlet property="alertFieldsView" destination="q0Z-Lp-fmN" id="LTl-Cy-GBf"/>
+                        <outlet property="alertMessage" destination="190-7x-rIE" id="FvE-V6-HDU"/>
+                        <outlet property="alertTitle" destination="ewl-oq-SRX" id="o8X-Rf-Age"/>
+                        <outlet property="alertView" destination="NEh-xM-6qK" id="aPR-SO-Nrf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Sc-Cn-JF4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="565" y="198"/>
+        </scene>
+    </scenes>
+</document>
