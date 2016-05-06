@@ -4,15 +4,24 @@ An appearance-customizable version of `UIAlertController` (Alert and Action Shee
 
 ## Installation
 
-Will eventually be available through CocoaPods, but for now, you can import it as a development pod (there is a `BFGAlertController.podspec`). Just download and add it locally. `BFGAlertController` is written in Swift (2.0) so you will likely need to add framework support. The class should also be available to Objective-C code.
+### CocoaPods
 
-### Swift 1.2
+Will eventually be available through CocoaPods, but for now, you can import it as a development pod (there is a `BFGAlertController.podspec`). Just download and add it locally. `BFGAlertController` is written in Swift (2.2) so you will likely need to add framework support. The class should also be available to Objective-C code.
 
-If you need Swift 1.2, you should be safe checking out the revision before the Swift 2.0 conversion (e28c826).
+### Carthage
+
+The latest version (0.2.0) has been updated to build as a shared framework and you can include it in your own projects via Carthage.
+
+`````ruby
+github "blackfog/BFGAlertController" ~> 0.2.0
+`````
 
 ## Known Issues
 
-There are likely some issues and quirks at this point (not well-tested, but I'm about to integrate it into one of my projects). Feel free to report or fix and submit a pull request.
+Feel free to report or fix and submit a pull request if you find any.
+
+- The appearance API needs work
+- Cannot currently hide the Cancel button on an Action Sheet displayed in a popover
 
 ## License
 
