@@ -11,14 +11,6 @@
 		448D69F91CDD37AD00E4E92A /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 448D69F41CDD37AD00E4E92A /* Base.lproj */; };
 		448D69FA1CDD37AD00E4E92A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 448D69F51CDD37AD00E4E92A /* Images.xcassets */; };
 		448D69FC1CDD37AD00E4E92A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69F71CDD37AD00E4E92A /* ViewController.swift */; };
-		448D6A061CDD37CD00E4E92A /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FE1CDD37CD00E4E92A /* BFGAlertAction.swift */; };
-		448D6A071CDD37CD00E4E92A /* BFGAlertConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FF1CDD37CD00E4E92A /* BFGAlertConfig.swift */; };
-		448D6A081CDD37CD00E4E92A /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A001CDD37CD00E4E92A /* BFGAlertController.swift */; };
-		448D6A091CDD37CD00E4E92A /* BFGAlertController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A011CDD37CD00E4E92A /* BFGAlertController+ActionSheet.swift */; };
-		448D6A0A1CDD37CD00E4E92A /* BFGAlertController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A021CDD37CD00E4E92A /* BFGAlertController+Alert.swift */; };
-		448D6A0B1CDD37CD00E4E92A /* BFGAlertSideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A031CDD37CD00E4E92A /* BFGAlertSideBySideView.swift */; };
-		448D6A0C1CDD37CD00E4E92A /* BFGAlertSimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A041CDD37CD00E4E92A /* BFGAlertSimpleStackView.swift */; };
-		448D6A0D1CDD37CD00E4E92A /* UIImage+Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A051CDD37CD00E4E92A /* UIImage+Pixel.swift */; };
 		448D6A1A1CDD380000E4E92A /* BFGAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448D6A131CDD380000E4E92A /* BFGAlertController.framework */; };
 		448D6A1B1CDD380000E4E92A /* BFGAlertController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 448D6A131CDD380000E4E92A /* BFGAlertController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		448D6A1F1CDD382100E4E92A /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FE1CDD37CD00E4E92A /* BFGAlertAction.swift */; };
@@ -264,16 +256,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448D6A0A1CDD37CD00E4E92A /* BFGAlertController+Alert.swift in Sources */,
-				448D6A091CDD37CD00E4E92A /* BFGAlertController+ActionSheet.swift in Sources */,
-				448D6A071CDD37CD00E4E92A /* BFGAlertConfig.swift in Sources */,
 				448D69FC1CDD37AD00E4E92A /* ViewController.swift in Sources */,
-				448D6A081CDD37CD00E4E92A /* BFGAlertController.swift in Sources */,
-				448D6A0C1CDD37CD00E4E92A /* BFGAlertSimpleStackView.swift in Sources */,
-				448D6A0D1CDD37CD00E4E92A /* UIImage+Pixel.swift in Sources */,
 				448D69F81CDD37AD00E4E92A /* AppDelegate.swift in Sources */,
-				448D6A0B1CDD37CD00E4E92A /* BFGAlertSideBySideView.swift in Sources */,
-				448D6A061CDD37CD00E4E92A /* BFGAlertAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +479,7 @@
 				448D6A1E1CDD380000E4E92A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
