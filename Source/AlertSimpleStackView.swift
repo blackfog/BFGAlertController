@@ -1,15 +1,13 @@
 //
-//  BFGAlertSimpleStackView.swift
-//  Pods
+//  AlertSimpleStackView.swift
 //
 //  Created by Craig Pearlman on 2015-06-30.
-//
 //
 
 import UIKit
 
 // MARK: - Main
-class BFGAlertSimpleStackView: UIView {
+class AlertSimpleStackView: UIView {
     // MARK: - Definitions
     
     var stackViews    = [UIView]()

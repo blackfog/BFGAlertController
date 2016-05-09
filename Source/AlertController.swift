@@ -1,9 +1,7 @@
 //
-//  BFGAlertController.swift
-//  TextTool2c
+//  AlertController.swift
 //
 //  Created by Craig Pearlman on 2015-06-29.
-//  Copyright (c) 2015 Black Fog Interactive. All rights reserved.
 //
 
 // TODO: for next major release, refactor how this object is put together
@@ -13,20 +11,20 @@ import UIKit
 
 // MARK: - Style Enum
 
-@objc public enum BFGAlertControllerStyle : Int {
-    case ActionSheet
-    case Alert
+@objc public enum AlertControllerStyle : Int {
+    case actionSheet
+    case alert
 }
 
 // MARK: - Main
-public class BFGAlertController: UIViewController {
+public class AlertController: UIViewController {
     // MARK: - Public Declarations
     
     public var alertTitle: String?
     public var alertMessage: String?
     public var showing = false
     
-    public var actions: [BFGAlertAction] {
+    public var actions: [AlertAction] {
         return self.alertActions
     }
     
@@ -34,7 +32,7 @@ public class BFGAlertController: UIViewController {
         return self.alertFields
     }
 
-    public var style           = BFGAlertControllerStyle.Alert
+    public var style           = AlertControllerStyle.alert
     public var backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.925)
     public var titleColor      = UIColor.blackColor()
     public var titleFont       = UIFont.boldSystemFontOfSize(16.0)
@@ -62,27 +60,27 @@ public class BFGAlertController: UIViewController {
     var alertDivider: UIView?
     var alertActionsContainerView: UIView?
     var alertActionsAltContainerView: UIView?
-    var alertActions = [BFGAlertAction]()
+    var alertActions = [AlertAction]()
     var alertFields = [UITextField]()
-    var alertFieldView: BFGAlertSimpleStackView?
+    var alertFieldView: AlertSimpleStackView?
 
     // MARK: - Private Declarations
     
     private var buttonBackgroundColor = [
-        BFGAlertConfig<UIColor>(style: .Default, state: .Normal,      value: UIColor.clearColor()),
-        BFGAlertConfig<UIColor>(style: .Default, state: .Highlighted, value: UIColor.groupTableViewBackgroundColor()),
-        BFGAlertConfig<UIColor>(style: .Cancel,  state: .Normal,      value: UIColor.clearColor()),
-        BFGAlertConfig<UIColor>(style: .Cancel,  state: .Highlighted, value: UIColor.groupTableViewBackgroundColor())
+        Config<UIColor>(style: .`default`, state: .normal,      value: UIColor.clearColor()),
+        Config<UIColor>(style: .`default`, state: .highlighted, value: UIColor.groupTableViewBackgroundColor()),
+        Config<UIColor>(style: .cancel,    state: .normal,      value: UIColor.clearColor()),
+        Config<UIColor>(style: .cancel,    state: .highlighted, value: UIColor.groupTableViewBackgroundColor())
     ]
 
     private var buttonTextColor = [
-        BFGAlertConfig<UIColor>(style: .Default,     state: .Normal, value: UIColor.blackColor()),
-        BFGAlertConfig<UIColor>(style: .Destructive, state: .Normal, value: UIColor.redColor())
+        Config<UIColor>(style: .`default`,   state: .normal, value: UIColor.blackColor()),
+        Config<UIColor>(style: .destructive, state: .normal, value: UIColor.redColor())
     ]
 
     private var buttonFont = [
-        BFGAlertConfig<UIFont>(style: .Default, state: .Normal, value: UIFont.systemFontOfSize(14.0)),
-        BFGAlertConfig<UIFont>(style: .Cancel,  state: .Normal, value: UIFont.boldSystemFontOfSize(14.0))
+        Config<UIFont>(style: .`default`, state: .normal, value: UIFont.systemFontOfSize(14.0)),
+        Config<UIFont>(style: .cancel,    state: .normal, value: UIFont.boldSystemFontOfSize(14.0))
     ]
     
     // MARK: - Constructors
@@ -95,7 +93,7 @@ public class BFGAlertController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    public convenience init(title: String?, message: String?, preferredStyle: BFGAlertControllerStyle) {
+    public convenience init(title: String?, message: String?, preferredStyle: AlertControllerStyle) {
         self.init(nibName: nil, bundle: nil)
 
         self.alertTitle   = title
@@ -125,16 +123,16 @@ public class BFGAlertController: UIViewController {
     
     // MARK: - Public
     
-    public func actionAtIndex(index: Int) -> BFGAlertAction {
+    public func actionAtIndex(index: Int) -> AlertAction {
         return self.alertActions[index]
     }
     
-    public func addAction(action: BFGAlertAction) {
+    public func addAction(action: AlertAction) {
         self.alertActions.append(action)
     }
     
     public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField!) -> Void)!) {
-        assert(self.style != .ActionSheet, "Text fields may only be added to alerts")
+        assert(self.style != .actionSheet, "Text fields may only be added to alerts")
         
         let field = UITextField()
         configurationHandler(field)
@@ -143,35 +141,35 @@ public class BFGAlertController: UIViewController {
 }
 
 // MARK: - Appearance
-public extension BFGAlertController {
-    public func backgroundColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
-        return BFGAlertConfigHelper.configValue(from: self.buttonBackgroundColor, forButtonStyle: style, state: state)
+public extension AlertController {
+    public func backgroundColor(forButtonStyle style: AlertActionStyle, state: AlertActionState) -> UIColor? {
+        return ConfigHelper.configValue(from: self.buttonBackgroundColor, forButtonStyle: style, state: state)
     }
     
-    public func setBackgroundColor(color: UIColor, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        BFGAlertConfigHelper.setConfigValue(color, inArray: &self.buttonBackgroundColor, forButtonStyle: style, state: state)
+    public func setBackgroundColor(color: UIColor, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+        ConfigHelper.setConfigValue(color, inArray: &self.buttonBackgroundColor, forButtonStyle: style, state: state)
     }
 
-    public func textColor(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIColor? {
-        return BFGAlertConfigHelper.configValue(from: self.buttonTextColor, forButtonStyle: style, state: state)
+    public func textColor(forButtonStyle style: AlertActionStyle, state: AlertActionState) -> UIColor? {
+        return ConfigHelper.configValue(from: self.buttonTextColor, forButtonStyle: style, state: state)
     }
     
-    public func setTextColor(color: UIColor, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        BFGAlertConfigHelper.setConfigValue(color, inArray: &self.buttonTextColor, forButtonStyle: style, state: state)
+    public func setTextColor(color: UIColor, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+        ConfigHelper.setConfigValue(color, inArray: &self.buttonTextColor, forButtonStyle: style, state: state)
     }
     
-    public func font(forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) -> UIFont? {
-        return BFGAlertConfigHelper.configValue(from: self.buttonFont, forButtonStyle: style, state: state)
+    public func font(forButtonStyle style: AlertActionStyle, state: AlertActionState) -> UIFont? {
+        return ConfigHelper.configValue(from: self.buttonFont, forButtonStyle: style, state: state)
     }
     
-    public func setFont(font: UIFont, forButtonStyle style: BFGAlertActionStyle, state: BFGAlertActionState) {
-        BFGAlertConfigHelper.setConfigValue(font, inArray: &self.buttonFont, forButtonStyle: style, state: state)
+    public func setFont(font: UIFont, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+        ConfigHelper.setConfigValue(font, inArray: &self.buttonFont, forButtonStyle: style, state: state)
     }
 }
 
 // MARK: - Button Appearance
-extension BFGAlertController {
-    func attributedStringForButton(button: UIButton, style: BFGAlertActionStyle, state: BFGAlertActionState, controlState: UIControlState) -> NSAttributedString {
+extension AlertController {
+    func attributedStringForButton(button: UIButton, style: AlertActionStyle, state: AlertActionState, controlState: UIControlState) -> NSAttributedString {
         return NSAttributedString(
             string: button.titleForState(controlState)!,
             attributes: [
@@ -181,19 +179,19 @@ extension BFGAlertController {
         )
     }
     
-    func styleButton(button: UIButton, style: BFGAlertActionStyle) {
-        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .Normal, controlState: .Normal), forState: .Normal)
-        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .Highlighted, controlState: .Highlighted), forState: .Highlighted)
-        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .Disabled, controlState: .Disabled), forState: .Disabled)
+    func styleButton(button: UIButton, style: AlertActionStyle) {
+        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .normal, controlState: .Normal), forState: .Normal)
+        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .highlighted, controlState: .Highlighted), forState: .Highlighted)
+        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .disabled, controlState: .Disabled), forState: .Disabled)
         
-        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .Normal)!), forState: .Normal)
-        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .Highlighted)!), forState: .Highlighted)
-        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .Disabled)!), forState: .Disabled)
+        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .normal)!), forState: .Normal)
+        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .highlighted)!), forState: .Highlighted)
+        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .disabled)!), forState: .Disabled)
     }
 }
 
 // MARK: - Private/Internal
-extension BFGAlertController {
+extension AlertController {
     func addShade() {
         self.shadeView = UIView(frame: UIScreen.mainScreen().bounds)
         self.shadeView?.backgroundColor = self.shadeColor.colorWithAlphaComponent(self.shadeOpacity)
@@ -234,7 +232,7 @@ extension BFGAlertController {
         
         self.showing = true
         
-        if self.style == .Alert {
+        if self.style == .alert {
             self.keyboardNotifications.append(
                 NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
                     if let beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
@@ -253,9 +251,9 @@ extension BFGAlertController {
         }
 
         switch (self.style) {
-            case .Alert:
+            case .alert:
                 self.showAlert()
-            case .ActionSheet:
+            case .actionSheet:
                 self.showActionSheet()
         }
     }
@@ -264,16 +262,16 @@ extension BFGAlertController {
         if (self.showing) {
             self.showing = false
             
-            if self.style == .Alert {
+            if self.style == .alert {
                 for id in self.keyboardNotifications {
                     NSNotificationCenter.defaultCenter().removeObserver(id)
                 }
             }
             
             switch (self.style) {
-                case .Alert:
+                case .alert:
                     self.hideAlert()
-                case .ActionSheet:
+                case .actionSheet:
                     self.hideActionSheet()
             }
         }

@@ -1,14 +1,12 @@
-    //
-//  BFGAlertController+ActionSheet.swift
-//  Pods
+//
+//  AlertController+ActionSheet.swift
 //
 //  Created by Craig Pearlman on 2015-07-02.
-//
 //
 
 import UIKit
 
-extension BFGAlertController {
+extension AlertController {
     func showActionSheet() {
         if self.popoverPresentationController != nil {
             self.showActionSheetInternal(modal: false)
@@ -106,10 +104,10 @@ extension BFGAlertController {
         self.addMainButtons()
         self.addAltButtons()
         
-        self.alertContainerView = BFGAlertSimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
-        (self.alertContainerView as! BFGAlertSimpleStackView).dividerColor = UIColor.clearColor()
-        (self.alertContainerView as! BFGAlertSimpleStackView).dividerHeight = self.alertPadding
-        (self.alertContainerView as! BFGAlertSimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
+        self.alertContainerView = AlertSimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
+        (self.alertContainerView as! AlertSimpleStackView).dividerColor = UIColor.clearColor()
+        (self.alertContainerView as! AlertSimpleStackView).dividerHeight = self.alertPadding
+        (self.alertContainerView as! AlertSimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
         
         self.alertContainerView?.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -164,14 +162,14 @@ extension BFGAlertController {
         buttons.append(wrapperView)
         
         for action in self.alertActions {
-            if (action.style == .Default) {
+            if (action.style == .`default`) {
                 let button = action.button()
                 self.styleButton(button, style: action.style)
                 buttons.append(button)
             }
         }
         
-        self.alertActionsContainerView = BFGAlertSimpleStackView(views: buttons)
+        self.alertActionsContainerView = AlertSimpleStackView(views: buttons)
         self.alertActionsContainerView?.translatesAutoresizingMaskIntoConstraints = false
         self.alertActionsContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertActionsContainerView?.layer.masksToBounds = true
@@ -187,9 +185,9 @@ extension BFGAlertController {
             }
         }
         
-        (self.alertActionsContainerView as! BFGAlertSimpleStackView).viewHeights = viewHeights
-        (self.alertActionsContainerView as! BFGAlertSimpleStackView).dividerColor = self.dividerColor
-        (self.alertActionsContainerView as! BFGAlertSimpleStackView).dividerHeight = self.dividerSize
+        (self.alertActionsContainerView as! AlertSimpleStackView).viewHeights = viewHeights
+        (self.alertActionsContainerView as! AlertSimpleStackView).dividerColor = self.dividerColor
+        (self.alertActionsContainerView as! AlertSimpleStackView).dividerHeight = self.dividerSize
     }
     
     func createMessageView() -> UIView {
@@ -213,20 +211,20 @@ extension BFGAlertController {
         var buttons = [UIButton]()
         
         for action in self.alertActions {
-            if (action.style != .Default) {
+            if (action.style != .`default`) {
                 let button = action.button()
                 self.styleButton(button, style: action.style)
                 buttons.append(button)
             }
         }
         
-        self.alertActionsAltContainerView = BFGAlertSimpleStackView(views: buttons)
+        self.alertActionsAltContainerView = AlertSimpleStackView(views: buttons)
         self.alertActionsAltContainerView?.translatesAutoresizingMaskIntoConstraints = false
         self.alertActionsAltContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertActionsAltContainerView?.layer.masksToBounds = true
-        (self.alertActionsAltContainerView as! BFGAlertSimpleStackView).viewHeight = self.buttonHeight
-        (self.alertActionsAltContainerView as! BFGAlertSimpleStackView).dividerColor = self.dividerColor
-        (self.alertActionsAltContainerView as! BFGAlertSimpleStackView).dividerHeight = self.dividerSize
+        (self.alertActionsAltContainerView as! AlertSimpleStackView).viewHeight = self.buttonHeight
+        (self.alertActionsAltContainerView as! AlertSimpleStackView).dividerColor = self.dividerColor
+        (self.alertActionsAltContainerView as! AlertSimpleStackView).dividerHeight = self.dividerSize
     }
     
     func layoutLabelsInView(targetView: UIView) {
@@ -258,7 +256,7 @@ extension BFGAlertController {
         var count = 0
         
         for action in self.alertActions {
-            if action.style == .Default {
+            if action.style == .`default` {
                 count += 1
             }
         }
@@ -270,7 +268,7 @@ extension BFGAlertController {
         var count = 0
         
         for action in self.alertActions {
-            if action.style != .Default {
+            if action.style != .`default` {
                 count += 1
             }
         }
@@ -279,8 +277,8 @@ extension BFGAlertController {
     }
     
     func messageViewHeight() -> CGFloat {
-        let container  = self.alertContainerView as! BFGAlertSimpleStackView
-        let topSection = container.stackViews.first as! BFGAlertSimpleStackView
+        let container  = self.alertContainerView as! AlertSimpleStackView
+        let topSection = container.stackViews.first as! AlertSimpleStackView
         
         return topSection.viewHeights.first!
     }

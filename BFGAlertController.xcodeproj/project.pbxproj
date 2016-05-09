@@ -13,13 +13,13 @@
 		448D69FC1CDD37AD00E4E92A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69F71CDD37AD00E4E92A /* ViewController.swift */; };
 		448D6A1A1CDD380000E4E92A /* BFGAlertController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448D6A131CDD380000E4E92A /* BFGAlertController.framework */; };
 		448D6A1B1CDD380000E4E92A /* BFGAlertController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 448D6A131CDD380000E4E92A /* BFGAlertController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		448D6A1F1CDD382100E4E92A /* BFGAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FE1CDD37CD00E4E92A /* BFGAlertAction.swift */; };
-		448D6A201CDD382100E4E92A /* BFGAlertConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FF1CDD37CD00E4E92A /* BFGAlertConfig.swift */; };
-		448D6A211CDD382100E4E92A /* BFGAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A001CDD37CD00E4E92A /* BFGAlertController.swift */; };
-		448D6A221CDD382100E4E92A /* BFGAlertController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A011CDD37CD00E4E92A /* BFGAlertController+ActionSheet.swift */; };
-		448D6A231CDD382100E4E92A /* BFGAlertController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A021CDD37CD00E4E92A /* BFGAlertController+Alert.swift */; };
-		448D6A241CDD382100E4E92A /* BFGAlertSideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A031CDD37CD00E4E92A /* BFGAlertSideBySideView.swift */; };
-		448D6A251CDD382100E4E92A /* BFGAlertSimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A041CDD37CD00E4E92A /* BFGAlertSimpleStackView.swift */; };
+		448D6A1F1CDD382100E4E92A /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FE1CDD37CD00E4E92A /* AlertAction.swift */; };
+		448D6A201CDD382100E4E92A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D69FF1CDD37CD00E4E92A /* Config.swift */; };
+		448D6A211CDD382100E4E92A /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A001CDD37CD00E4E92A /* AlertController.swift */; };
+		448D6A221CDD382100E4E92A /* AlertController+ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A011CDD37CD00E4E92A /* AlertController+ActionSheet.swift */; };
+		448D6A231CDD382100E4E92A /* AlertController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A021CDD37CD00E4E92A /* AlertController+Alert.swift */; };
+		448D6A241CDD382100E4E92A /* AlertSideBySideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A031CDD37CD00E4E92A /* AlertSideBySideView.swift */; };
+		448D6A251CDD382100E4E92A /* AlertSimpleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A041CDD37CD00E4E92A /* AlertSimpleStackView.swift */; };
 		448D6A261CDD382100E4E92A /* UIImage+Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D6A051CDD37CD00E4E92A /* UIImage+Pixel.swift */; };
 		448D6A2A1CDD392100E4E92A /* BFGAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 448D6A271CDD38EB00E4E92A /* BFGAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -55,13 +55,13 @@
 		448D69F51CDD37AD00E4E92A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		448D69F61CDD37AD00E4E92A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		448D69F71CDD37AD00E4E92A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		448D69FE1CDD37CD00E4E92A /* BFGAlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BFGAlertAction.swift; path = Source/BFGAlertAction.swift; sourceTree = "<group>"; };
-		448D69FF1CDD37CD00E4E92A /* BFGAlertConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BFGAlertConfig.swift; path = Source/BFGAlertConfig.swift; sourceTree = "<group>"; };
-		448D6A001CDD37CD00E4E92A /* BFGAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BFGAlertController.swift; path = Source/BFGAlertController.swift; sourceTree = "<group>"; };
-		448D6A011CDD37CD00E4E92A /* BFGAlertController+ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BFGAlertController+ActionSheet.swift"; path = "Source/BFGAlertController+ActionSheet.swift"; sourceTree = "<group>"; };
-		448D6A021CDD37CD00E4E92A /* BFGAlertController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BFGAlertController+Alert.swift"; path = "Source/BFGAlertController+Alert.swift"; sourceTree = "<group>"; };
-		448D6A031CDD37CD00E4E92A /* BFGAlertSideBySideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BFGAlertSideBySideView.swift; path = Source/BFGAlertSideBySideView.swift; sourceTree = "<group>"; };
-		448D6A041CDD37CD00E4E92A /* BFGAlertSimpleStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BFGAlertSimpleStackView.swift; path = Source/BFGAlertSimpleStackView.swift; sourceTree = "<group>"; };
+		448D69FE1CDD37CD00E4E92A /* AlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = Source/AlertAction.swift; sourceTree = "<group>"; };
+		448D69FF1CDD37CD00E4E92A /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Source/Config.swift; sourceTree = "<group>"; };
+		448D6A001CDD37CD00E4E92A /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = Source/AlertController.swift; sourceTree = "<group>"; };
+		448D6A011CDD37CD00E4E92A /* AlertController+ActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AlertController+ActionSheet.swift"; path = "Source/AlertController+ActionSheet.swift"; sourceTree = "<group>"; };
+		448D6A021CDD37CD00E4E92A /* AlertController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AlertController+Alert.swift"; path = "Source/AlertController+Alert.swift"; sourceTree = "<group>"; };
+		448D6A031CDD37CD00E4E92A /* AlertSideBySideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertSideBySideView.swift; path = Source/AlertSideBySideView.swift; sourceTree = "<group>"; };
+		448D6A041CDD37CD00E4E92A /* AlertSimpleStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertSimpleStackView.swift; path = Source/AlertSimpleStackView.swift; sourceTree = "<group>"; };
 		448D6A051CDD37CD00E4E92A /* UIImage+Pixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Pixel.swift"; path = "Source/UIImage+Pixel.swift"; sourceTree = "<group>"; };
 		448D6A131CDD380000E4E92A /* BFGAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		448D6A271CDD38EB00E4E92A /* BFGAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFGAlertController.h; path = Source/BFGAlertController.h; sourceTree = "<group>"; };
@@ -121,15 +121,15 @@
 		448D69FD1CDD37BF00E4E92A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				448D69FE1CDD37CD00E4E92A /* AlertAction.swift */,
+				448D6A001CDD37CD00E4E92A /* AlertController.swift */,
+				448D6A011CDD37CD00E4E92A /* AlertController+ActionSheet.swift */,
+				448D6A021CDD37CD00E4E92A /* AlertController+Alert.swift */,
+				448D6A031CDD37CD00E4E92A /* AlertSideBySideView.swift */,
+				448D6A041CDD37CD00E4E92A /* AlertSimpleStackView.swift */,
 				448D6A271CDD38EB00E4E92A /* BFGAlertController.h */,
+				448D69FF1CDD37CD00E4E92A /* Config.swift */,
 				448D6A281CDD38EB00E4E92A /* Info.plist */,
-				448D69FE1CDD37CD00E4E92A /* BFGAlertAction.swift */,
-				448D69FF1CDD37CD00E4E92A /* BFGAlertConfig.swift */,
-				448D6A001CDD37CD00E4E92A /* BFGAlertController.swift */,
-				448D6A011CDD37CD00E4E92A /* BFGAlertController+ActionSheet.swift */,
-				448D6A021CDD37CD00E4E92A /* BFGAlertController+Alert.swift */,
-				448D6A031CDD37CD00E4E92A /* BFGAlertSideBySideView.swift */,
-				448D6A041CDD37CD00E4E92A /* BFGAlertSimpleStackView.swift */,
 				448D6A051CDD37CD00E4E92A /* UIImage+Pixel.swift */,
 			);
 			name = Source;
@@ -265,13 +265,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448D6A1F1CDD382100E4E92A /* BFGAlertAction.swift in Sources */,
-				448D6A201CDD382100E4E92A /* BFGAlertConfig.swift in Sources */,
-				448D6A211CDD382100E4E92A /* BFGAlertController.swift in Sources */,
-				448D6A221CDD382100E4E92A /* BFGAlertController+ActionSheet.swift in Sources */,
-				448D6A231CDD382100E4E92A /* BFGAlertController+Alert.swift in Sources */,
-				448D6A241CDD382100E4E92A /* BFGAlertSideBySideView.swift in Sources */,
-				448D6A251CDD382100E4E92A /* BFGAlertSimpleStackView.swift in Sources */,
+				448D6A1F1CDD382100E4E92A /* AlertAction.swift in Sources */,
+				448D6A201CDD382100E4E92A /* Config.swift in Sources */,
+				448D6A211CDD382100E4E92A /* AlertController.swift in Sources */,
+				448D6A221CDD382100E4E92A /* AlertController+ActionSheet.swift in Sources */,
+				448D6A231CDD382100E4E92A /* AlertController+Alert.swift in Sources */,
+				448D6A241CDD382100E4E92A /* AlertSideBySideView.swift in Sources */,
+				448D6A251CDD382100E4E92A /* AlertSimpleStackView.swift in Sources */,
 				448D6A261CDD382100E4E92A /* UIImage+Pixel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

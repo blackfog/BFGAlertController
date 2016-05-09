@@ -1,15 +1,13 @@
 //
-//  BFGAlertSideBySideView.swift
-//  Pods
+//  AlertSideBySideView.swift
 //
 //  Created by Craig Pearlman on 2015-06-30.
-//
 //
 
 import UIKit
 
 // MARK: - Main
-class BFGAlertSideBySideView: UIView {
+class AlertSideBySideView: UIView {
     // MARK: - Declarations
     
     var leftView     = UIView()
@@ -49,7 +47,7 @@ class BFGAlertSideBySideView: UIView {
 }
 
 // MARK: - Private
-extension BFGAlertSideBySideView {
+extension AlertSideBySideView {
     private func insertLeftView() {
         self.leftView.translatesAutoresizingMaskIntoConstraints = false
         
