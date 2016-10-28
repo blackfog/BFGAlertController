@@ -18,21 +18,21 @@ import UIKit
     case disabled
 }
 
-public class AlertAction: NSObject {
-    public var actionTitle: String
-    public var actionStyle: AlertActionStyle = .`default`
-    public var enabled = true
-    public var handler: (AlertAction) -> Void
+open class AlertAction: NSObject {
+    open var actionTitle: String
+    open var actionStyle: AlertActionStyle = .`default`
+    open var enabled = true
+    open var handler: (AlertAction) -> Void
     
-    public var title: String {
+    open var title: String {
         return self.actionTitle
     }
     
-    public var style: AlertActionStyle {
+    open var style: AlertActionStyle {
         return self.actionStyle
     }
     
-    public init(title: String, style: AlertActionStyle, handler: (AlertAction!) -> Void) {
+    public init(title: String, style: AlertActionStyle, handler: @escaping (AlertAction!) -> Void) {
         self.actionTitle = title
         self.actionStyle = style
         self.handler     = handler
@@ -40,16 +40,16 @@ public class AlertAction: NSObject {
         super.init()
     }
     
-    public func button() -> UIButton {
+    open func button() -> UIButton {
         let button = UIButton()
         
-        button.setTitle(self.actionTitle, forState: .Normal)
-        button.addTarget(self, action: #selector(AlertAction.tapped), forControlEvents: .TouchUpInside)
+        button.setTitle(self.actionTitle, for: UIControlState())
+        button.addTarget(self, action: #selector(AlertAction.tapped), for: .touchUpInside)
         
         return button
     }
     
-    public func tapped() {
+    open func tapped() {
         self.handler(self)
     }
 }

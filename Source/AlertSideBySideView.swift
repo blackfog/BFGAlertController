@@ -12,12 +12,12 @@ class AlertSideBySideView: UIView {
     
     var leftView     = UIView()
     var rightView    = UIView()
-    var dividerColor = UIColor.grayColor()
+    var dividerColor = UIColor.gray
     var dividerWidth = CGFloat(0.5)
     
     // MARK: - Private Declarations
     
-    private var dividerView: UIView?
+    fileprivate var dividerView: UIView?
     
     // MARK: - Constructors
     
@@ -48,73 +48,73 @@ class AlertSideBySideView: UIView {
 
 // MARK: - Private
 extension AlertSideBySideView {
-    private func insertLeftView() {
+    fileprivate func insertLeftView() {
         self.leftView.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(self.leftView)
         
         self.addConstraints([
             NSLayoutConstraint(
-                item: self.leftView, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Leading,
+                item: self.leftView, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: self, attribute: .leading,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.leftView, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: self.dividerView!, attribute: .Leading,
+                item: self.leftView, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: self.dividerView!, attribute: .leading,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.leftView, attribute: .Top,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Top,
+                item: self.leftView, attribute: .top,
+                    relatedBy: .equal,
+                toItem: self, attribute: .top,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.leftView, attribute: .Bottom,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Bottom,
+                item: self.leftView, attribute: .bottom,
+                    relatedBy: .equal,
+                toItem: self, attribute: .bottom,
                     multiplier: 1.0, constant: 0.0
             )
         ])
     }
     
-    private func insertRightView() {
+    fileprivate func insertRightView() {
         self.rightView.translatesAutoresizingMaskIntoConstraints = false
 
         self.addSubview(self.rightView)
         
         self.addConstraints([
             NSLayoutConstraint(
-                item: self.rightView, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: self.dividerView!, attribute: .Trailing,
+                item: self.rightView, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: self.dividerView!, attribute: .trailing,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.rightView, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Trailing,
+                item: self.rightView, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: self, attribute: .trailing,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.rightView, attribute: .Top,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Top,
+                item: self.rightView, attribute: .top,
+                    relatedBy: .equal,
+                toItem: self, attribute: .top,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.rightView, attribute: .Bottom,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Bottom,
+                item: self.rightView, attribute: .bottom,
+                    relatedBy: .equal,
+                toItem: self, attribute: .bottom,
                     multiplier: 1.0, constant: 0.0
             )
         ])
     }
     
-    private func insertDivider() {
+    fileprivate func insertDivider() {
         self.dividerView = UIView()
         self.dividerView?.translatesAutoresizingMaskIntoConstraints = false
         self.dividerView?.backgroundColor = self.dividerColor
@@ -123,33 +123,33 @@ extension AlertSideBySideView {
         
         self.addConstraints([
             NSLayoutConstraint(
-                item: self.dividerView!, attribute: .CenterX,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .CenterX,
+                item: self.dividerView!, attribute: .centerX,
+                    relatedBy: .equal,
+                toItem: self, attribute: .centerX,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.dividerView!, attribute: .CenterY,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .CenterY,
+                item: self.dividerView!, attribute: .centerY,
+                    relatedBy: .equal,
+                toItem: self, attribute: .centerY,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.dividerView!, attribute: .Width,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: self.dividerView!, attribute: .width,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: self.dividerWidth
             ),
             NSLayoutConstraint(
-                item: self.dividerView!, attribute: .Top,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Top,
+                item: self.dividerView!, attribute: .top,
+                    relatedBy: .equal,
+                toItem: self, attribute: .top,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.dividerView!, attribute: .Bottom,
-                    relatedBy: .Equal,
-                toItem: self, attribute: .Bottom,
+                item: self.dividerView!, attribute: .bottom,
+                    relatedBy: .equal,
+                toItem: self, attribute: .bottom,
                     multiplier: 1.0, constant: 0.0
             )
         ])

@@ -17,35 +17,35 @@ import UIKit
 }
 
 // MARK: - Main
-public class AlertController: UIViewController {
+open class AlertController: UIViewController {
     // MARK: - Public Declarations
     
-    public var alertTitle: String?
-    public var alertMessage: String?
-    public var showing = false
+    open var alertTitle: String?
+    open var alertMessage: String?
+    open var showing = false
     
-    public var actions: [AlertAction] {
+    open var actions: [AlertAction] {
         return self.alertActions
     }
     
-    public var textFields: [UITextField] {
+    open var textFields: [UITextField] {
         return self.alertFields
     }
 
-    public var style           = AlertControllerStyle.alert
-    public var backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.925)
-    public var titleColor      = UIColor.blackColor()
-    public var titleFont       = UIFont.boldSystemFontOfSize(16.0)
-    public var messageColor    = UIColor.blackColor()
-    public var messageFont     = UIFont.systemFontOfSize(14.0)
-    public var shadeOpacity    = CGFloat(0.4)
-    public var shadeColor      = UIColor.blackColor()
-    public var cornerRadius    = CGFloat(12.0)
-    public var dividerColor    = UIColor.blackColor().colorWithAlphaComponent(0.4)
-    public var dividerSize     = CGFloat(0.5)
-    public var alertWidth      = CGFloat(300.0)
-    public var alertPadding    = CGFloat(16.0)
-    public var buttonHeight    = CGFloat(44.0)
+    open var style           = AlertControllerStyle.alert
+    open var backgroundColor = UIColor.white.withAlphaComponent(0.925)
+    open var titleColor      = UIColor.black
+    open var titleFont       = UIFont.boldSystemFont(ofSize: 16.0)
+    open var messageColor    = UIColor.black
+    open var messageFont     = UIFont.systemFont(ofSize: 14.0)
+    open var shadeOpacity    = CGFloat(0.4)
+    open var shadeColor      = UIColor.black
+    open var cornerRadius    = CGFloat(12.0)
+    open var dividerColor    = UIColor.black.withAlphaComponent(0.4)
+    open var dividerSize     = CGFloat(0.5)
+    open var alertWidth      = CGFloat(300.0)
+    open var alertPadding    = CGFloat(16.0)
+    open var buttonHeight    = CGFloat(44.0)
 
     // MARK: - Internal Declarations
     
@@ -66,21 +66,21 @@ public class AlertController: UIViewController {
 
     // MARK: - Private Declarations
     
-    private var buttonBackgroundColor = [
-        Config<UIColor>(style: .`default`, state: .normal,      value: UIColor.clearColor()),
-        Config<UIColor>(style: .`default`, state: .highlighted, value: UIColor.groupTableViewBackgroundColor()),
-        Config<UIColor>(style: .cancel,    state: .normal,      value: UIColor.clearColor()),
-        Config<UIColor>(style: .cancel,    state: .highlighted, value: UIColor.groupTableViewBackgroundColor())
+    fileprivate var buttonBackgroundColor = [
+        Config<UIColor>(style: .`default`, state: .normal,      value: UIColor.clear),
+        Config<UIColor>(style: .`default`, state: .highlighted, value: UIColor.groupTableViewBackground),
+        Config<UIColor>(style: .cancel,    state: .normal,      value: UIColor.clear),
+        Config<UIColor>(style: .cancel,    state: .highlighted, value: UIColor.groupTableViewBackground)
     ]
 
-    private var buttonTextColor = [
-        Config<UIColor>(style: .`default`,   state: .normal, value: UIColor.blackColor()),
-        Config<UIColor>(style: .destructive, state: .normal, value: UIColor.redColor())
+    fileprivate var buttonTextColor = [
+        Config<UIColor>(style: .`default`,   state: .normal, value: UIColor.black),
+        Config<UIColor>(style: .destructive, state: .normal, value: UIColor.red)
     ]
 
-    private var buttonFont = [
-        Config<UIFont>(style: .`default`, state: .normal, value: UIFont.systemFontOfSize(14.0)),
-        Config<UIFont>(style: .cancel,    state: .normal, value: UIFont.boldSystemFontOfSize(14.0))
+    fileprivate var buttonFont = [
+        Config<UIFont>(style: .`default`, state: .normal, value: UIFont.systemFont(ofSize: 14.0)),
+        Config<UIFont>(style: .cancel,    state: .normal, value: UIFont.boldSystemFont(ofSize: 14.0))
     ]
     
     // MARK: - Constructors
@@ -89,7 +89,7 @@ public class AlertController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -100,38 +100,38 @@ public class AlertController: UIViewController {
         self.alertMessage = message
         self.style        = preferredStyle
         
-        self.modalPresentationStyle = .OverFullScreen
-        self.modalTransitionStyle = .CrossDissolve
+        self.modalPresentationStyle = .overFullScreen
+        self.modalTransitionStyle = .crossDissolve
     }
     
     // MARK: - Lifecycle
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         self.view = UIView()
-        self.view?.backgroundColor = UIColor.clearColor()
+        self.view?.backgroundColor = UIColor.clear
     }
     
-    public override func viewDidAppear(animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.show()
     }
     
-    public override func viewWillDisappear(animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.hide()
     }
     
     // MARK: - Public
     
-    public func actionAtIndex(index: Int) -> AlertAction {
+    open func actionAtIndex(_ index: Int) -> AlertAction {
         return self.alertActions[index]
     }
     
-    public func addAction(action: AlertAction) {
+    open func addAction(_ action: AlertAction) {
         self.alertActions.append(action)
     }
     
-    public func addTextFieldWithConfigurationHandler(configurationHandler: ((UITextField!) -> Void)!) {
+    open func addTextFieldWithConfigurationHandler(_ configurationHandler: ((UITextField?) -> Void)!) {
         assert(self.style != .actionSheet, "Text fields may only be added to alerts")
         
         let field = UITextField()
@@ -146,7 +146,7 @@ public extension AlertController {
         return ConfigHelper.configValue(from: self.buttonBackgroundColor, forButtonStyle: style, state: state)
     }
     
-    public func setBackgroundColor(color: UIColor, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+    public func setBackgroundColor(_ color: UIColor, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
         ConfigHelper.setConfigValue(color, inArray: &self.buttonBackgroundColor, forButtonStyle: style, state: state)
     }
 
@@ -154,7 +154,7 @@ public extension AlertController {
         return ConfigHelper.configValue(from: self.buttonTextColor, forButtonStyle: style, state: state)
     }
     
-    public func setTextColor(color: UIColor, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+    public func setTextColor(_ color: UIColor, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
         ConfigHelper.setConfigValue(color, inArray: &self.buttonTextColor, forButtonStyle: style, state: state)
     }
     
@@ -162,89 +162,89 @@ public extension AlertController {
         return ConfigHelper.configValue(from: self.buttonFont, forButtonStyle: style, state: state)
     }
     
-    public func setFont(font: UIFont, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+    public func setFont(_ font: UIFont, forButtonStyle style: AlertActionStyle, state: AlertActionState) {
         ConfigHelper.setConfigValue(font, inArray: &self.buttonFont, forButtonStyle: style, state: state)
     }
 }
 
 // MARK: - Button Appearance
 extension AlertController {
-    func attributedStringForButton(button: UIButton, style: AlertActionStyle, state: AlertActionState, controlState: UIControlState) -> NSAttributedString {
+    func attributedStringForButton(_ button: UIButton, style: AlertActionStyle, state: AlertActionState, controlState: UIControlState) -> NSAttributedString {
         return NSAttributedString(
-            string: button.titleForState(controlState)!,
+            string: button.title(for: controlState)!,
             attributes: [
-                NSFontAttributeName: self.font(forButtonStyle: style, state: state) as! AnyObject,
-                NSForegroundColorAttributeName: self.textColor(forButtonStyle: style, state: state) as! AnyObject
+                NSFontAttributeName: self.font(forButtonStyle: style, state: state) as AnyObject,
+                NSForegroundColorAttributeName: self.textColor(forButtonStyle: style, state: state) as AnyObject
             ]
         )
     }
     
-    func styleButton(button: UIButton, style: AlertActionStyle) {
-        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .normal, controlState: .Normal), forState: .Normal)
-        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .highlighted, controlState: .Highlighted), forState: .Highlighted)
-        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .disabled, controlState: .Disabled), forState: .Disabled)
+    func styleButton(_ button: UIButton, style: AlertActionStyle) {
+        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .normal, controlState: UIControlState()), for: UIControlState())
+        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .highlighted, controlState: .highlighted), for: .highlighted)
+        button.setAttributedTitle(self.attributedStringForButton(button, style: style, state: .disabled, controlState: .disabled), for: .disabled)
         
-        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .normal)!), forState: .Normal)
-        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .highlighted)!), forState: .Highlighted)
-        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .disabled)!), forState: .Disabled)
+        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .normal)!), for: UIControlState())
+        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .highlighted)!), for: .highlighted)
+        button.setBackgroundImage(UIImage.pixelOfColor(self.backgroundColor(forButtonStyle: style, state: .disabled)!), for: .disabled)
     }
 }
 
 // MARK: - Private/Internal
 extension AlertController {
     func addShade() {
-        self.shadeView = UIView(frame: UIScreen.mainScreen().bounds)
-        self.shadeView?.backgroundColor = self.shadeColor.colorWithAlphaComponent(self.shadeOpacity)
+        self.shadeView = UIView(frame: UIScreen.main.bounds)
+        self.shadeView?.backgroundColor = self.shadeColor.withAlphaComponent(self.shadeOpacity)
         self.shadeView?.translatesAutoresizingMaskIntoConstraints = false
 
         self.view?.addSubview(self.shadeView!)
 
         self.view?.addConstraints([
             NSLayoutConstraint(
-                item: self.shadeView!, attribute: .Top,
-                    relatedBy: .Equal,
-                toItem: self.view!, attribute: .Top,
+                item: self.shadeView!, attribute: .top,
+                    relatedBy: .equal,
+                toItem: self.view!, attribute: .top,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.shadeView!, attribute: .Bottom,
-                    relatedBy: .Equal,
-                toItem: self.view!, attribute: .Bottom,
+                item: self.shadeView!, attribute: .bottom,
+                    relatedBy: .equal,
+                toItem: self.view!, attribute: .bottom,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.shadeView!, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: self.view!, attribute: .Leading,
+                item: self.shadeView!, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: self.view!, attribute: .leading,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.shadeView!, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: self.view!, attribute: .Trailing,
+                item: self.shadeView!, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: self.view!, attribute: .trailing,
                     multiplier: 1.0, constant: 0.0
             )
         ])
     }
     
-    private func show() {
+    fileprivate func show() {
         precondition(self.alertTitle != nil || self.alertMessage != nil, "One of alert title or message is required")
         
         self.showing = true
         
         if self.style == .alert {
             self.keyboardNotifications.append(
-                NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardWillShowNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: OperationQueue.main) { notification in
                     if let beginFrame = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.alertContainerViewCenterY?.constant = -(beginFrame.CGRectValue().size.height / 2)
+                        DispatchQueue.main.async {
+                            self.alertContainerViewCenterY?.constant = -(beginFrame.cgRectValue.size.height / 2)
                         }
                     }
                 }
             )
 
             self.keyboardNotifications.append(
-                NSNotificationCenter.defaultCenter().addObserverForName(UIKeyboardDidHideNotification, object: nil, queue: NSOperationQueue.mainQueue()) { notification in
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardDidHide, object: nil, queue: OperationQueue.main) { notification in
                     self.alertContainerViewCenterY?.constant = 0
                 }
             )
@@ -258,13 +258,13 @@ extension AlertController {
         }
     }
     
-    private func hide() {
+    fileprivate func hide() {
         if (self.showing) {
             self.showing = false
             
             if self.style == .alert {
                 for id in self.keyboardNotifications {
-                    NSNotificationCenter.defaultCenter().removeObserver(id)
+                    NotificationCenter.default.removeObserver(id)
                 }
             }
             

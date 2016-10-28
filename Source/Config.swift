@@ -58,13 +58,13 @@ internal class ConfigHelper {
         return nil
     }
     
-    class func removeConfig<T>(inout inArray array: [Config<T>], withStyle style: AlertActionStyle, andState state: AlertActionState) {
+    class func removeConfig<T>(inArray array: inout [Config<T>], withStyle style: AlertActionStyle, andState state: AlertActionState) {
         if let (_, index) = ConfigHelper.findConfig(inArray: array, withStyle: style, andState: state) {
-            array.removeAtIndex(index)
+            array.remove(at: index)
         }
     }
     
-    class func updateConfig<T>(inout inArray array: [Config<T>], withStyle style: AlertActionStyle, andState state: AlertActionState, value: T) {
+    class func updateConfig<T>(inArray array: inout [Config<T>], withStyle style: AlertActionStyle, andState state: AlertActionState, value: T) {
         ConfigHelper.removeConfig(inArray: &array, withStyle: style, andState: state)
         array.append(Config<T>(style: style, state: state, value: value))
     }
@@ -81,7 +81,7 @@ internal class ConfigHelper {
         return nil
     }
     
-    class func setConfigValue<T>(value: T, inout inArray array: [Config<T>], forButtonStyle style: AlertActionStyle, state: AlertActionState) {
+    class func setConfigValue<T>(_ value: T, inArray array: inout [Config<T>], forButtonStyle style: AlertActionStyle, state: AlertActionState) {
         ConfigHelper.updateConfig(inArray: &array, withStyle: style, andState: state, value: value)
     }
 }

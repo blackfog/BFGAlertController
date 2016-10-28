@@ -23,7 +23,7 @@ extension AlertController {
     }
     
     func smallestDimension() -> CGFloat {
-        let rect     = UIScreen.mainScreen().bounds
+        let rect     = UIScreen.main.bounds
         let smallest = min(rect.height, rect.width)
         
         if (smallest > 600.0) {
@@ -33,11 +33,11 @@ extension AlertController {
         return smallest
     }
     
-    func showActionSheetInternal(modal modal: Bool) {
+    func showActionSheetInternal(modal: Bool) {
         if (modal) { self.addShade() }
         self.createActionSheet()
         
-        let presentedView = self.popoverPresentationController?.presentedView()
+        let presentedView = self.popoverPresentationController?.presentedView
         let targetView = modal ? self.shadeView! : presentedView!
         
         targetView.addSubview(self.alertContainerView!)
@@ -51,41 +51,41 @@ extension AlertController {
         }
         
         self.alertContainerViewHeight = NSLayoutConstraint(
-            item: self.alertContainerView!, attribute: .Height,
-                relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute,
+            item: self.alertContainerView!, attribute: .height,
+                relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute,
                 multiplier: 1.0, constant: height
         )
 
         self.alertContainerViewBottom = NSLayoutConstraint(
-            item: self.alertContainerView!, attribute: .Bottom,
-                relatedBy: .Equal,
-            toItem: targetView, attribute: .Bottom,
+            item: self.alertContainerView!, attribute: .bottom,
+                relatedBy: .equal,
+            toItem: targetView, attribute: .bottom,
                 multiplier: 1.0, constant: modal ? height : -self.alertPadding
         )
 
         targetView.addConstraints([
             self.alertContainerViewBottom!,
             NSLayoutConstraint(
-                item: self.alertContainerView!, attribute: .CenterX,
-                    relatedBy: .Equal,
-                toItem: targetView, attribute: .CenterX,
+                item: self.alertContainerView!, attribute: .centerX,
+                    relatedBy: .equal,
+                toItem: targetView, attribute: .centerX,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertContainerView!, attribute: .Width,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: self.alertContainerView!, attribute: .width,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: width
             ),
             self.alertContainerViewHeight!
         ])
 
         if modal {
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.alertContainerViewBottom!.constant = finalBottom
                 
-                UIView.animateWithDuration(0.2, delay: 0.0, options: .CurveEaseIn, animations: {
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
                     self.alertContainerView?.layoutIfNeeded()
                 }, completion: nil)
             }
@@ -95,9 +95,9 @@ extension AlertController {
     func hideModalActionSheet() {
         self.alertContainerViewBottom!.constant = self.calculateHeight()
         
-        UIView.animateWithDuration(0.2) {
+        UIView.animate(withDuration: 0.2, animations: {
             self.alertContainerView?.layoutIfNeeded()
-        }
+        }) 
     }
     
     func createActionSheet() {
@@ -105,7 +105,7 @@ extension AlertController {
         self.addAltButtons()
         
         self.alertContainerView = AlertSimpleStackView(views: [self.alertActionsContainerView!, self.alertActionsAltContainerView!])
-        (self.alertContainerView as! AlertSimpleStackView).dividerColor = UIColor.clearColor()
+        (self.alertContainerView as! AlertSimpleStackView).dividerColor = UIColor.clear
         (self.alertContainerView as! AlertSimpleStackView).dividerHeight = self.alertPadding
         (self.alertContainerView as! AlertSimpleStackView).viewHeights = [self.defaultsHeight(), self.nonDefaultsHeight()]
         
@@ -134,27 +134,27 @@ extension AlertController {
         
         wrapperView.addConstraints([
             NSLayoutConstraint(
-                item: messageView, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: wrapperView, attribute: .Leading,
+                item: messageView, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: wrapperView, attribute: .leading,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: messageView, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: wrapperView, attribute: .Trailing,
+                item: messageView, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: wrapperView, attribute: .trailing,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: messageView, attribute: .CenterY,
-                    relatedBy: .Equal,
-                toItem: wrapperView, attribute: .CenterY,
+                item: messageView, attribute: .centerY,
+                    relatedBy: .equal,
+                toItem: wrapperView, attribute: .centerY,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: messageView, attribute: .Height,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: messageView, attribute: .height,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: messageViewHeight
             )
         ])
@@ -227,12 +227,12 @@ extension AlertController {
         (self.alertActionsAltContainerView as! AlertSimpleStackView).dividerHeight = self.dividerSize
     }
     
-    func layoutLabelsInView(targetView: UIView) {
+    func layoutLabelsInView(_ targetView: UIView) {
         var alignTitleToView: UIView? = targetView
-        let alignTitleToAttribute: NSLayoutAttribute = .Top
+        let alignTitleToAttribute: NSLayoutAttribute = .top
         
         var alignMessageToView: UIView? = self.alertTitleLabel
-        var alignMessageToAttribute: NSLayoutAttribute = .Bottom
+        var alignMessageToAttribute: NSLayoutAttribute = .bottom
         
         if self.alertTitle != nil && self.alertMessage == nil {
             alignMessageToView = nil
@@ -240,7 +240,7 @@ extension AlertController {
         else if self.alertTitle == nil && self.alertMessage != nil {
             alignTitleToView = nil
             alignMessageToView = targetView
-            alignMessageToAttribute = .Top
+            alignMessageToAttribute = .top
         }
         
         if let alignTo = alignTitleToView {

@@ -15,7 +15,7 @@ extension AlertController {
         self.alertContainerView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 150)) // arbitrary
         
         self.alertContainerView?.backgroundColor = self.backgroundColor
-        self.alertContainerView?.transform = CGAffineTransformMakeScale(0, 0)
+        self.alertContainerView?.transform = CGAffineTransform(scaleX: 0, y: 0)
         self.alertContainerView?.translatesAutoresizingMaskIntoConstraints = false
         self.alertContainerView?.layer.cornerRadius = self.cornerRadius
         self.alertContainerView?.clipsToBounds = true
@@ -23,32 +23,32 @@ extension AlertController {
         self.shadeView?.addSubview(self.alertContainerView!)
 
         self.alertContainerViewHeight = NSLayoutConstraint(
-            item: self.alertContainerView!, attribute: .Height,
-                relatedBy: .Equal,
-            toItem: nil, attribute: .NotAnAttribute,
+            item: self.alertContainerView!, attribute: .height,
+                relatedBy: .equal,
+            toItem: nil, attribute: .notAnAttribute,
                 multiplier: 1.0, constant: 150.0 // arbitrary
         )
 
         self.alertContainerViewCenterY = NSLayoutConstraint(
-            item: self.alertContainerView!, attribute: .CenterY,
-                relatedBy: .Equal,
-            toItem: self.shadeView!, attribute: .CenterY,
+            item: self.alertContainerView!, attribute: .centerY,
+                relatedBy: .equal,
+            toItem: self.shadeView!, attribute: .centerY,
                 multiplier: 1.0, constant: 1.0
         )
 
         self.shadeView?.addConstraints([
             NSLayoutConstraint(
-                item: self.alertContainerView!, attribute: .CenterX,
-                    relatedBy: .Equal,
-                toItem: self.shadeView!, attribute: .CenterX,
+                item: self.alertContainerView!, attribute: .centerX,
+                    relatedBy: .equal,
+                toItem: self.shadeView!, attribute: .centerX,
                     multiplier: 1.0, constant: 1.0
             ),
             self.alertContainerViewCenterY!,
             self.alertContainerViewHeight!,
             NSLayoutConstraint(
-                item: self.alertContainerView!, attribute: .Width,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: self.alertContainerView!, attribute: .width,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: self.alertWidth
             )
         ])
@@ -65,9 +65,9 @@ extension AlertController {
             self.alertFields.first?.becomeFirstResponder()
         }
         
-        UIView.animateWithDuration(0.33, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.05,
-            options: .CurveLinear, animations: {
-                self.alertContainerView?.transform = CGAffineTransformMakeScale(1, 1)
+        UIView.animate(withDuration: 0.33, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.05,
+            options: .curveLinear, animations: {
+                self.alertContainerView?.transform = CGAffineTransform(scaleX: 1, y: 1)
             }, completion: nil)
     }
     
@@ -91,14 +91,14 @@ extension AlertController {
         )
     }
     
-    func createLabel(textColor textColor: UIColor, font: UIFont, text: String?) -> UILabel? {
+    func createLabel(textColor: UIColor, font: UIFont, text: String?) -> UILabel? {
         if let text = text  {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 30)) // arbitrary
             label.textColor = textColor
             label.font = font
-            label.textAlignment = .Center
+            label.textAlignment = .center
             label.numberOfLines = 0
-            label.lineBreakMode = .ByWordWrapping
+            label.lineBreakMode = .byWordWrapping
             label.text = text
             label.translatesAutoresizingMaskIntoConstraints = false
             
@@ -110,11 +110,11 @@ extension AlertController {
         return nil
     }
     
-    func sizeForLabel(label: UILabel?) -> CGRect {
+    func sizeForLabel(_ label: UILabel?) -> CGRect {
         if let label = label {
-            let rect = NSString(string: label.text!).boundingRectWithSize(
-                CGSize(width: label.bounds.width, height: CGFloat.max),
-                options: [NSStringDrawingOptions.UsesLineFragmentOrigin, NSStringDrawingOptions.UsesFontLeading],
+            let rect = NSString(string: label.text!).boundingRect(
+                with: CGSize(width: label.bounds.width, height: CGFloat.greatestFiniteMagnitude),
+                options: [NSStringDrawingOptions.usesLineFragmentOrigin, NSStringDrawingOptions.usesFontLeading],
                 attributes: [NSFontAttributeName: label.font],
                 context: nil
             )
@@ -126,38 +126,38 @@ extension AlertController {
         }
     }
 
-    func widthForLabel(label: UILabel?) -> CGFloat {
+    func widthForLabel(_ label: UILabel?) -> CGFloat {
         return self.sizeForLabel(label).width
     }
     
-    func heightForLabel(label: UILabel?) -> CGFloat {
+    func heightForLabel(_ label: UILabel?) -> CGFloat {
         return self.sizeForLabel(label).height
     }
     
-    func layoutLabelInView(targetView: UIView, label: UILabel, alignToView: UIView, alignToAttribute: NSLayoutAttribute) {
+    func layoutLabelInView(_ targetView: UIView, label: UILabel, alignToView: UIView, alignToAttribute: NSLayoutAttribute) {
         targetView.addConstraints([
             NSLayoutConstraint(
-                item: label, attribute: .Top,
-                    relatedBy: .Equal,
+                item: label, attribute: .top,
+                    relatedBy: .equal,
                 toItem: alignToView, attribute: alignToAttribute,
                     multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
-                item: label, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: targetView, attribute: .Leading,
+                item: label, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: targetView, attribute: .leading,
                     multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
-                item: label, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: targetView, attribute: .Trailing,
+                item: label, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: targetView, attribute: .trailing,
                     multiplier: 1.0, constant: -self.alertPadding
             ),
             NSLayoutConstraint(
-                item: label, attribute: .Height,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: label, attribute: .height,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: self.heightForLabel(label)
             )
         ])
@@ -165,10 +165,10 @@ extension AlertController {
     
     func layoutLabels() {
         var alignTitleToView: UIView? = self.alertContainerView
-        let alignTitleToAttribute: NSLayoutAttribute = .Top
+        let alignTitleToAttribute: NSLayoutAttribute = .top
         
         var alignMessageToView: UIView? = self.alertTitleLabel
-        var alignMessageToAttribute: NSLayoutAttribute = .Bottom
+        var alignMessageToAttribute: NSLayoutAttribute = .bottom
         
         if self.alertTitle != nil && self.alertMessage == nil {
             alignMessageToView = nil
@@ -176,7 +176,7 @@ extension AlertController {
         else if self.alertTitle == nil && self.alertMessage != nil {
             alignTitleToView = nil
             alignMessageToView = self.alertContainerView
-            alignMessageToAttribute = .Top
+            alignMessageToAttribute = .top
         }
         
         if let alignTo = alignTitleToView {
@@ -200,27 +200,27 @@ extension AlertController {
             
             self.alertContainerView?.addConstraints([
                 NSLayoutConstraint(
-                    item: self.alertFieldView!, attribute: .Top,
-                        relatedBy: .Equal,
-                    toItem: attachToView, attribute: .Bottom,
+                    item: self.alertFieldView!, attribute: .top,
+                        relatedBy: .equal,
+                    toItem: attachToView, attribute: .bottom,
                         multiplier: 1.0, constant: self.alertPadding
                 ),
                 NSLayoutConstraint(
-                    item: self.alertFieldView!, attribute: .Leading,
-                        relatedBy: .Equal,
-                    toItem: self.alertContainerView!, attribute: .Leading,
+                    item: self.alertFieldView!, attribute: .leading,
+                        relatedBy: .equal,
+                    toItem: self.alertContainerView!, attribute: .leading,
                         multiplier: 1.0, constant: self.alertPadding
                 ),
                 NSLayoutConstraint(
-                    item: self.alertFieldView!, attribute: .Trailing,
-                        relatedBy: .Equal,
-                    toItem: self.alertContainerView!, attribute: .Trailing,
+                    item: self.alertFieldView!, attribute: .trailing,
+                        relatedBy: .equal,
+                    toItem: self.alertContainerView!, attribute: .trailing,
                         multiplier: 1.0, constant: -self.alertPadding
                 ),
                 NSLayoutConstraint(
-                    item: self.alertFieldView!, attribute: .Height,
-                        relatedBy: .Equal,
-                    toItem: nil, attribute: .NotAnAttribute,
+                    item: self.alertFieldView!, attribute: .height,
+                        relatedBy: .equal,
+                    toItem: nil, attribute: .notAnAttribute,
                         multiplier: 1.0, constant: self.alertFieldViewHeight()
                 )
             ])
@@ -248,27 +248,27 @@ extension AlertController {
         
         self.alertContainerView?.addConstraints([
             NSLayoutConstraint(
-                item: self.alertDivider!, attribute: .Top,
-                    relatedBy: .Equal,
-                toItem: alignTo, attribute: .Bottom,
+                item: self.alertDivider!, attribute: .top,
+                    relatedBy: .equal,
+                toItem: alignTo, attribute: .bottom,
                     multiplier: 1.0, constant: self.alertPadding
             ),
             NSLayoutConstraint(
-                item: self.alertDivider!, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Leading,
+                item: self.alertDivider!, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: self.alertContainerView!, attribute: .leading,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertDivider!, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Trailing,
+                item: self.alertDivider!, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: self.alertContainerView!, attribute: .trailing,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertDivider!, attribute: .Height,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: self.alertDivider!, attribute: .height,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: self.dividerSize
             )
         ])
@@ -313,27 +313,27 @@ extension AlertController {
         
         self.alertContainerView?.addConstraints([
             NSLayoutConstraint(
-                item: self.alertActionsContainerView!, attribute: .Top,
-                    relatedBy: .Equal,
-                toItem: self.alertDivider!, attribute: .Bottom,
+                item: self.alertActionsContainerView!, attribute: .top,
+                    relatedBy: .equal,
+                toItem: self.alertDivider!, attribute: .bottom,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertActionsContainerView!, attribute: .Leading,
-                    relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Leading,
+                item: self.alertActionsContainerView!, attribute: .leading,
+                    relatedBy: .equal,
+                toItem: self.alertContainerView!, attribute: .leading,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertActionsContainerView!, attribute: .Trailing,
-                    relatedBy: .Equal,
-                toItem: self.alertContainerView!, attribute: .Trailing,
+                item: self.alertActionsContainerView!, attribute: .trailing,
+                    relatedBy: .equal,
+                toItem: self.alertContainerView!, attribute: .trailing,
                     multiplier: 1.0, constant: 0.0
             ),
             NSLayoutConstraint(
-                item: self.alertActionsContainerView!, attribute: .Height,
-                    relatedBy: .Equal,
-                toItem: nil, attribute: .NotAnAttribute,
+                item: self.alertActionsContainerView!, attribute: .height,
+                    relatedBy: .equal,
+                toItem: nil, attribute: .notAnAttribute,
                     multiplier: 1.0, constant: self.heightForButtons()
             )
         ])

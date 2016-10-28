@@ -13,7 +13,7 @@ class AlertSimpleStackView: UIView {
     var stackViews    = [UIView]()
     var viewHeight    = CGFloat(44.0)
     var viewHeights   = [CGFloat]()
-    var dividerColor  = UIColor.grayColor()
+    var dividerColor  = UIColor.gray
     var dividerHeight = CGFloat(0.5)
     
     // MARK: - Constructors
@@ -37,7 +37,7 @@ class AlertSimpleStackView: UIView {
     
     override func layoutSubviews() {
         var alignToView: UIView = self
-        var alignToAttribute: NSLayoutAttribute = .Top
+        var alignToAttribute: NSLayoutAttribute = .top
         
         for i in 0..<self.stackViews.count {
             let view = self.stackViews[i]
@@ -50,27 +50,27 @@ class AlertSimpleStackView: UIView {
             
             self.addConstraints([
                 NSLayoutConstraint(
-                    item: view, attribute: .Top,
-                        relatedBy: .Equal,
+                    item: view, attribute: .top,
+                        relatedBy: .equal,
                     toItem: alignToView, attribute: alignToAttribute,
                         multiplier: 1.0, constant: 0.0
                 ),
                 NSLayoutConstraint(
-                    item: view, attribute: .Leading,
-                        relatedBy: .Equal,
-                    toItem: self, attribute: .Leading,
+                    item: view, attribute: .leading,
+                        relatedBy: .equal,
+                    toItem: self, attribute: .leading,
                         multiplier: 1.0, constant: 0.0
                 ),
                 NSLayoutConstraint(
-                    item: view, attribute: .Trailing,
-                        relatedBy: .Equal,
-                    toItem: self, attribute: .Trailing,
+                    item: view, attribute: .trailing,
+                        relatedBy: .equal,
+                    toItem: self, attribute: .trailing,
                         multiplier: 1.0, constant: 0.0
                 ),
                 NSLayoutConstraint(
-                    item: view, attribute: .Height,
-                        relatedBy: .Equal,
-                    toItem: nil, attribute: .NotAnAttribute,
+                    item: view, attribute: .height,
+                        relatedBy: .equal,
+                    toItem: nil, attribute: .notAnAttribute,
                         multiplier: 1.0, constant: viewHeight
                 )
             ])
@@ -83,37 +83,37 @@ class AlertSimpleStackView: UIView {
                 
                 self.addConstraints([
                     NSLayoutConstraint(
-                        item: divider, attribute: .Top,
-                            relatedBy: .Equal,
-                        toItem: view, attribute: .Bottom,
+                        item: divider, attribute: .top,
+                            relatedBy: .equal,
+                        toItem: view, attribute: .bottom,
                             multiplier: 1.0, constant: 0.0
                     ),
                     NSLayoutConstraint(
-                        item: divider, attribute: .Leading,
-                            relatedBy: .Equal,
-                        toItem: self, attribute: .Leading,
+                        item: divider, attribute: .leading,
+                            relatedBy: .equal,
+                        toItem: self, attribute: .leading,
                             multiplier: 1.0, constant: 0.0
                     ),
                     NSLayoutConstraint(
-                        item: divider, attribute: .Trailing,
-                            relatedBy: .Equal,
-                        toItem: self, attribute: .Trailing,
+                        item: divider, attribute: .trailing,
+                            relatedBy: .equal,
+                        toItem: self, attribute: .trailing,
                             multiplier: 1.0, constant: 0.0
                     ),
                     NSLayoutConstraint(
-                        item: divider, attribute: .Height,
-                            relatedBy: .Equal,
-                        toItem: nil, attribute: .NotAnAttribute,
+                        item: divider, attribute: .height,
+                            relatedBy: .equal,
+                        toItem: nil, attribute: .notAnAttribute,
                             multiplier: 1.0, constant: self.dividerHeight
                     )
                 ])
                 
                 alignToView = divider
-                alignToAttribute = .Bottom
+                alignToAttribute = .bottom
             }
             else {
                 alignToView = view
-                alignToAttribute = .Bottom
+                alignToAttribute = .bottom
             }
         }
 
